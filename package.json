@@ -1,0 +1,48 @@
+{
+  "name": "ui-tests",
+  "description": "Enyo UI tests",
+  "version": "0.1.0",
+  "homepage": "http://enyojs.com",
+  "author": {
+    "name": "Roy Sutton",
+    "email": "roy.sutton@lge.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/enyojs/ui-tests.git"
+  },
+  "bugs": {
+    "url": "https://enyojs.atlassian.net/"
+  },
+  "licenses": [
+    {
+      "type": "Apache",
+      "url": "http://enyojs.com/blob/master/LICENSE-Apache"
+    },
+    {
+      "type": "2.0",
+      "url": "http://enyojs.com/blob/master/LICENSE-2.0"
+    }
+  ],
+  "main": "lib/ui-tests",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "devDependencies": {
+    "grunt-env": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-simple-mocha": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-watch": "latest",
+    "wd": "latest",
+    "chai": "latest",
+    "chai-as-promised": "latest",
+    "lodash": "latest",
+    "colors": "latest",
+    "grunt": "~0.4.5"
+  },
+  "keywords": []
+}
