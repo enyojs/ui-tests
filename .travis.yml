@@ -18,8 +18,8 @@ install:
     git clone --depth 1 https://github.com/enyojs/layout.git lib/layout &&
     echo -e "\x1b\x5b35;1m*** Checking out iLib\x1b\x5b0m" &&
     git clone --depth 1 https://github.com/enyojs/enyo-ilib.git lib/enyo-ilib &&
-    echo -e "\x1b\x5b35;1m*** Checking out layout\x1b\x5b0m" &&
-    git clone --depth 1 https://github.com/enyojs/layout.git lib/layout &&
+    echo -e "\x1b\x5b35;1m*** Checking out Spotlight\x1b\x5b0m" &&
+    git clone --depth 1 https://github.com/enyojs/spotlight.git lib/spotlight &&
     echo -e "\x1b\x5b35;1m*** Installing npm modules\x1b\x5b0m" &&
     npm install
 before_script:
