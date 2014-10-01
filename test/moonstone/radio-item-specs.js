@@ -20,7 +20,7 @@ if(!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY){
 
 // http configuration, not needed for simple runs
 wd.configureHttp( {
-	timeout: 60000,
+	timeout: 90000,
 	retryDelay: 15000,
 	retries: 5
 });
@@ -28,6 +28,7 @@ wd.configureHttp( {
 var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
 desired.name = 'example with ' + desired.browserName;
 desired.tags = ['tutorial'];
+desired['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
 
 wd.addElementPromiseChainMethod('getClasses', function() {
 	return this
