@@ -11,7 +11,7 @@ var gruntConfig = {
         simplemocha: {
             sauce: {
                 options: {
-                    timeout: 60000,
+                    timeout: 120000,
                     reporter: 'spec'
                 },
                 src: ['test/**/*-specs.js']
