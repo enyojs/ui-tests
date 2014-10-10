@@ -100,6 +100,7 @@ function test() {
 	return result;
 }
 
+// TODO: Fix for IE8 compatibility.
 function compareBounds(en, nat) {
 	var bodyBounds = document.body.getBoundingClientRect(),
 		a = en.getAbsoluteBounds(),
