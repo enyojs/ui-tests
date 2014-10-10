@@ -1,0 +1,132 @@
+.normal-wrapper {
+	position: relative;
+	height: 60px;
+	width: 60px;
+}
+
+.translate-x-wrapper {
+	background-color: green;
+	position: absolute;
+	-webkit-transform: translateX(-15%);
+	transform: translateX(-15%);
+	height: 60px;
+	width: 60px;
+}
+
+.translate-y-wrapper {
+	background-color: pink;
+	position: absolute;
+	-webkit-transform: translateY(-15%);
+	transform: translateY(-15%);
+	height: 60px;
+	width: 60px;
+}
+
+.matrix-x-wrapper {
+	background-color: blue;
+	position: absolute;
+	-moz-transform:    matrix(1.000, -0.000, 0.000, 1.000, 15.000px, 0.000px);
+	-webkit-transform: matrix(1.000, -0.000, 0.000, 1.000, 15.000, 0.000);
+	transform:         matrix(1.000, -0.000, 0.000, 1.000, 15.000, 0.000);
+	height: 60px;
+	width: 60px;
+}
+
+.matrix-y-wrapper {
+	background-color: black;
+	position: absolute;
+	-moz-transform:    matrix(1.000, -0.000, 0.000, 1.000, 0.000px, 15.000px);
+	-webkit-transform: matrix(1.000, -0.000, 0.000, 1.000, 0.000, 15.000);
+	transform:         matrix(1.000, -0.000, 0.000, 1.000, 0.000, 15.000);
+	height: 60px;
+	width: 60px;
+}
+
+.matrix3d-x-wrapper {
+	background-color: orange;
+	position: absolute;
+	-moz-transform:    matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 15.000px, 0.000px, 0.000, 1.000);
+	-webkit-transform: matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 15.000, 0.000, 0.000, 1.0000);
+	transform:         matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 15.000, 0.000, 0.000, 1.000);
+	height: 60px;
+	width: 60px;
+}
+
+.matrix3d-y-wrapper {
+	background-color: red;
+	position: absolute;
+	-moz-transform:    matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 15.000px, 0.000, 1.000);
+	-webkit-transform: matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 15.000, 0.000, 1.0000);
+	transform:         matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 15.000, 0.000, 1.000);
+	height: 60px;
+	width: 60px;
+}
+
+.relative {
+	position: relative;
+}
+
+.normal-element {
+	background-color: lightblue;
+	height: 10px;
+	width: 10px;
+}
+
+.translate-x-element {
+	background-color: yellow;
+	height: 10px;
+	position: absolute;
+	width: 10px;
+	-webkit-transform: translateX(10px);
+	transform: translateX(10px);
+}
+
+.translate-y-element {
+	background-color: magenta;
+	height: 10px;
+	position: absolute;
+	width: 10px;
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+.matrix-x-element {
+	background-color: lightgray;
+	position: absolute;
+	-moz-transform:    matrix(1.000, -0.000, 0.000, 1.000, -10.000px, 0.000px);
+	-webkit-transform: matrix(1.000, -0.000, 0.000, 1.000, -10.000, 0.000);
+	transform:         matrix(1.000, -0.000, 0.000, 1.000, -10.000, 0.000);
+	height: 10px;
+	width: 10px;
+}
+
+.matrix-y-element {
+	background-color: darkgray;
+	position: absolute;
+	-moz-transform:    matrix(1.000, -0.000, 0.000, 1.000, 0.000px, 5.000px);
+	-webkit-transform: matrix(1.000, -0.000, 0.000, 1.000, 0.000, 5.000);
+	transform:         matrix(1.000, -0.000, 0.000, 1.000, 0.000, 5.000);
+	height: 10px;
+	width: 10px;
+}
+
+.matrix3d-x-element {
+	background-color: chocolate;
+	position: absolute;
+	-moz-transform:    matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 10.000px, 0.000px, 0.000, 1.000);
+	-webkit-transform: matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 10.000, 0.000, 0.000, 1.0000);
+	transform:         matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 10.000, 0.000, 0.000, 1.000);
+	height: 10px;
+	width: 10px;
+}
+
+.matrix3d-y-element {
+	background-color: tan;
+	position: absolute;
+	-moz-transform:    matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, -10.000px, 0.000, 1.000);
+	-webkit-transform: matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, -10.000, 0.000, 1.0000);
+	transform:         matrix3d(1.000, -0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, -10.000, 0.000, 1.000);
+	height: 10px;
+	width: 10px;
+}
+
