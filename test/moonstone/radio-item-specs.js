@@ -2,7 +2,8 @@ var wd = require('wd');
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised"),
 	url = 'http://localhost:3000/lib/moonstone/samples/RadioItemSample.html',
-	title = 'Moonstone Radio Item Sample';
+	title = 'Moonstone Radio Item Sample',
+	tags = ['moonstone', 'RadioItem'];
 
 chai.use(chaiAsPromised);
 chai.should();
@@ -26,8 +27,8 @@ wd.configureHttp( {
 });
 
 var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
-desired.name = 'example with ' + desired.browserName;
-desired.tags = ['tutorial'];
+desired.name = title + ' with ' + desired.browserName;
+desired.tags = tags;
 desired['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
 
 wd.addElementPromiseChainMethod('getClasses', function() {
