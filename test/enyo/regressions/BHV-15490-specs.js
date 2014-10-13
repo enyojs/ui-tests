@@ -62,8 +62,6 @@ describe('BHV-15490', function() {
 		}
 		browser
 			.init(desired)
-			.waitFor(wd.asserters.jsCondition('window.enyo !== undefined'), 90000)
-			.should.eventually.be.ok
 			.nodeify(done);
 	});
 
@@ -81,6 +79,8 @@ describe('BHV-15490', function() {
 	it("Should execute correct test", function(done) {
 		browser
 			.get(url)
+			.waitFor(wd.asserters.jsCondition('window.enyo !== undefined'), 90000)
+			.should.eventually.be.ok
 			.title()
 			.should.become(title)
 			.nodeify(done);
