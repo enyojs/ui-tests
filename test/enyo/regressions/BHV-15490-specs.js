@@ -2,7 +2,8 @@ var wd = require('wd');
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised"),
 	url = 'http://localhost:3000/ui-tests/test/enyo/regressions/BHV-15490.html',
-	title = 'BHV-15490';
+	title = 'BHV-15490',
+	tags = ['core', 'regression'];
 
 chai.use(chaiAsPromised);
 chai.should();
@@ -26,8 +27,8 @@ wd.configureHttp( {
 });
 
 var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
-desired.name = 'example with ' + desired.browserName;
-desired.tags = ['tutorial'];
+desired.name = title + ' with ' + desired.browserName;
+desired.tags = tags;
 desired['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
 
 wd.addElementPromiseChainMethod('getClasses', function() {
