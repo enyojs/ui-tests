@@ -62,7 +62,7 @@ describe('BHV-15490', function() {
 		}
 		browser
 			.init(desired)
-			.waitFor(asserters.jsCondition('enyo !== undefined;'), 90000)
+			.waitFor(wd.asserters.jsCondition('enyo !== undefined;'), 90000)
 			.should.eventually.be.ok
 			.nodeify(done);
 	});
