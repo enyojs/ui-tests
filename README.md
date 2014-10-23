@@ -4,7 +4,7 @@ Enyo UI tests
 
 ## Getting Started
 
-### Run Tests on one browser
+### Run tests on one browser via SauceLabs
 
 ```
 grunt test:sauce:chrome
@@ -12,14 +12,28 @@ grunt test:sauce:firefox
 grunt test:sauce:explorer
 ```
 
-### Run Parallel Tests
+### Run parallel Tests on SauceLabs
 
 ```
 grunt test:sauce:parallel
 ```
 
+### Run local tests via Selenium
+
+```
+grunt test:local:phantomjs
+grunt test:local:chrome
+grunt test:local:firefox
+```
+
 ## Documentation
-If you want to run tests locally then you will need to set up a server to serve the source files and you will need to set up [Sauce Connect](https://docs.saucelabs.com/reference/sauce-connect/).
+If you want to run sauce tests locally then you will need to set up a server to serve the source files and you will need to set up [Sauce Connect](https://docs.saucelabs.com/reference/sauce-connect/).
+
+If you want to run the local tests through selenium then you'll need to be sure to have selenium running.  e.g.:
+
+```
+java -jar selenium-server-standalone-2.42.2.jar -Dwebdriver.chromeriver=chromedriver
+```
 
 These tests are intended to be run as a Travis CI task.
 

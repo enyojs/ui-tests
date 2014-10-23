@@ -1,7 +1,9 @@
 var wd = require('wd');
 var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised"),
-	url = 'http://localhost:3000/lib/moonstone/samples/RadioItemSample.html',
+var chaiAsPromised = require("chai-as-promised");
+var helpers = rootRequire("./helpers");
+
+var url = 'http://localhost:3000/lib/moonstone/samples/RadioItemSample.html',
 	title = 'Moonstone Radio Item Sample',
 	tags = ['moonstone', 'RadioItem'];
 
@@ -9,59 +11,14 @@ chai.use(chaiAsPromised);
 chai.should();
 chaiAsPromised.transferPromiseness = wd.transferPromiseness;
 
-// checking sauce credential
-if(!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY){
-	console.warn(
-		'\nPlease configure your sauce credential:\n\n' +
-		'export SAUCE_USERNAME=<SAUCE_USERNAME>\n' +
-		'export SAUCE_ACCESS_KEY=<SAUCE_ACCESS_KEY>\n\n'
-	);
-	throw new Error("Missing sauce credentials");
-}
-
-// http configuration, not needed for simple runs
-wd.configureHttp( {
-	timeout: 90000,
-	retryDelay: 15000,
-	retries: 5
-});
-
-var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
-desired.name = title + ' with ' + desired.browserName;
-desired.tags = tags;
-desired['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
-
-wd.addElementPromiseChainMethod('getClasses', function() {
-	return this
-		.getAttribute('class').then(function(res) {
-			return res.split(' ');
-		});
-});
-
-wd.addPromiseChainMethod('enyoProperty', function(id, prop) {
-	return this.execute("return enyo.$['" + id + "'].get('" + prop + "');");
-});
+var desired = helpers.initEnvironment(wd, title, tags);
 
 describe('Radio Item Sample Test', function() {
 	var browser;
 	var allPassed = true;
 
 	before(function(done) {
-		var username = process.env.SAUCE_USERNAME;
-		var accessKey = process.env.SAUCE_ACCESS_KEY;
-		browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
-		if(process.env.VERBOSE){
-			/* optional logging	 
-			browser.on('status', function(info) {
-				console.log(info.cyan);
-			});
-			browser.on('command', function(meth, path, data) {
-				console.log(' > ' + meth.yellow, path.grey, data || '');
-			});*/
-		}
-		browser
-			.init(desired)
-			.nodeify(done);
+		browser = helpers.initBrowser(wd, desired, done);
 	});
 
 	afterEach(function(done) {
