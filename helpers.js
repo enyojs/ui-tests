@@ -39,17 +39,21 @@ module.exports = {
 			return this.execute("return enyo.$['" + id + "'].get('" + prop + "');");
 		});
 
+		// This isn't used but may be useful later
+		wd.addPromiseChainMethod('enyoExecute', function(id, method) {
+			var args = Array.prototype.slice.call(arguments, 2);
+			return this.execute("var obj = enyo.$['" + id + "'], fn = obj['" + method + "']; return fn.apply(obj, arguments);", args);
+		});
+
 		return desired;
 	},
 	initBrowser: function (wd, desired, done) {
 		var browser;
 		if(process.env.SAUCE === 'true') {
-			console.log("Saucy");
 			var username = process.env.SAUCE_USERNAME;
 			var accessKey = process.env.SAUCE_ACCESS_KEY;
 			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
 		} else {
-			console.log("Sauceless");
 			browser = wd.promiseChainRemote();
 		}
 		browser.init(desired).nodeify(done);
