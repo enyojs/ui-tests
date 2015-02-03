@@ -1,6 +1,48 @@
+// This module provides a common starting point for all the tests and makes sure to include
+//  all the pieces necessary while reducing the boilerplate required in each individual test.
+//  The return includes a reference to the wd object in case additional settings are needed.
+//  The main entry point is the `initBrowser` method, which will set up the correct settings
+//  for the environment (local, SauceLabs, TV).
+//
+//  Additional methods can be added to wd by modifying the `initCustomMethods` method.
 'use strict';
+
+var wd = require('wd');
+var chai = require("chai");
+var chaiAsPromised = require("chai-as-promised");
+
 module.exports = {
-	initEnvironment: function(wd, title, tags) {
+	wd: wd,
+	// initBrowser sets up the browser object that forms the base of the test integration
+	// arguments: title - A string representing the title of the test
+	//            tags - an array of strings for SauceLabs
+	//            done - a callback to be handled when initialization complete
+	// returns:   browser - a reference to the browser object
+	initBrowser: function (title, tags, done) {
+		var browser, desired;
+
+		chai.use(chaiAsPromised);
+		chai.should();
+		chaiAsPromised.transferPromiseness = wd.transferPromiseness;
+
+		desired = this.initEnvironment(title, tags);
+		this.initCustomMethods();
+		if(process.env.SAUCE === 'true') {
+			var username = process.env.SAUCE_USERNAME;
+			var accessKey = process.env.SAUCE_ACCESS_KEY;
+			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
+		} else {
+			browser = wd.promiseChainRemote();
+		}
+		browser.init(desired).nodeify(done);
+		return browser;
+	},
+	// An internal method used by initBrowser but left in place in case it is needed separately.
+	// Initializes the requested environment
+	// arguments: title - Title of the app, passed to SauceLabs
+	//            tags - array of strings describing the test, passed to SauceLabs
+	// returns:   An object that represents the desired browser settings
+	initEnvironment: function(title, tags) {
 		var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
 
 		if(process.env.SAUCE === 'true') {
@@ -28,6 +70,12 @@ module.exports = {
 		desired.name = title + ' with ' + desired.browserName;
 		desired.tags = tags;
 
+		return desired;
+	},
+	// Add custom methods to the wd object
+	// arguments: none
+	// returns: none
+	initCustomMethods: function() {
 		wd.addElementPromiseChainMethod('getClasses', function() {
 			return this
 				.getAttribute('class').then(function(res) {
@@ -38,22 +86,6 @@ module.exports = {
 		wd.addPromiseChainMethod('enyoProperty', function(id, prop) {
 			return this.execute("return enyo.$['" + id + "'].get('" + prop + "');");
 		});
-
-		return desired;
-	},
-	initBrowser: function (wd, desired, done) {
-		var browser;
-		if(process.env.SAUCE === 'true') {
-			console.log("Saucy");
-			var username = process.env.SAUCE_USERNAME;
-			var accessKey = process.env.SAUCE_ACCESS_KEY;
-			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
-		} else {
-			console.log("Sauceless");
-			browser = wd.promiseChainRemote();
-		}
-		browser.init(desired).nodeify(done);
-		return browser;
 	}
 };
 

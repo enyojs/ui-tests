@@ -1,29 +1,14 @@
-var wd = require('wd');
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
 var helpers = rootRequire("./helpers");
 
 var url = 'http://localhost:3000/lib/moonstone/samples/RadioItemSample.html',
 	title = 'Moonstone Radio Item Sample',
 	tags = ['moonstone', 'RadioItem'];
 
-chai.use(chaiAsPromised);
-chai.should();
-chaiAsPromised.transferPromiseness = wd.transferPromiseness;
-
-var desired = helpers.initEnvironment(wd, title, tags);
-
 describe('Radio Item Sample Test', function() {
 	var browser;
-	var allPassed = true;
 
 	before(function(done) {
-		browser = helpers.initBrowser(wd, desired, done);
-	});
-
-	afterEach(function(done) {
-		allPassed = allPassed && (this.currentTest.state === 'passed');
-		done();
+		browser = helpers.initBrowser(title, tags, done);
 	});
 
 	after(function(done) {
