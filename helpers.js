@@ -11,7 +11,7 @@ var wd = require('wd');
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
 
-module.exports = {
+var helpers = module.exports = {
 	wd: wd,
 	// initBrowser sets up the browser object that forms the base of the test integration
 	// arguments: title - A string representing the title of the test
@@ -86,6 +86,15 @@ module.exports = {
 		wd.addPromiseChainMethod('enyoProperty', function(id, prop) {
 			return this.execute("return enyo.$['" + id + "'].get('" + prop + "');");
 		});
-	}
+	},
+	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
+	keys: wd.SPECIAL_KEYS
 };
+
+// Add some aliases for Spotlight controls
+helpers.keys.SpotlightDown = wd.SPECIAL_KEYS['Down arrow'];
+helpers.keys.SpotlightUp = wd.SPECIAL_KEYS['Up arrow'];
+helpers.keys.SpotlightRight = wd.SPECIAL_KEYS['Right arrow'];
+helpers.keys.SpotlightLeft = wd.SPECIAL_KEYS['Left arrow'];
+helpers.keys.SpotlightSelect = wd.SPECIAL_KEYS['Enter'];
 

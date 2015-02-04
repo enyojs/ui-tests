@@ -22,12 +22,16 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
+			// Wait for the app to load and render our element
 			.waitForElementById(app.BasicPopupButtonId)
-			.keys(helpers.wd.SPECIAL_KEYS['Up arrow'])
-			.keys(helpers.wd.SPECIAL_KEYS['Enter'])
+			// Select the first popup option using spotlight controls
+			.keys(helpers.keys.SpotlightUp)
+			.keys(helpers.keys.SpotlightSelect)
+			// Verify the Popup is showing
 			.elementById(app.PopupId)
 				.getClasses().should.eventually.contain('showing', 'popup showing')
-			.keys(helpers.wd.SPECIAL_KEYS['Enter'])
+			// Send a select and verify that it does not cause the popup to close
+			.keys(helpers.keys.SpotlightSelect)
 			.elementById(app.PopupId)
 				.getClasses().should.eventually.contain('showing', 'popup still showing')
 			.nodeify(done);
