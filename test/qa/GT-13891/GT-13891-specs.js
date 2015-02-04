@@ -1,8 +1,8 @@
 var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
-var url = 'http://localhost:3000/lib/moonstone/samples/PopupSample.html',
-	title = 'GT-13891 5-way Select Unspottable Popup',
+var url = 'http://localhost:3000/lib/moonstone/samples/Sample.html?PopupSample',
+	title = 'GT-13891 5-way Select Unspottable Popup',	// Title shows up in test output
 	tags = ['moonstone', 'spotlight','QA'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
@@ -18,7 +18,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it("Should enable paging controls when available to scroll", function (done) {
+	it("Should not dismiss Popup on Spotlight select", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
@@ -40,6 +40,6 @@ describe(title, function() {
 });
 
 app = {
-	BasicPopupButtonId: 'popupSample_button',
-	PopupId: 'popupSample_basicPopup'
+	BasicPopupButtonId: 'app_button',
+	PopupId: 'app_basicPopup'
 };

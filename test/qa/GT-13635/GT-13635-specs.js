@@ -1,7 +1,7 @@
 var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
-var url = 'http://localhost:3000/lib/moonstone/samples/DataGridListSample.html',
+var url = 'http://localhost:3000/lib/moonstone/samples/Sample.html?DataGridListSample',
 	title = 'GT-13635 DataGridList Paging Controls',
 	tags = ['moonstone', 'DataGridList','QA'];	// Tags show up in SauceLabs test output
 
@@ -42,6 +42,6 @@ describe(title, function() {
 });
 
 app = {
-	PageUpControlId: "dataGridListSample_gridList_scroller_strategy_pageUpControl",
-	FirstGridListItemId: 'dataGridListSample_gridSampleItem'
+	PageUpControlId: "app_gridList_scroller_strategy_pageUpControl",
+	FirstGridListItemId: 'app_gridSampleItem'
 };
