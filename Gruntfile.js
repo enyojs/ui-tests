@@ -14,14 +14,7 @@ var gruntConfig = {
 			// dynamically filled
 		},
 		simplemocha: {
-			sauce: {
-				options: {
-					timeout: 120000,
-					reporter: 'spec'
-				},
-				src: ['test/**/*-specs.js']
-			},
-			local: {
+			all: {
 				options: {
 					timeout: 120000,
 					reporter: 'spec'
@@ -89,12 +82,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['test:sauce:' + _(desireds).keys().first()]);
 
 	_(desireds).each(function(desired, key) {
-		grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:sauce']);
+		grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:all']);
 	});
 
 	grunt.registerTask('test:sauce:parallel', ['concurrent:test-sauce']);
 
 	_(local_desireds).each(function(desired, key) {
-		grunt.registerTask('test:local:' + key, ['env:local_' + key, 'simplemocha:local']);
+		grunt.registerTask('test:local:' + key, ['env:local_' + key, 'simplemocha:all']);
 	});
 };
