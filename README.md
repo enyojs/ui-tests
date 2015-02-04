@@ -26,6 +26,13 @@ grunt test:local:chrome
 grunt test:local:firefox
 ```
 
+### Run an individual test
+
+```
+grunt spec:local:chrome:GT-13944
+grunt spec:sauce:firefox:radio-item
+```
+
 ## Documentation
 If you want to run sauce tests locally then you will need to set up a server to serve the source files and you will need to set up [Sauce Connect](https://docs.saucelabs.com/reference/sauce-connect/).
 
@@ -46,5 +53,5 @@ Please see the [style guide](http://enyojs.com/docs/latest/best-practices/style-
 _Also, please don't edit files in the "dist" subdirectory as they are generated via Grunt. You'll find source code in the "lib" subdirectory!_
 
 ## License
-Copyright (c) 2014 Roy Sutton  
+Copyright (c) 2014-2015 LG Electronics
 Licensed under the Apache 2.0 license.

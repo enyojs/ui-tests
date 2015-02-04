@@ -8,8 +8,10 @@ var _ = require('lodash');
 
 var desireds = rootRequire('desireds');
 var local_desireds = rootRequire('local_desireds');
+var globalConfig = {};
 
 var gruntConfig = {
+		globalConfig: globalConfig,
 		env: {
 			// dynamically filled
 		},
@@ -20,6 +22,13 @@ var gruntConfig = {
 					reporter: 'spec'
 				},
 				src: ['test/**/*-specs.js']
+			},
+			spec: {
+				options: {
+					timeout: 120000,
+					reporter: 'spec'
+				},
+				src: ['test/**/<%= globalConfig.file %>-specs.js']
 			}
 		},
 		jshint: {
@@ -83,11 +92,21 @@ module.exports = function(grunt) {
 
 	_(desireds).each(function(desired, key) {
 		grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:all']);
+		grunt.registerTask('spec:sauce:' + key, function(filename) {
+			grunt.task.run('env:' + key);
+			globalConfig.file = filename;
+			grunt.task.run('simplemocha:spec');
+		});
 	});
 
 	grunt.registerTask('test:sauce:parallel', ['concurrent:test-sauce']);
 
 	_(local_desireds).each(function(desired, key) {
 		grunt.registerTask('test:local:' + key, ['env:local_' + key, 'simplemocha:all']);
+		grunt.registerTask('spec:local:' + key, function(filename) {
+			grunt.task.run('env:local_' + key);
+			globalConfig.file = filename;
+			grunt.task.run('simplemocha:spec');
+		});
 	});
 };
