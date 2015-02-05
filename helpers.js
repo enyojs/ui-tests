@@ -76,6 +76,7 @@ var helpers = module.exports = {
 	// arguments: none
 	// returns: none
 	initCustomMethods: function() {
+		// Returns the classes on an element as an array
 		wd.addElementPromiseChainMethod('getClasses', function() {
 			return this
 				.getAttribute('class').then(function(res) {
@@ -83,6 +84,8 @@ var helpers = module.exports = {
 				});
 		});
 
+		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
+		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoProperty', function(id, prop) {
 			return this.execute("return enyo.$['" + id + "'].get('" + prop + "');");
 		});
