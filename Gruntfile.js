@@ -60,16 +60,16 @@ var gruntConfig = {
 		}
 	};
 
-_(desireds).each(function(desired, key) {
-	gruntConfig.env[key] = { 
+_.each(desireds, function(desired, key) {
+	gruntConfig.env[key] = {
 		DESIRED: JSON.stringify(desired),
 		SAUCE: 'true'
 	};
 	gruntConfig.concurrent['test-sauce'].push('test:sauce:' + key);
 });
 
-_(local_desireds).each(function(desired, key) {
-	gruntConfig.env['local_'+key] = { 
+_.each(local_desireds, function(desired, key) {
+	gruntConfig.env['local_'+key] = {
 		DESIRED: JSON.stringify(desired),
 		SAUCE: 'false'
 	};
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
 	// Default task.
 	grunt.registerTask('default', ['test:sauce:' + _(desireds).keys().first()]);
 
-	_(desireds).each(function(desired, key) {
+	_.each(desireds, function(desired, key) {
 		grunt.registerTask('test:sauce:' + key, ['env:' + key, 'simplemocha:all']);
 		grunt.registerTask('spec:sauce:' + key, function(filename) {
 			grunt.task.run('env:' + key);
