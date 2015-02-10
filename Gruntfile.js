@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('test:sauce:parallel', ['concurrent:test-sauce']);
 
-	_(local_desireds).each(function(desired, key) {
+	_.each(local_desireds, function(desired, key) {
 		grunt.registerTask('test:local:' + key, ['env:local_' + key, 'simplemocha:all']);
 		grunt.registerTask('spec:local:' + key, function(filename) {
 			grunt.task.run('env:local_' + key);
