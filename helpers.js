@@ -7,7 +7,13 @@
 //  Additional methods can be added to wd by modifying the `initCustomMethods` method.
 'use strict';
 
-var wd = require('wd');
+var wd;
+try {
+	wd = require('wd-tv');
+} catch(err) {
+	wd = require('wd');
+}
+
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
 
@@ -31,6 +37,8 @@ var helpers = module.exports = {
 			var username = process.env.SAUCE_USERNAME;
 			var accessKey = process.env.SAUCE_ACCESS_KEY;
 			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
+		} else if(desired.tv) {
+			browser = wd.promiseChainTVRemote();
 		} else {
 			browser = wd.promiseChainRemote();
 		}

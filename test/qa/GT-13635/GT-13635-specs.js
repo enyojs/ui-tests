@@ -23,13 +23,12 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			// Wait for the app to load and render our element (returns the element)
-			.waitForElementById(app.PageUpControlId)
+			.waitForElementById(app.PageUpControlId, 6000)
 			// Verify that our PageUp Control is disabled when we're at the top of the scroller
 				.getClasses().should.eventually.contain('disabled', 'Starts disabled')
-			// Get spotlight into the gridlist by clicking an item in it
-			.elementById(app.FirstGridListItemId)
-				.click()
 			// Move down the page, causing scroll
+			.keys(helpers.keys.SpotlightDown)
+			.keys(helpers.keys.SpotlightRight)
 			.keys(helpers.keys.SpotlightDown)
 			.keys(helpers.keys.SpotlightDown)
 			.keys(helpers.keys.SpotlightDown)
