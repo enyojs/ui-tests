@@ -2,7 +2,8 @@ var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
 	// This URL allows us to specify the locale when loading a sample
-var url = 'http://localhost:3000/lib/moonstone/samples/Sample.html?All#HeaderSample/ur-PK',
+var base = 'http://localhost:3000/',
+	url = 'lib/moonstone/samples/Sample.html?All#HeaderSample/ur-PK',
 	title = 'GT-13913 Header RTL LTR String',	// Title shows up in test output
 	tags = ['moonstone', 'RTL','QA'];	// Tags show up in SauceLabs test output
 
@@ -10,7 +11,7 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, done);
+		browser = helpers.initBrowser(title, tags, base, done);
 	});
 
 	after(function(done) {
@@ -19,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it("Should enable paging controls when available to scroll", function (done) {
+	it("Should move sub header in RTL", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)

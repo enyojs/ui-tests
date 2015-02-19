@@ -22,16 +22,17 @@ var helpers = module.exports = {
 	// initBrowser sets up the browser object that forms the base of the test integration
 	// arguments: title - A string representing the title of the test
 	//            tags - an array of strings for SauceLabs
+	//            baseUrl - base URL for configuring HTTP
 	//            done - a callback to be handled when initialization complete
 	// returns:   browser - a reference to the browser object
-	initBrowser: function (title, tags, done) {
+	initBrowser: function (title, tags, baseUrl, done) {
 		var browser, desired;
 
 		chai.use(chaiAsPromised);
 		chai.should();
 		chaiAsPromised.transferPromiseness = wd.transferPromiseness;
 
-		desired = this.initEnvironment(title, tags);
+		desired = this.initEnvironment(title, tags, baseUrl);
 		this.initCustomMethods();
 		if(process.env.SAUCE === 'true') {
 			var username = process.env.SAUCE_USERNAME;
@@ -50,9 +51,12 @@ var helpers = module.exports = {
 	// arguments: title - Title of the app, passed to SauceLabs
 	//            tags - array of strings describing the test, passed to SauceLabs
 	// returns:   An object that represents the desired browser settings
-	initEnvironment: function(title, tags) {
+	initEnvironment: function(title, tags, baseUrl) {
 		var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
 
+		if(desired.remapLocalhost && baseUrl) {
+			baseUrl = baseUrl.replace('localhost:3000', 'localhost:3309');	// TODO: Move to environment variables
+		}
 		if(process.env.SAUCE === 'true') {
 			// checking sauce credential
 			if(!process.env.SAUCE_USERNAME || !process.env.SAUCE_ACCESS_KEY){
@@ -66,13 +70,18 @@ var helpers = module.exports = {
 
 			// http configuration, not needed for simple runs
 			wd.configureHttp( {
-				timeout: 90000,
+				timeout: 150000,
 				retryDelay: 15000,
 				retries: 5
 			});
 			if(process.env.TRAVIS_JOB_NUMBER) {	// Running on travis
 				desired['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
 			}
+		}
+		if(baseUrl) {
+			wd.configureHttp({
+				baseUrl: baseUrl
+			});
 		}
 
 		desired.name = title + ' with ' + desired.browserName;

@@ -1,7 +1,8 @@
 var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
-var url = 'http://localhost:3000/lib/moonstone/samples/Sample.html?DataGridListSample',
+var base = 'http://localhost:3000/',
+	url = 'lib/moonstone/samples/Sample.html?DataGridListSample',
 	title = 'GT-13635 DataGridList Paging Controls',
 	tags = ['moonstone', 'DataGridList','QA'];	// Tags show up in SauceLabs test output
 
@@ -9,7 +10,7 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, done);
+		browser = helpers.initBrowser(title, tags, base, done);
 	});
 
 	after(function(done) {
@@ -26,8 +27,9 @@ describe(title, function() {
 			.waitForElementById(app.PageUpControlId, 6000)
 			// Verify that our PageUp Control is disabled when we're at the top of the scroller
 				.getClasses().should.eventually.contain('disabled', 'Starts disabled')
+			.waitForElementById("app_gridSampleItem", 6000)
 			// Move down the page, causing scroll
-			.keys(helpers.keys.SpotlightDown)
+			.keys(helpers.keys.SpotlightRight)
 			.keys(helpers.keys.SpotlightRight)
 			.keys(helpers.keys.SpotlightDown)
 			.keys(helpers.keys.SpotlightDown)

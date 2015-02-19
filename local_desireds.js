@@ -7,10 +7,11 @@ module.exports = {
 	explorer: {browserName: 'internet explorer'},
 	tv: {
 		tv: true,
-		host: '10.0.1.18',
+		host: '10.195.248.57',	// TODO: Move to env
 		port: 22,
 		username: 'root',
 		password: '',
-		appId: 'com.palm.app.enyo2sampler'
+		appId: 'com.palm.app.enyo2sampler',
+		remapLocalhost: true
 	}
 };

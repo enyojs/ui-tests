@@ -1,7 +1,8 @@
 var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
-var url = 'http://localhost:3000/lib/moonstone/samples/Sample.html?PopupSample',
+var base = 'http://localhost:3000/',
+	url = 'lib/moonstone/samples/Sample.html?PopupSample',
 	title = 'GT-13891 5-way Select Unspottable Popup',	// Title shows up in test output
 	tags = ['moonstone', 'spotlight','QA'];	// Tags show up in SauceLabs test output
 
@@ -9,7 +10,7 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, done);
+		browser = helpers.initBrowser(title, tags, base, done);
 	});
 
 	after(function(done) {
