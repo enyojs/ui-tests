@@ -1,6 +1,7 @@
 var helpers = rootRequire("./helpers");
 
-var url = 'http://localhost:3000/lib/moonstone/samples/RadioItemSample.html',
+var base = 'http://localhost:3000/',
+	url = 'lib/moonstone/samples/RadioItemSample.html',
 	title = 'Moonstone Radio Item Sample',
 	tags = ['moonstone', 'RadioItem'];
 
@@ -8,7 +9,7 @@ describe('Radio Item Sample Test', function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, done);
+		browser = helpers.initBrowser(title, tags, base, done);
 	});
 
 	after(function(done) {

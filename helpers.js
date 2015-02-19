@@ -101,6 +101,11 @@ var helpers = module.exports = {
 				});
 		});
 
+		wd.addElementPromiseChainMethod('scrollIntoView', function() {
+			var _this = this;
+			return this.browser.execute('arguments[0].scrollIntoView(true);', [{ELEMENT: this.value}]).then(function() { return _this; });
+		});
+
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoProperty', function(id, prop) {
