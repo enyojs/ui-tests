@@ -45,7 +45,7 @@
     "grunt": "~0.4.5"
   },
   "optionalDependencies": {
-    "wd-webos": "git@github.com:enyojs/wd-webos.git"
+    "wd-webos": "git+ssh://git@github.com:enyojs/wd-webos.git"
   },
   "keywords": []
 }
