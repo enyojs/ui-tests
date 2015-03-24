@@ -20,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it("Should move sub header in RTL", function (done) {
+	it("Should move sub header in Right-to-Left mode", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)

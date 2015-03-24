@@ -31,7 +31,7 @@
   "scripts": {
     "test": "grunt nodeunit"
   },
-  "devDependencies": {
+  "dependencies": {
     "grunt-env": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-simple-mocha": "latest",
@@ -43,6 +43,9 @@
     "lodash": "latest",
     "colors": "latest",
     "grunt": "~0.4.5"
+  },
+  "optionalDependencies": {
+    "wd-webos": "git@github.com:enyojs/wd-webos.git"
   },
   "keywords": []
 }

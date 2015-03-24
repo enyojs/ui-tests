@@ -2,14 +2,14 @@
 //  all the pieces necessary while reducing the boilerplate required in each individual test.
 //  The return includes a reference to the wd object in case additional settings are needed.
 //  The main entry point is the `initBrowser` method, which will set up the correct settings
-//  for the environment (local, SauceLabs, TV).
+//  for the environment (local, SauceLabs, webOS).
 //
 //  Additional methods can be added to wd by modifying the `initCustomMethods` method.
 'use strict';
 
 var wd;
 try {
-	wd = require('wd-tv');
+	wd = require('wd-webos');
 } catch(err) {
 	wd = require('wd');
 }
@@ -38,8 +38,10 @@ var helpers = module.exports = {
 			var username = process.env.SAUCE_USERNAME;
 			var accessKey = process.env.SAUCE_ACCESS_KEY;
 			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
-		} else if(desired.tv) {
-			browser = wd.promiseChainTVRemote();
+		} else if(desired.webOS) {
+			var ip = process.env.WEBOS_IP;
+			var port = process.env.WEBOS_PORT || 22;
+			browser = wd.promiseChainTVRemote(ip, port);
 		} else {
 			browser = wd.promiseChainRemote();
 		}
@@ -53,9 +55,10 @@ var helpers = module.exports = {
 	// returns:   An object that represents the desired browser settings
 	initEnvironment: function(title, tags, baseUrl) {
 		var desired = JSON.parse(process.env.DESIRED || '{browserName: "chrome"}');
+		var remapLocalhost = process.env.REMAP_LOCALHOST;
 
-		if(desired.remapLocalhost && baseUrl) {
-			baseUrl = baseUrl.replace('localhost:3000', 'localhost:3309');	// TODO: Move to environment variables
+		if(remapLocalhost && baseUrl) {
+			baseUrl = baseUrl.replace('localhost:3000', remapLocalhost);	// TODO: Move to environment variables
 		}
 		if(process.env.SAUCE === 'true') {
 			// checking sauce credential
@@ -78,6 +81,16 @@ var helpers = module.exports = {
 				desired['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
 			}
 		}
+		else if(desired.webOS) {
+			if(!process.env.WEBOS_IP) {
+				console.warn(
+					'\nPlease configure your webOS IP address:\n\n' +
+					'export WEBOS_IP=<IP ADDRESS>\n\n'
+				);
+				throw new Error("Missing WEBOS_IP");
+			}
+		}
+
 		if(baseUrl) {
 			wd.configureHttp({
 				baseUrl: baseUrl

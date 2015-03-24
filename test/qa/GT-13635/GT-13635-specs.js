@@ -30,9 +30,13 @@ describe(title, function() {
 			.waitForElementById("app_gridSampleItem", 6000)
 			// Move down the page, causing scroll
 			.keys(helpers.keys.SpotlightRight)
+			.delay(200)
 			.keys(helpers.keys.SpotlightRight)
+			.delay(200)
 			.keys(helpers.keys.SpotlightDown)
+			.delay(200)
 			.keys(helpers.keys.SpotlightDown)
+			.delay(200)
 			.keys(helpers.keys.SpotlightDown)
 			// Verify the PageUp Control is now enabled (doesn't have disabled class)
 			.elementById(app.PageUpControlId)
