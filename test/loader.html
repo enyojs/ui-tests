@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- This file can be used to load test and set the locale -->
+	<!-- Pass the test location (minus '.js') in the search and the locale in the hash -->
+	<!-- e.g.:  loader.html?moonstone/TimePicker/DaylightSavings#ar-SA -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>Test Loader</title>
+	<!-- -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="../../enyo/enyo.js" type="text/javascript"></script>
+	<script src="../../lib/enyo-ilib/package.js" type="text/javascript"></script>
+	<script src="../../lib/layout/package.js" type="text/javascript"></script>
+	<script src="../../lib/moonstone/package.js" type="text/javascript"></script>
+	<script src="../../lib/spotlight/package.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="uh-oh-message" style="display: none;">
+	<h1>No test specified or test not found</h1>
+	<p>Please specify a test using the following format: <a href="?moonstone/TimePicker/DaylightSavings">loader.html?moonstone/TimePicker/DaylightSavings</a></p>
+	<p id="attempted" style="display: none;">Attempted to load "<em id="attempted-this"></em>".</p>
+</div>
+<script type="text/javascript">
+(function (enyo, scope) {
+	var testPath = scope.location.search.replace(/^\?/, '') || 'NotSpecified',
+		testName = testPath.slice(testPath.lastIndexOf("/")+1),
+		locale = scope.location.hash.replace(/^#/, ''),
+		uhoh = document.getElementById('uh-oh-message'),
+		attempted = document.getElementById('attempted'),
+		file = document.getElementById('attempted-this');
+
+	if(locale) {
+		enyo.updateLocale(locale);
+	}
+
+	if (testName) {
+		enyo.log('%c Test name:', 'color: blue;', testName);
+
+		var link = document.createElement('link'),
+			script = document.createElement('script'),
+			addToHead = function (node) { document.getElementsByTagName('head')[0].appendChild(node); };
+
+		link.rel = 'stylesheet';
+		link.href = testPath + '.css';
+
+		script.src = testPath + '.js';
+		script.charset = 'utf-8';
+		script.onload = function () {
+			new test[testName]({name: 'app'}).renderInto(document.body);
+		};
+		script.onerror = function () {
+			uhoh.style.display = null;
+			attempted.style.display = null;
+			file.innerText = testName;
+		};
+
+		addToHead(link);
+		addToHead(script);
+	} else {
+		uhoh.style.display = null;
+	}
+})(enyo, this);
+</script>
+</body>
+</html>
