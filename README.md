@@ -51,7 +51,8 @@ These tests are intended to be run as a Travis CI task.
 The `helpers` module adds some promise chain methods specifically for testing Enyo. Currently, these methods include:
 
 * `getClasses` - Element method that returns the classes as an array
-* `enyoProperty` - Browser method that finds an enyo instance by id and returns the value of a property.
+* `enyoPropertyGet` - Browser method that finds an enyo instance by id and returns the value of a property.
+* `enyoPropertySet` - Browser method that finds an enyo instance by id and sets the value of a property.
 
 There is also a general method to scroll elements into view:
 
