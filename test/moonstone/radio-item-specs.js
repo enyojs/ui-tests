@@ -46,23 +46,23 @@ describe('Radio Item Sample Test', function() {
 			// Single radio item
 			.elementByCssSelector('#radioItemSample_radioItem')
 				.click()
-				.enyoProperty('radioItemSample_radioItem', 'selected').should.eventually.be.true
+				.enyoPropertyGet('radioItemSample_radioItem', 'selected').should.eventually.be.true
 				.elementsByCssSelector('.moon-radio-item.selected')
 					.should.eventually.have.length(2, 'two selected items')
 			// two radio items
 			.elementByCssSelector('#radioItemSample_radioItem2')
 				.click()
-				.enyoProperty('radioItemSample_radioItem', 'selected').should.eventually.be.true
-				.enyoProperty('radioItemSample_radioItem2', 'selected').should.eventually.be.true
+				.enyoPropertyGet('radioItemSample_radioItem', 'selected').should.eventually.be.true
+				.enyoPropertyGet('radioItemSample_radioItem2', 'selected').should.eventually.be.true
 			// Back to single radio item
 			.elementByCssSelector('#radioItemSample_radioItem')
 				.click()
-				.enyoProperty('radioItemSample_radioItem', 'selected').should.eventually.be.false
-				.enyoProperty('radioItemSample_radioItem2', 'selected').should.eventually.be.true
+				.enyoPropertyGet('radioItemSample_radioItem', 'selected').should.eventually.be.false
+				.enyoPropertyGet('radioItemSample_radioItem2', 'selected').should.eventually.be.true
 			// Test disabled radio item
 			.elementByCssSelector('#radioItemSample_radioItem3')
 				.click()
-				.enyoProperty('radioItemSample_radioItem3', 'selected').should.eventually.be.false
+				.enyoPropertyGet('radioItemSample_radioItem3', 'selected').should.eventually.be.false
 		.nodeify(done);
 	});
 
