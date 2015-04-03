@@ -18,14 +18,14 @@ var gruntConfig = {
 		simplemocha: {
 			all: {
 				options: {
-					timeout: 120000,
+					timeout: 240000,
 					reporter: 'spec'
 				},
 				src: ['test/**/*-specs.js']
 			},
 			spec: {
 				options: {
-					timeout: 120000,
+					timeout: 240000,
 					reporter: 'spec'
 				},
 				src: ['test/**/<%= globalConfig.file %>-specs.js']
