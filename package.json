@@ -45,7 +45,7 @@
     "grunt": "~0.4.5"
   },
   "optionalDependencies": {
-    "wd-webos": "git+ssh://git@github.com:enyojs/wd-webos.git"
+    "wd-webos": "git+ssh://gpro.lgsvl.com:29418/webos-pro/webos-wdjs-adapter"
   },
   "keywords": []
 }
