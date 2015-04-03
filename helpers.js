@@ -9,7 +9,7 @@
 
 var wd;
 try {
-	wd = require('wd-webos');
+	wd = require('webos-wdjs-adapter');
 } catch(err) {
 	wd = require('wd');
 }
