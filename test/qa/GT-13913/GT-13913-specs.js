@@ -25,7 +25,7 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			// Wait for the app to load and render our element
-			.waitForElementById(app.SmallHeaderTitleId)
+			.waitForElementById(app.SmallHeaderTitleId, 30000)
 				.scrollIntoView()
 				// When in RTL mode, LTR content should appear to the left
 				.getAttribute('innerHTML').should.eventually.match(/^<span/, "Sub Header to the left")

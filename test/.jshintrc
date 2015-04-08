@@ -17,6 +17,8 @@
         "before": true,
         "after": true,
         "afterEach": true,
-        "beforeEach": true
+        "beforeEach": true,
+        "enyo": true,
+        "rootRequire": true
     }
 }
