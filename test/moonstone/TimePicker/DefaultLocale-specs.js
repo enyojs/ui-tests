@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/TimePicker/Default Locale',
+	url = 'ui-tests/test/loader.html?moonstone/TimePicker/DefaultLocale',
 	title = 'Time Picker: Default Locale',
 	tags = ['sample'];	// Tags show up in SauceLabs test output
 
@@ -26,12 +26,12 @@ describe(title, function() {
 			.waitForElementById(app.localePickerID)
 			.elementById(app.localePickerID)
 				.click()
-			.waitForElementById(app.jpLocaleID, helpers.wd.asserters.isDisplayed, 1000)
+			.waitForElementById(app.jpLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return ilib.getLocale()').should.eventually.equal('jp-JP')
 			.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-			.waitForElementById(defaultLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
+			.waitForElementById(app.defaultLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return ilib.getLocale()').should.eventually.equal(app.defaultLocale)
 			.nodeify(done);
@@ -40,7 +40,7 @@ describe(title, function() {
 });
 
 app = {
-	localePickerID: 'app_pickerLocal',
+	localePickerID: 'app_pickerLocale',
 	defaultLocaleCheckboxID: 'app_checkboxItem',
 	jpLocaleCheckboxID: 'app_checkboxItem2',
 	defaultLocale: 'en-US'
