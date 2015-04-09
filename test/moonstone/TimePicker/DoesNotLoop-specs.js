@@ -19,23 +19,22 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('Verifying the hour picker does not loop with the minute picker', function (done) {
+	it('Verifying the hour picker does not loop while the minute picker loops', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
-			.waitForElementById(app.hourPickerID)
+			.waitForElementById(app.timePickerID)
 			// March 8, 2015 was the date of the daylight savings time change
+			// DST is mentioned in the GT-11141 test details
 			.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 01:59"));')
 			.elementById(app.timePickerID)
 				.click()
 			.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(3)
-			.waitForElementById(app.app_pickerTimeLinked_minute_nextOverlay, helpers.wd.asserters.isDisplayed, 1000)
+			.waitForElementById(app.minuteUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-			.waitForElementById(app.app_pickerTimeLinked_minute_nextOverlay, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-			.waitForElementById(app.app_pickerTimeLinked_minute_nextOverlay, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(3)
 			.nodeify(done);
@@ -48,3 +47,4 @@ app = {
 	hourUpArrowID: 'app_pickerTimeLinked_hour_nextOverlay',
 	minuteUpArrowID: 'app_pickerTimeLinked_minute_nextOverlay'
 };
+
