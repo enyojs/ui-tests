@@ -6,8 +6,6 @@ var base = 'http://localhost:3000/',
 	title = 'Time Picker: Default Locale',
 	tags = ['sample'];	// Tags show up in SauceLabs test output
 
-// should not be necessary. But if I don't do this I get an error of 'ReferenceError: lastValue is not defined'
-lastValue= '1:59am';
 
 describe(title, function() {
 	var browser;
@@ -27,20 +25,18 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.timePickerCurrentValueID)
-			.enyoPropertyGet(app.timePickerCurrentValueID, 'content').then(function(value) {lastValue = value; return browser; })
-			.waitForElementById(app.localePickerID)
 			.elementById(app.localePickerID)
 				.click()
 			.waitForElementById(app.jpLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return ilib.getLocale()').should.eventually.equal('jp-JP')
-			.enyoPropertyGet(app.timePickerCurrentValueID, 'content').should.eventually.not.equal(lastValue, "shouldn't match original value")
+			.enyoPropertyGet(app.timePickerCurrentValueID, 'content').should.eventually.not.equal(app.defaultCurrentValue, "shouldn't match original value")
 			.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.waitForElementById(app.defaultLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return ilib.getLocale()').should.eventually.equal(app.defaultLocale)
-			.enyoPropertyGet(app.timePickerCurrentValueID, 'content').should.eventually.equal(lastValue, "should match original value")
+			.enyoPropertyGet(app.timePickerCurrentValueID, 'content').should.eventually.equal(app.defaultCurrentValue, "should match original value")
 			.nodeify(done);
 	});
 
@@ -51,6 +47,10 @@ app = {
 	localePickerID: 'app_pickerLocale',
 	defaultLocaleCheckboxID: 'app_checkboxItem',
 	jpLocaleCheckboxID: 'app_checkboxItem2',
-	defaultLocale: 'en-US'
+	defaultLocale: 'en-US',
+	
+	// should not be necessary. But so far, trying to store the initial currentValue results in an
+	// error of 'ReferenceError: currentValue is not defined'
+	defaultCurrentValue: '1:59am'
 };
 
