@@ -37,7 +37,7 @@ describe(title, function() {
 				.click()
 				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-				.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(0)
+				.execute('return document.getElementById("app_pickerTime_hour_item").innerHTML').should.eventually.equal('00')
 
 				.nodeify(done);
 	});

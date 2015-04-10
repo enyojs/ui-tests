@@ -22,7 +22,7 @@ enyo.kind({
 			this.$.pickerLocale.hide();
 			this.log("iLib not present -- hiding locale picker");
 		}
-		this.set("value", new Date("Mar 09 2014 01:59"));
+		this.set("value", new Date("Mar 09 2014 23:59"));
 	},
 	setLocale: function(inSender, inEvent){
 		if (window.ilib) {
