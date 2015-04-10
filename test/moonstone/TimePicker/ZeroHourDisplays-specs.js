@@ -21,23 +21,33 @@ describe(title, function() {
 
 	it('Should display \'0\' after passing the 23rd hour.', function (done) {
 		browser
-			.setWindowSize(1920,1280)
-			.get(url)
-			.waitForElementById(app.hourPickerID)
-			// March 8, 2015 was the date of the daylight savings time change
-			.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 01:59"));')
-			.elementById(app.hourPickerID)
+				.setWindowSize(1920,1280)
+				.get(url)
+				.waitForElementById(app.localePickerID)
+				.elementById(app.localePickerID)
 				.click()
-			.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
+				.waitForElementById(app.frLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-			.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(3)
-			.nodeify(done);
+				.execute('return ilib.getLocale()').should.eventually.equal('fr-FR')
+				.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
+
+				.waitForElementById(app.hourPickerID)
+				.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 23:59"));')
+				.elementById(app.hourPickerID)
+				.click()
+				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
+				.click()
+				.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(0)
+
+				.nodeify(done);
 	});
 
 });
 
 app = {
-	hourPickerID: 'app_pickerTimeLinked',
-	hourUpArrowID: 'app_pickerTimeLinked_hour_nextOverlay'
+	hourPickerID: 'app_pickerTime',
+	hourUpArrowID: 'app_pickerTime_hour_nextOverlay',
+	localePickerID: 'app_pickerLocale',
+	frLocaleCheckboxID: 'app_checkboxItem2'
 };
 
