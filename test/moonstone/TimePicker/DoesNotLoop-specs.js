@@ -19,7 +19,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('Verifying the hour picker does not loop while the minute picker loops', function (done) {
+	it('Should not loop hours while the minute picker loops', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
@@ -32,7 +32,7 @@ describe(title, function() {
 			.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 			.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(3)
-			.waitForElementById(app.minuteUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
+			.elementById(app.minuteUpArrowID)
 				.click()
 				.click()
 				.click()
