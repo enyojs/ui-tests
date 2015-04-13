@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/TimePicker/DefaultLocale',
+	url = 'ui-tests/test/loader.html?moonstone/TimePicker/GT-11139-DefaultLocale',
 	title = 'Time Picker: Default Locale',
 	tags = ['sample'];	// Tags show up in SauceLabs test output
 

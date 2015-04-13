@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.DefaultLocale",
+	name: "test.GT-11139-DefaultLocale",
 	kind: "FittableRows",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
