@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.ZeroHourDisplays",
+	name: "test.GT-14597-ZeroHourDisplays",
 	kind: "FittableRows",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
