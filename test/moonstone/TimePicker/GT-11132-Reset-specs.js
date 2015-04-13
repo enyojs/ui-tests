@@ -2,9 +2,9 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/TimePicker/Reset',
+	url = 'ui-tests/test/loader.html?moonstone/TimePicker/GT-11132-Reset',
 	title = 'Time Picker: Reset Time',
-	tags = ['sample'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone', 'qa', 'TimePicker'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

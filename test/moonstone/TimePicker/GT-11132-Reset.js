@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.Reset",
+	name: "test.GT-11132-Reset",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
 		{kind: "moon.TimePicker", name: "pickerTime", noneText: "Pick a Time", content: "Time", meridiemEnable: true},

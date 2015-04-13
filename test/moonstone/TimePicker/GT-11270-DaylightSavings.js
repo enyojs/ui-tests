@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.DaylightSavings",
+	name: "test.GT-11270-DaylightSavings",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
 		{kind: "moon.DatePicker", name:"pickerDateLinked", noneText: "Pick a Date", content: "Linked Date", onChange: "dateChanged"},
