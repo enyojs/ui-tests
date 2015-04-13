@@ -29,29 +29,21 @@ describe(title, function() {
 				.click()
 				.waitForElementById(app.hourDownArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-				.execute('return document.getElementById("app_pickerTime_meridiem_item").innerHTML').should.eventually.equal('pm')
+				.execute(app.getVisibleScrollerText, [app.meridiemPickerID]).should.eventually.equal('pm')
 
 				.nodeify(done);
 	});
-
-	it('should loop meridiem value from AM to PM.', function (done) {
-		browser
-				.setWindowSize(1920,1280)
-				.get(url)
-				.waitForElementById(app.hourPickerID)
-				.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 12:34 AM"));')
-				.elementById(app.hourPickerID)
-				.click()
-				.waitForElementById(app.hourDownArrowID, helpers.wd.asserters.isDisplayed, 1000)
-				.click()
-				.execute('return enyo.$["app"].$.pickerTime.$.meridiem.getMeridiems()[enyo.$["app"].$.pickerTime.$.meridiem.getValue()]').should.eventually.equal('pm')
-
-				.nodeify(done);
-	});
-
 });
 
 app = {
+	meridiemPickerID: 'app_pickerTime_meridiem',
 	hourPickerID: 'app_pickerTime',
-	hourDownArrowID: 'app_pickerTime_hour_previousOverlay'
+	hourDownArrowID: 'app_pickerTime_hour_previousOverlay',
+	getVisibleScrollerText: "return (function (pickerId) {" +
+		"var c = enyo.$[pickerId]," +
+		"	scroller = c.$.scroller," +
+		"	scrollTop = scroller.scrollTop;" +
+		"var visible = Array.prototype.filter.call(scroller.node.querySelectorAll('.moon-scroll-picker-item'), function (node) { return node.offsetTop === scrollTop; })[0];" +
+		"return visible && visible.textContent;" +
+		"})(arguments[0]);"
 };
