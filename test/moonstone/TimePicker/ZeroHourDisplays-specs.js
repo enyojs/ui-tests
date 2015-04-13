@@ -31,36 +31,13 @@ describe(title, function() {
 				.execute('return ilib.getLocale()').should.eventually.equal('fr-FR')
 				.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
 
-				.waitForElementById(app.hourPickerID)
+				.waitForElementById(app.timePickerID)
 				.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 23:59"));')
-				.elementById(app.hourPickerID)
+				.elementById(app.timePickerID)
 				.click()
 				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-				.execute('return document.getElementById("app_pickerTime_hour_item").innerHTML').should.eventually.equal('00')
-
-				.nodeify(done);
-	});
-
-	it('Should display \'0\' after passing the 23rd hour.', function (done) {
-		browser
-				.setWindowSize(1920,1280)
-				.get(url)
-				.waitForElementById(app.localePickerID)
-				.elementById(app.localePickerID)
-				.click()
-				.waitForElementById(app.frLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
-				.click()
-				.execute('return ilib.getLocale()').should.eventually.equal('fr-FR')
-				.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
-
-				.waitForElementById(app.hourPickerID)
-				.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 23:59"));')
-				.elementById(app.hourPickerID)
-				.click()
-				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
-				.click()
-				.execute(getVisibleValue).should.eventually.equal('00')
+				.execute(app.getVisibleScrollerText, [app.hourPickerID]).should.eventually.equal('00')
 
 				.nodeify(done);
 	});
@@ -68,18 +45,18 @@ describe(title, function() {
 });
 
 app = {
-	hourPickerID: 'app_pickerTime',
+	timePickerID: 'app_pickerTime',
+	hourPickerID: 'app_pickerTime_hour',
 	hourUpArrowID: 'app_pickerTime_hour_nextOverlay',
 	localePickerID: 'app_pickerLocale',
-	frLocaleCheckboxID: 'app_checkboxItem2'
+	frLocaleCheckboxID: 'app_checkboxItem2',
+	getVisibleScrollerText: "return (function (pickerId) {" +
+		"var c = enyo.$[pickerId]," +
+		"	scroller = c.$.scroller," +
+		"	scrollTop = scroller.scrollTop;" +
+		"var visible = Array.prototype.filter.call(scroller.node.querySelectorAll('.moon-scroll-picker-item'), function (node) { return node.offsetTop === scrollTop; })[0];" +
+		"return visible && visible.textContent;" +
+		"})(arguments[0]);"
+
 };
 
-function getVisibleValue (integerPickerNode) {
-	var c = enyo.$.app_pickerTime_hour.id,
-			scroller = c.$.scroller,
-			scrollTop = scroller.scrollTop;
-
-	var visible = Array.prototype.filter.call(scroller.node.querySelectorAll('.moon-scroll-picker-item'), function (node) { return node.offsetTop === scrollTop; })[0];
-
-	return visible && visible.textContent;
-}
