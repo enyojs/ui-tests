@@ -2,9 +2,9 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/TimePicker/DoesNotLoop',
+	url = 'ui-tests/test/loader.html?moonstone/TimePicker/GT-11141-DoesNotLoop',
 	title = 'Time Picker: Does Not Loop',
-	tags = ['sample'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone', 'TimePicker', 'qa'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
