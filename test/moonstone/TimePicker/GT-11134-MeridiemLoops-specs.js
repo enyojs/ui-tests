@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/TimePicker/GT-11134-MerediemLoops',
+	url = 'ui-tests/test/loader.html?moonstone/TimePicker/GT-11134-MeridiemLoops',
 	title = 'TimePicker: Meridiem Loops upon Hour Picker\'s action',
 	tags = ['sample'];	// Tags show up in SauceLabs test output
 

@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.GT-11134-MerediemLoops",
+	name: "test.GT-11134-MeridiemLoops",
 	kind: "FittableRows",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
