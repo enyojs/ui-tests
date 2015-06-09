@@ -7,6 +7,6 @@ module.exports = {
 	explorer: {browserName: 'internet explorer'},
 	webOS: {
 		webOS: true,
-		appId: 'com.palm.app.enyo2sampler'
+		appId: 'com.webos.app.smartshare'
 	}
 };
