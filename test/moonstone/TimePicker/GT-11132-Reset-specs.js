@@ -2,15 +2,16 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/TimePicker/GT-11132-Reset',
+	src = 'ui-tests/test/moonstone/TimePicker/GT-11132-Reset.js',
 	title = 'Time Picker: Reset Time',
 	tags = ['moonstone', 'qa', 'TimePicker'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
-	var browser;
+	var browser, url;
 
 	before(function(done) {
 		browser = helpers.initBrowser(title, tags, base, done);
+		url = helpers.epack(src);
 	});
 
 	after(function(done) {
@@ -38,7 +39,7 @@ describe(title, function() {
 });
 
 app = {
-	pickerID: 'app_pickerTime',
-	resetID: 'app_buttonReset'
+	pickerID: 'gT-11132-Reset_pickerTime',
+	resetID: 'gT-11132-Reset_buttonReset'
 };
 

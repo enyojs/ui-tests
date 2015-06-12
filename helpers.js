@@ -16,6 +16,9 @@ try {
 
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
+var shelljs = require('shelljs'),
+	path = require('path'),
+	fs = require('fs');
 
 var helpers = module.exports = {
 	wd: wd,
@@ -122,14 +125,40 @@ var helpers = module.exports = {
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertyGet', function(id, prop) {
-			return this.execute('return enyo.$["' + id + '"].get("' + prop + '");');
+			return this.execute('return dispatcher.$["' + id + '"].get("' + prop + '");');
 		});
 
 		// Sets the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
-			return this.execute('return enyo.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
+			return this.execute('return dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
+	},
+	// Runs the epack command to generate output and returns a URL For loading
+	epack: function(filename) {
+		var libpath = '../',
+			test = path.basename(filename, '.js'),
+			command = 'epack --lib-path=' + libpath + ' -d tmp -o ' + test + '.html tmp',
+			json = '{"name": "' + test + '", "main": "../../' + filename + '"}';
+
+		try {
+			fs.mkdirSync('tmp');
+		} catch (err) { }
+		try {
+			fs.unlinkSync('tmp/package.json');
+		} catch (err) {}
+		fs.writeFileSync('tmp/package.json', json);
+		try {
+			var result = shelljs.exec(command, {silent: true});
+			if(result.code !== 0) {
+				console.log('Error running epack:');
+				console.log(log);
+			}
+		} catch(err) {
+			console.log("exec");
+			console.log(err);
+		}
+		return('ui-tests/tmp/' + test + '.html');
 	},
 	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
 	keys: wd.SPECIAL_KEYS
@@ -141,4 +170,3 @@ helpers.keys.SpotlightUp = wd.SPECIAL_KEYS['Up arrow'];
 helpers.keys.SpotlightRight = wd.SPECIAL_KEYS['Right arrow'];
 helpers.keys.SpotlightLeft = wd.SPECIAL_KEYS['Left arrow'];
 helpers.keys.SpotlightSelect = wd.SPECIAL_KEYS['Enter'];
-
