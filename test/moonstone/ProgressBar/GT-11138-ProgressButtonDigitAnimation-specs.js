@@ -19,60 +19,82 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it("should animate in an upward count", function (done) {
+	it("should animate digits in an upward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.numberInputID)
 			.elementById(app.numberInputID)
-			.execute('enyo.$["app_input"].set("value", 10)')
-			.execute('enyo.$["app_progressButton_bar"].set("style", "transform: translateX(-80%); -webkit-transform: translateX(-80%);")')
-			.enyoPropertyGet(app.progressBar, 'style').should.eventually.equal("transform: translateX(-80%); -webkit-transform: translateX(-80%);")
+			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
 			.click()
-			.waitForElementById(app.progressBar)
-			.execute('enyo.$["app_input"].set("value", 99)')
+			.sleep(500)
+			.elementById(app.progressBarDigit)
+			.text()
+			//check to make sure progress reaches 99%
+			.then(
+				function(text){					
+					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
+				}
+			)
+			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
 			.click()
-
-			//Works on webOS, not working in chrome
-			//confirms that upward animation works
-			.enyoPropertyGet(app.progressBar, 'style').should.eventually.equal("transform: translateX(-15%); -webkit-transform: translateX(-15%);")
-
-			//TODO: Work on timeout in browser so animation goes all the way down during test.
+			.elementById(app.progressBarDigit)
+			.text()
+			.then(
+				function(text){
+					console.log(text)
+					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
+					return isBelow.should.equal(true)
+				}
+			)
+			.sleep(500)
+			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.nodeify(done);
 	});
 
-  it("should animate in an downward count", function (done) {
-    browser
-      .setWindowSize(1920,1280)
-      .get(url)
-      .waitForElementById(app.numberInputID)
-      .elementById(app.numberInputID)
-      .execute('enyo.$["app_input"].set("value", 99)')
-			.execute('enyo.$["app_progressButton_bar"].set("style", "transform: translateX(-15%); -webkit-transform: translateX(-15%);")')
-			.enyoPropertyGet(app.progressBar, 'style').should.eventually.equal("transform: translateX(-15%); -webkit-transform: translateX(-15%);")
-      .elementById(app.setButton)
-      .click()
-			.waitForElementById(app.progressBar)
-      .execute('enyo.$["app_input"].set("value", 10)')
+  it("should animate digits in an downward count", function (done) {
+		browser
+			.setWindowSize(1920,1280)
+			.get(url)
+			.waitForElementById(app.numberInputID)
+			.elementById(app.numberInputID)
+			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
-      .click()
+			.click()
+			.sleep(500)
+			.elementById(app.progressBarDigit)
+			.text()
+			//check to make sure progress reaches 99%
+			.then(
+				function(text){
 
-			//Works on webOS, not working in chrome
-			//confirms that downward animation works
-			.enyoPropertyGet(app.progressBar, 'style').should.eventually.equal("transform: translateX(-80%); -webkit-transform: translateX(-80%);")
-
-			//TODO: Work on timeout in browser so animation goes all the way down during test.
-      .nodeify(done);
+					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
+				}
+			)
+			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
+			.elementById(app.setButton)
+			.click()
+			.elementById(app.progressBarDigit)
+			.text()
+			.then(
+				function(text){
+					console.log(text)
+					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
+					return isBelow.should.equal(true)
+				}
+			)
+			.sleep(500)
+			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
+			.nodeify(done);
   });
-
 });
 
 app = {
-  progressBar: "app_progressButton_bar",
+	progressBarDigit: "app_progressButton_progressPercent",
   numberInputID: "app_input",
-  setButton: "app_button_tapArea"
-
-	// Test-specific constants can be placed here
+  setButton: "app_button_tapArea",
+	highNumber: 99,
+	lowNumber: 9
 };
