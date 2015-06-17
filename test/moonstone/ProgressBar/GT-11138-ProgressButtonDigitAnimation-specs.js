@@ -31,9 +31,9 @@ describe(title, function() {
 			.sleep(500)
 			.elementById(app.progressBarDigit)
 			.text()
-			//check to make sure progress reaches 99%
+			//check to make sure progress reaches 9%
 			.then(
-				function(text){					
+				function(text){
 					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
 				}
 			)
