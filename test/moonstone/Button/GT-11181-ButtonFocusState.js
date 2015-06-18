@@ -11,7 +11,8 @@ enyo.kind({
 					{name: "appleButton", kind: "moon.Button", content: "Apple", ontap: "buttonTapped"},
 					{name: "bananaButton", kind: "moon.Button", content: "Banana", ontap: "buttonTapped"},
 					{name: "saskatoonberryButton", kind: "moon.Button", content: "Saskatoonberry", ontap: "buttonTapped"}
-				]}
+				]},
+        {kind: "moon.Divider", content: "Grouped Buttons:"}
 			]}
 		]},
 		{kind: "moon.Divider", content: "Result"},

@@ -19,34 +19,37 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
+
   it("should maintain selected and focus state after pointer times out", function (done) {
     browser
       .setWindowSize(1920,1280)
       .get(url)
       //click button
-      .waitForElementById(app.buttonId)
+      .waitForElementById(app.appleButtonID)
       .click()
+      .delay(1000)
       //check to see active + spotlight state
-      .waitForElementById(app.buttonId,1000)
+      .waitForElementById(app.appleButtonID,1000)
       .getClasses().should.eventually.contain('active')
-      .waitForElementById(app.buttonId,1000)
+      .waitForElementById(app.appleButtonID,1000)
       .getClasses().should.eventually.contain('spotlight')
 
-      //move cursor off
+      //move cursor off button
       .waitForElementById(app.appDivider)
       .moveTo()
-      .sleep(1000)
+      .delay(2000)
 
       //check to make sure focus is off but selected is on
-      .waitForElementById(app.buttonId)
+      .waitForElementById(app.appleButtonID)
       .getClasses().should.eventually.contain('active')
-      .waitForElementById(app.buttonId)
+      .waitForElementById(app.appleButtonID)
       .getClasses().should.eventually.not.contain('spotlight')
-      .elementById(app.buttonId)
+      .elementById(app.appleButtonID)
       .moveTo()
+
       //wait for cursor to disappear
-      .sleep(10000)
-      .waitForElementById(app.buttonId,1000)
+      .delay(10000)
+      .waitForElementById(app.appleButtonID,1000)
       .getClasses().should.eventually.contain('spotlight')
       .nodeify(done);
   });
@@ -54,6 +57,7 @@ describe(title, function() {
 });
 
 app = {
-	buttonId: 'app_appleButton',
+	appleButtonID: 'app_appleButton',
+  bananaButtonID: 'app_bananaButton',
   appDivider: 'app_divider'
 };
