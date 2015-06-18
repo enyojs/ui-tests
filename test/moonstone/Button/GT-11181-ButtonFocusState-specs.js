@@ -23,12 +23,31 @@ describe(title, function() {
     browser
       .setWindowSize(1920,1280)
       .get(url)
+      //click button
       .waitForElementById(app.buttonId)
-      .elementById(app.buttonId)
       .click()
-      .sleep(5000)
+      //check to see active + spotlight state
       .waitForElementById(app.buttonId,1000)
-      .getClasses().should.eventually.contain('active','spotlight')
+      .getClasses().should.eventually.contain('active')
+      .waitForElementById(app.buttonId,1000)
+      .getClasses().should.eventually.contain('spotlight')
+
+      //move cursor off
+      .waitForElementById(app.appDivider)
+      .moveTo()
+      .sleep(1000)
+
+      //check to make sure focus is off but selected is on
+      .waitForElementById(app.buttonId)
+      .getClasses().should.eventually.contain('active')
+      .waitForElementById(app.buttonId)
+      .getClasses().should.eventually.not.contain('spotlight')
+      .elementById(app.buttonId)
+      .moveTo()
+      //wait for cursor to disappear
+      .sleep(10000)
+      .waitForElementById(app.buttonId,1000)
+      .getClasses().should.eventually.contain('spotlight')
       .nodeify(done);
   });
 
@@ -36,4 +55,5 @@ describe(title, function() {
 
 app = {
 	buttonId: 'app_appleButton',
+  appDivider: 'app_divider'
 };
