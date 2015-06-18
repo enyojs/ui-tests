@@ -19,6 +19,8 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
+	//NOTE: For testing on webOS you must take out the 4500ms timeout on _click method in tvdriver.js 
+
 	it("should animate digits in an upward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
@@ -28,7 +30,7 @@ describe(title, function() {
 			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
 			.click()
-			.sleep(500)
+			.delay(500)
 			.elementById(app.progressBarDigit)
 			.text()
 			//check to make sure progress reaches 9%
@@ -49,7 +51,7 @@ describe(title, function() {
 					return isBelow.should.equal(true)
 				}
 			)
-			.sleep(500)
+			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.nodeify(done);
 	});
@@ -63,7 +65,7 @@ describe(title, function() {
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
 			.click()
-			.sleep(500)
+			.delay(500)
 			.elementById(app.progressBarDigit)
 			.text()
 			//check to make sure progress reaches 99%
@@ -85,7 +87,7 @@ describe(title, function() {
 					return isBelow.should.equal(true)
 				}
 			)
-			.sleep(500)
+			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
 			.nodeify(done);
   });
