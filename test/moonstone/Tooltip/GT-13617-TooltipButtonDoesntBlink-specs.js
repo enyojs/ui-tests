@@ -31,7 +31,7 @@ describe(title, function() {
 			.delay(1000)
 			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain("display: none;")
 			.elementById(app.rightButton)
-			.buttonDown()
+			.moveTo(0,-5)
 			.elementById(app.rightButton)
 				.getClasses().should.eventually.contain('spotlight')
 			.elementById(app.rightButton)
