@@ -44,6 +44,6 @@ describe(title, function() {
 });
 
 app = {
-	rightButton: "app_button2",
+	rightButton: "app_button",
 	rightTooltip: "app_toolTip"
 };
