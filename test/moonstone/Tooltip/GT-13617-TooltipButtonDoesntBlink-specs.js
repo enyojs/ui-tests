@@ -24,7 +24,7 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.rightButton)
-			.elementById(app.rightTooltip)
+			.elementById(app.appID)
 			.moveTo(0,0)
 			.elementById(app.rightButton)
 			.moveTo(0,0)
@@ -45,5 +45,6 @@ describe(title, function() {
 
 app = {
 	rightButton: "app_button",
-	rightTooltip: "app_toolTip"
+	rightTooltip: "app_toolTip",
+	appID: "app"
 };
