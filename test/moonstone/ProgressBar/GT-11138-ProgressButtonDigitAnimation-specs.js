@@ -4,7 +4,7 @@ var helpers = rootRequire("./helpers"),
 var base = 'http://localhost:3000/',
 	url = 'ui-tests/test/loader.html?moonstone/ProgressBar/GT-11138-ProgressButtonDigitAnimation',
 	title = 'ProgressButton: Digits animates up/downward in Simple Progress Button',
-	tags = ['sample'];	// Tags show up in SauceLabs test output
+	tags = ['sample', 'Progess Button', 'Animation'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
@@ -24,7 +24,6 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.numberInputID)
-			.elementById(app.numberInputID)
 			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
 			.click()
@@ -59,7 +58,6 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.numberInputID)
-			.elementById(app.numberInputID)
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
 			.click()
