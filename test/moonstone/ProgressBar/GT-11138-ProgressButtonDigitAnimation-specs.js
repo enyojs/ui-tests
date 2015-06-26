@@ -29,11 +29,10 @@ describe(title, function() {
 			.click()
 			.delay(500)
 			.elementById(app.progressBarDigit)
-			.text()
 			//check to make sure progress reaches 9%
 			.then(
-				function(text){
-					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
+				function(){
+					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%");
 				}
 			)
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
@@ -43,7 +42,6 @@ describe(title, function() {
 			.text()
 			.then(
 				function(text){
-					console.log(text)
 					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
 					return isBelow.should.equal(true)
 				}
@@ -63,10 +61,9 @@ describe(title, function() {
 			.click()
 			.delay(500)
 			.elementById(app.progressBarDigit)
-			.text()
 			//check to make sure progress reaches 99%
 			.then(
-				function(text){
+				function(){
 
 					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 				}
@@ -78,7 +75,6 @@ describe(title, function() {
 			.text()
 			.then(
 				function(text){
-					console.log(text)
 					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
 					return isBelow.should.equal(true)
 				}
@@ -90,8 +86,8 @@ describe(title, function() {
 });
 
 app = {
-	progressBarDigit: "app_progressButton_progressPercent",
-  numberInputID: "app_input",
+  progressBarDigit: "app_progressButton_progressPercent",
+	numberInputID: "app_input",
   setButton: "app_button_tapArea",
 	highNumber: 99,
 	lowNumber: 9
