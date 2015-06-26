@@ -19,8 +19,6 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	//NOTE: For testing on webOS you must take out the 4500ms timeout on _click method in tvdriver.js 
-
 	it("should animate digits in an upward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
