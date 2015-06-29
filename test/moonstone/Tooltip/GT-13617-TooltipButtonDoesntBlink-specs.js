@@ -23,21 +23,24 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
-			.waitForElementById(app.rightButton)
-			.elementById(app.appID)
-			.moveTo()
+			.moveTo(null, 100,100)
+			.moveTo(null, 200,200)
 			.elementById(app.rightButton)
 			.moveTo()
 			.delay(1000)
 			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain("display: none;")
+
 			.elementById(app.rightButton)
-			.moveTo(0,-5)
+			.moveTo(150,80)
+			.delay(1000)
+			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain("display: none;")
+
+
 			.elementById(app.rightButton)
-				.getClasses().should.eventually.contain('spotlight')
-			.elementById(app.rightButton)
-			.moveTo(0,10)
-			.elementById(app.rightButton)
-				.getClasses().should.eventually.contain('spotlight')
+			.moveTo(100,20)
+			.delay(1000)
+			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain("display: none;")
+
 			.nodeify(done);
 	});
 
@@ -46,5 +49,6 @@ describe(title, function() {
 app = {
 	rightButton: "app_button",
 	rightTooltip: "app_toolTip",
-	appID: "app"
+	appID: "app",
+	appControl: "app_control"
 };
