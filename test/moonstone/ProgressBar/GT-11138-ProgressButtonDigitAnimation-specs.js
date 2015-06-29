@@ -27,14 +27,8 @@ describe(title, function() {
 			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
 			.click()
-			.delay(500)
-			.elementById(app.progressBarDigit)
-			//check to make sure progress reaches 9%
-			.then(
-				function(){
-					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%");
-				}
-			)
+			.delay(1000)
+			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
 			.click()
@@ -43,10 +37,11 @@ describe(title, function() {
 			.then(
 				function(text){
 					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
-					return isBelow.should.equal(true)
+					return isBelow.should.equal(true);
 				}
 			)
 			.delay(500)
+			.elementById(app.progressBarDigit)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.nodeify(done);
 	});
@@ -59,15 +54,8 @@ describe(title, function() {
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
 			.click()
-			.delay(500)
-			.elementById(app.progressBarDigit)
-			//check to make sure progress reaches 99%
-			.then(
-				function(){
-
-					return browser.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
-				}
-			)
+			.delay(1000)
+			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
 			.click()
@@ -76,7 +64,7 @@ describe(title, function() {
 			.then(
 				function(text){
 					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
-					return isBelow.should.equal(true)
+					return isBelow.should.equal(true);
 				}
 			)
 			.delay(500)
@@ -86,9 +74,9 @@ describe(title, function() {
 });
 
 app = {
-  progressBarDigit: "app_progressButton_progressPercent",
+	progressBarDigit: "app_progressButton_progressPercent",
 	numberInputID: "app_input",
-  setButton: "app_button_tapArea",
+	setButton: "app_button_tapArea",
 	highNumber: 99,
 	lowNumber: 9
 };
