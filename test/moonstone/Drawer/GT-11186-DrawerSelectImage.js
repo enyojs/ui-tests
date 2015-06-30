@@ -119,8 +119,12 @@ enyo.kind({
 	},
 	pickerChangedImg:function(inSender,inEvent){
 		this.$.drawers.set('src',inEvent.selected.value);
+		//reset the drawer
+		this.$.drawers.set('icon',"");
 	},
 	pickerChangedIcon:function(inSender,inEvent){
 		this.$.drawers.set('icon',inEvent.selected.value);
+		//reset the drawer
+		this.$.drawers.set('src',"");
 	}
 });

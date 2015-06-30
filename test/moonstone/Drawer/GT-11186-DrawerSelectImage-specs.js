@@ -39,6 +39,7 @@ describe(title, function() {
 			.delay(1000)			
 			.enyoPropertyGet(app.drawerIcon, 'style').should.eventually.contain(app.html5Image)
 			.elementById(app.drawerIcon)
+			//check to make sure images don't overlap
 			.getClasses().should.not.eventually.contain('moon-icon-drawer')
 			.nodeify(done);
 	});
