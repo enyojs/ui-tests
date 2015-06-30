@@ -29,13 +29,18 @@ describe(title, function() {
 			.elementById(app.drawerCheckbox)
 			.click()
 			.delay(1000)
+			.elementById(app.drawerIcon)
+			.getClasses().should.eventually.contain('moon-icon-drawer')
 			.elementById(app.pickerImage)
 			.click()
 			.delay(1000)
 			.elementById(app.htmlCheckbox)
 			.click()
-			.delay(1000)
-
+			.delay(1000)			
+			.enyoPropertyGet(app.drawerIcon, 'style').should.eventually.contain(app.html5Image)
+			.elementById(app.drawerIcon)
+			.getClasses().should.not.eventually.contain('moon-icon-drawer')
+			.nodeify(done);
 	});
 
 });
@@ -45,6 +50,7 @@ app = {
 	pickerIcon: "app_expandablePicker2",
 	drawerCheckbox: "app_checkboxItem6_input",
 	htmlCheckbox: "app_checkboxItem3_input",
-	drawerIcon: "app_drawers_activatorIcon"
+	drawerIcon: "app_drawers_activatorIcon",
+	html5Image: "/lib/moonstone/samples/assets/html5.png);"
 };
 
