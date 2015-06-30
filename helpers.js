@@ -130,6 +130,14 @@ var helpers = module.exports = {
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
 			return this.execute('enyo.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
+
+		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
+			return this.execute('enyo.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
+		});
+
+		wd.addPromiseChainMethod('textToInt', function(id) {
+			return this.execute('return parseInt(document.getElementById("'+ id +'").innerText)');
+		});
 	},
 	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
 	keys: wd.SPECIAL_KEYS

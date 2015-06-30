@@ -32,21 +32,15 @@ describe(title, function() {
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
 			.click()
-			.elementById(app.progressBarDigit)
-			.text()
-			.then(
-				function(text){
-					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
-					return isBelow.should.equal(true);
-				}
-			)
+			.delay(100)
+			.textToInt(app.progressBarDigit).should.eventually.within(app.lowNumber, app.highNumber)
+  			.waitForElementById(app.progressBarDigit)
 			.delay(500)
-			.elementById(app.progressBarDigit)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.nodeify(done);
 	});
 
-  it("should animate digits in an downward count", function (done) {
+  	it("should animate digits in an downward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
@@ -59,14 +53,9 @@ describe(title, function() {
 			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
 			.click()
-			.elementById(app.progressBarDigit)
-			.text()
-			.then(
-				function(text){
-					var isBelow = app.highNumber > parseInt(text) && app.lowNumber < parseInt(text);
-					return isBelow.should.equal(true);
-				}
-			)
+			.delay(100)
+			.textToInt(app.progressBarDigit).should.eventually.within(app.lowNumber, app.highNumber)
+  			.waitForElementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
 			.nodeify(done);
