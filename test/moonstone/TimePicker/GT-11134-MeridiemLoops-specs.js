@@ -29,6 +29,7 @@ describe(title, function() {
 				.click()
 				.waitForElementById(app.hourDownArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
+				.delay(500)
 				.execute(app.getVisibleScrollerText, [app.meridiemPickerID]).should.eventually.equal('pm')
 
 				.nodeify(done);
