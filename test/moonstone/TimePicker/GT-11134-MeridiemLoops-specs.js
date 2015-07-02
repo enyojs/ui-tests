@@ -27,9 +27,10 @@ describe(title, function() {
 				.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 12:34 AM"));')
 				.elementById(app.hourPickerID)
 				.click()
+				.delay(500)
 				.waitForElementById(app.hourDownArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-				.delay(500)
+				.delay(1000)
 				.execute(app.getVisibleScrollerText, [app.meridiemPickerID]).should.eventually.equal('pm')
 
 				.nodeify(done);
