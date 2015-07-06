@@ -35,7 +35,7 @@ describe(title, function() {
 			.getClasses().should.eventually.contain('moon-icon-drawer')
 			.elementById(app.pickerImage)
 			.click()
-			.delay(1000)
+			.delay(2000)
 			//check to make sure picture drawer works
 			.enyoPropertyGet(app.pickerImageDrawer, 'style').should.eventually.not.contain("display: none;")
 			.elementById(app.htmlCheckbox)
@@ -57,7 +57,7 @@ app = {
 	htmlCheckbox: "app_checkboxItem3_input",
 	drawerIcon: "app_drawers_activatorIcon",
 	html5Image: "/lib/moonstone/samples/assets/html5.png);",
-	pickerIconDrawer: "app_expandablePicker_drawer_client",
-	pickerImageDrawer: "app_expandablePicker2_drawer_client"
+	pickerImageDrawer: "app_expandablePicker_drawer_client",
+	pickerIconDrawer: "app_expandablePicker2_drawer_client"
 };
 
