@@ -26,6 +26,8 @@ describe(title, function() {
 			.waitForElementById(app.pickerIcon)
 			.click()
 			.delay(1000)
+			//check to make sure icon drawer works
+			.enyoPropertyGet(app.pickerIconDrawer, 'style').should.eventually.not.contain("display: none;")
 			.elementById(app.drawerCheckbox)
 			.click()
 			.delay(1000)
@@ -34,6 +36,8 @@ describe(title, function() {
 			.elementById(app.pickerImage)
 			.click()
 			.delay(1000)
+			//check to make sure picture drawer works
+			.enyoPropertyGet(app.pickerImageDrawer, 'style').should.eventually.not.contain("display: none;")
 			.elementById(app.htmlCheckbox)
 			.click()
 			.delay(1000)			
@@ -52,6 +56,8 @@ app = {
 	drawerCheckbox: "app_checkboxItem6_input",
 	htmlCheckbox: "app_checkboxItem3_input",
 	drawerIcon: "app_drawers_activatorIcon",
-	html5Image: "/lib/moonstone/samples/assets/html5.png);"
+	html5Image: "/lib/moonstone/samples/assets/html5.png);",
+	pickerIconDrawer: "app_expandablePicker_drawer_client",
+	pickerImageDrawer: "app_expandablePicker2_drawer_client"
 };
 
