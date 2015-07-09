@@ -128,7 +128,7 @@ var helpers = module.exports = {
 		// Sets the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
-			return this.execute('return enyo.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
+			return this.execute('enyo.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
 	},
 	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
