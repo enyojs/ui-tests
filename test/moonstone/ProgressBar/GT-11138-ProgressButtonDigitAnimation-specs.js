@@ -34,13 +34,13 @@ describe(title, function() {
 			.click()
 			.delay(100)
 			.textToInt(app.progressBarDigit).should.eventually.within(app.lowNumber, app.highNumber)
-  			.waitForElementById(app.progressBarDigit)
+			.waitForElementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.nodeify(done);
 	});
 
-  	it("should animate digits in an downward count", function (done) {
+	it("should animate digits in an downward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
@@ -55,11 +55,11 @@ describe(title, function() {
 			.click()
 			.delay(100)
 			.textToInt(app.progressBarDigit).should.eventually.within(app.lowNumber, app.highNumber)
-  			.waitForElementById(app.progressBarDigit)
+			.waitForElementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
 			.nodeify(done);
-  });
+	});
 });
 
 app = {
