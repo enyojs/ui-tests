@@ -29,22 +29,17 @@ describe(title, function() {
 			.click()
 			//Check that popup is showing
 			.waitForElementById(app.DirectPopupId)
-			.elementById(app.DirectPopupId)
 			.getClasses().should.eventually.contain('showing')
 			//Click area above Popup
-			.waitForElementById(app.appLayer)
 			.elementById(app.appLayer)
 			.click()
 			//Check that popup is showing
-			.waitForElementById(app.DirectPopupId)
 			.elementById(app.DirectPopupId)
 			.getClasses().should.eventually.contain('showing')
 			//Click to Hide Popup
-			.waitForElementById(app.HideDirectPopupButtonId)
 			.elementById(app.HideDirectPopupButtonId)
 			.click()
 			//Verify the popup is hidden
-			.waitForElementById(app.DirectPopupId)
 			.elementById(app.DirectPopupId)
 			.getClasses().should.not.eventually.contain('showing')
 			.nodeify(done);
