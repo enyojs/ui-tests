@@ -25,7 +25,7 @@ describe(title, function() {
       .setWindowSize(1920,1280)
       .get(url)
 			//start cursor on app_divider
-			.elementById(app.appDivider)
+			.waitForElementById(app.appDivider)
 			.moveTo()
 			.delay(500)
 			//move cursor on app
@@ -38,28 +38,28 @@ describe(title, function() {
 			.delay(500)
 			.getClasses().should.eventually.contain('spotlight')
       //click button
-      .waitForElementById(app.appleButtonID)
+      .elementById(app.appleButtonID)
       .click()
       .delay(1000)
       //check to see active + spotlight state
-      .waitForElementById(app.appleButtonID,1000)
+      .elementById(app.appleButtonID,1000)
       .getClasses().should.eventually.contain('active')
-      .waitForElementById(app.appleButtonID,1000)
+      .elementById(app.appleButtonID,1000)
       .getClasses().should.eventually.contain('spotlight')
       //move cursor off button
-      .waitForElementById(app.appDivider)
+      .elementById(app.appDivider)
       .moveTo()
       .delay(2000)
       //check to make sure focus is off but selected is on
-      .waitForElementById(app.appleButtonID)
+      .elementById(app.appleButtonID)
       .getClasses().should.eventually.contain('active')
-      .waitForElementById(app.appleButtonID)
+      .elementById(app.appleButtonID)
       .getClasses().should.eventually.not.contain('spotlight')
       .elementById(app.appleButtonID)
       .moveTo()
       //wait for cursor to disappear
       .delay(10000)
-      .waitForElementById(app.appleButtonID,1000)
+      .elementById(app.appleButtonID,1000)
       .getClasses().should.eventually.contain('spotlight')
       .nodeify(done);
   });
