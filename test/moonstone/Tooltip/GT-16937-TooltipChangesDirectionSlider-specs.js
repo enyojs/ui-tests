@@ -32,11 +32,15 @@ describe(title, function() {
 			.elementById(app.sliderTapArea)
 			.moveTo(905,20)
 			.delay(1000)
+			.elementById(app.tooltipId)
+			.getClasses().should.eventually.contain("moon-slider-popup-flip-h")
 			//make sure tooltip displays
 			.enyoPropertyGet(app.sliderPopup, "style").should.eventually.not.contain("display: none;")
 			.elementById(app.sliderTapArea)
 			.moveTo(880,20)
 			.delay(1000)
+			.elementById(app.tooltipId)
+			.getClasses().should.eventually.not.contain("moon-slider-popup-flip-h")
 
 			.nodeify(done);
 	});
@@ -47,6 +51,7 @@ app = {
 	appId: "app",
 	knobId: "app_slider1_knob",
 	sliderTapArea: "app_slider1_tapArea",
-	sliderPopup: "app_slider1_popup"
+	sliderPopup: "app_slider1_popup",
+	tooltipId: "app_slider1_popupLabel"
 };
 
