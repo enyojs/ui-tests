@@ -31,6 +31,7 @@ describe(title, function() {
 			.delay(1000)
 			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain("display: none;")
 			.elementById(app.rightButton)
+			//wait for cursor to time out on webOS. 
 			.delay(10000)
 			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain("display: none;")
 			.nodeify(done);
