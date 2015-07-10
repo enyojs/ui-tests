@@ -35,7 +35,7 @@ describe(title, function() {
 			.delay(100)
 			.elementById(app.progressBarDigit)
 			//check to see if animating number is in between high and low number
-			.parseInt().should.be.eventually.within(app.lowNumber, app.highNumber)
+			.textAsInt().should.be.eventually.within(app.lowNumber, app.highNumber)
 			.elementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
@@ -58,7 +58,7 @@ describe(title, function() {
 			.delay(100)
 			.elementById(app.progressBarDigit)
 			//check to see if animating number is in between high and low number
-			.parseInt().should.be.eventually.within(app.lowNumber, app.highNumber)
+			.textAsInt().should.be.eventually.within(app.lowNumber, app.highNumber)
   			.elementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
