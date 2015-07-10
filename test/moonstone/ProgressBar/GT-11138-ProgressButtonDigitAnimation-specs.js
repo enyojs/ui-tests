@@ -33,8 +33,9 @@ describe(title, function() {
 			.elementById(app.setButton)
 			.click()
 			.delay(100)
-			.textToInt(app.progressBarDigit).should.eventually.within(app.lowNumber, app.highNumber)
-  			.waitForElementById(app.progressBarDigit)
+			.elementById(app.progressBarDigit)
+			.parseInt().should.eventually.within(app.lowNumber, app.highNumber)
+  			.elementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("99%")
 			.nodeify(done);
@@ -54,12 +55,13 @@ describe(title, function() {
 			.elementById(app.setButton)
 			.click()
 			.delay(100)
-			.textToInt(app.progressBarDigit).should.eventually.within(app.lowNumber, app.highNumber)
-  			.waitForElementById(app.progressBarDigit)
+			.elementById(app.progressBarDigit)
+			.parseInt().should.eventually.within(app.lowNumber, app.highNumber)
+  			.elementById(app.progressBarDigit)
 			.delay(500)
 			.enyoPropertyGet(app.progressBarDigit, 'content').should.eventually.equal("9%")
 			.nodeify(done);
-  });
+  	});
 });
 
 app = {
