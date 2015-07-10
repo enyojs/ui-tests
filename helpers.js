@@ -119,9 +119,9 @@ var helpers = module.exports = {
 			return this.browser.execute('arguments[0].scrollIntoView(true);', [{ELEMENT: this.value}]).then(function() { return _this; });
 		});
 
-		wd.addElementPromiseChainMethod('parseInt', function() {
+		wd.addElementPromiseChainMethod('parseInt', function() {			
 			return this
-				.getAttribute('innerText').then(function(res) {
+				.text().then(function(res) {				
 					return parseInt(res)
 				});
 		});
