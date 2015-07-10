@@ -41,7 +41,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-  	it("should animate digits in an downward count", function (done) {
+	it("should animate digits in an downward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
