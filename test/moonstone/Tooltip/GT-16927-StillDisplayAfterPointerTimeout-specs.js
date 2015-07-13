@@ -19,7 +19,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('Should not blink when cursor is moving up and down within button', function (done) {
+	it('Should have tooltip remain after pointer timeout', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
