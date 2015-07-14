@@ -19,7 +19,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it("Should dismiss Direct Popup with hide button", function (done) {
+	it("Should focus on button in popup", function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
@@ -48,7 +48,7 @@ describe(title, function() {
 });
 
 app = {
-	scrim	: "scrim",
+	scrim: "scrim",
 	buttonTapArea: "app_button_tapArea",
 	popupId: "app_buttonPopup",
 	helloButton: "app_button4"
