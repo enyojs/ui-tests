@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	url = 'ui-tests/test/loader.html?moonstone/Tooltip/GT-16927-StillDisplayAfterPointerTimeout',
-	title = 'Tooltip: Button Does Not Blink when Hovering Vertically',
+	title = 'Tooltip: Tooltip Displays after Pointer Times Out',
 	tags = ['moonstone', 'tooltip', 'qa'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
