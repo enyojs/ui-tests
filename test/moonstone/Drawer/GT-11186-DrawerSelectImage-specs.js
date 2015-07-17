@@ -40,7 +40,7 @@ describe(title, function() {
 			.enyoPropertyGet(app.pickerImageDrawer, 'style').should.eventually.not.contain("display: none;")
 			.elementById(app.htmlCheckbox)
 			.click()
-			.delay(1000)			
+			.delay(1000)
 			.enyoPropertyGet(app.drawerIcon, 'style').should.eventually.contain(app.html5Image)
 			.elementById(app.drawerIcon)
 			//check to make sure images don't overlap
