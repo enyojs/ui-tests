@@ -42,6 +42,4 @@ describe(title, function() {
 app = {
 	rightButton: "app_button",
 	rightTooltip: "app_toolTip",
-	appID: "app",
-	appControl: "app_control"
 };
