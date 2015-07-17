@@ -24,7 +24,7 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.appId)
-			.moveTo()			
+			.moveTo()
 			.elementById(app.modalButton)
 			.click()
 			.delay(1000)
@@ -32,7 +32,6 @@ describe(title, function() {
 			.elementById(app.averageButton)
 			.moveTo()
 			.delay(1000)
-			.elementById(app.averageButton)
 			.getClasses().should.eventually.not.contain("spotlight")
 			.enyoPropertyGet(app.popup, "style").should.eventually.not.contain("display: none;")
 			.nodeify(done);
