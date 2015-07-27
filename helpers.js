@@ -116,7 +116,7 @@ var helpers = module.exports = {
 
 		wd.addElementPromiseChainMethod('scrollIntoView', function() {
 			var _this = this;
-			return this.browser.execute('arguments[0].scrollIntoView({block: "end"});', [{ELEMENT: this.value}]).then(function() { return _this; });
+			return this.browser.execute('arguments[0].scrollIntoView(true);', [{ELEMENT: this.value}]).then(function() { return _this; });
 		});
 
 		wd.addElementPromiseChainMethod('textAsInt', function() {			
