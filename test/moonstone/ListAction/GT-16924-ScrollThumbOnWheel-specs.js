@@ -29,7 +29,7 @@ describe(title, function() {
 			.delay(2000)
 			.elementById(app.scrollPort)
 			.moveTo()
-			.scroll(-1000)
+			.mousewheel(-1000)
 			.elementById(app.scrollThumb)
 			.getClasses().should.eventually.not.contain("hidden")			
 			.nodeify(done);
