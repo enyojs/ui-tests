@@ -19,7 +19,6 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	//scroll only implemented in webOS
 	it("should show scroll thumb", function (done) {
 		browser
 			.setWindowSize(1920,1280)
