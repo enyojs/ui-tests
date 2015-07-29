@@ -72,6 +72,8 @@ The `helpers` module adds some promise chain methods specifically for testing En
 
 * `getClasses` - Element method that returns the classes as an array
 * `textAsInt` - Element method that runs parseInt on the current element's text
+* `getChild` - Element method that returns the the child of the element at a specific index. For example `getchild(0)` returns the 1st element/0th index
+* `getChildren` - Element method that returns all the children of that element.
 * `enyoPropertyGet` - Browser method that finds an enyo instance by id and returns the value of a property.
 * `enyoPropertySet` - Browser method that finds an enyo instance by id and sets the value of a property.
 

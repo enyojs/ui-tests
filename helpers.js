@@ -153,6 +153,24 @@ var helpers = module.exports = {
 				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;')
 			})
 		});
+
+		// //return all children
+		// wd.addElementPromiseChainMethod('getChildren', function() {
+		// 	var _this = this;
+
+		// 	return this.getAttribute('id').then(function(res){
+		// 		return _this.browser.execute('return document.getElementById("'+res+'").children');
+		// 	});
+		// });
+
+		// //return specific child index
+		// wd.addElementPromiseChainMethod('getChild', function(index) {
+		// 	var _this = this;
+
+		// 	return this.getAttribute('id').then(function(res){
+		// 		return _this.browser.execute('return document.getElementById("'+res+'").children["'+index+'"]');
+		// 	});
+		// });
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertyGet', function(id, prop) {
