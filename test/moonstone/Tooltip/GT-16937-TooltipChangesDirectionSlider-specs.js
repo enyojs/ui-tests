@@ -23,25 +23,34 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
-			.waitForElementById(app.appId)
-			.moveTo()
 			.waitForElementById(app.knobId)
 			.moveTo()
-			.delay(1000)
-			.buttonDown()			
+			.buttonDown()
 			.elementById(app.sliderTapArea)
-			.moveTo(905,20)
+			.moveTo(900,20)
 			.delay(1000)
 			.elementById(app.tooltipId)
-			.getClasses().should.eventually.contain("moon-slider-popup-flip-h")
+			.elementById(app.knobId)
+			.moveTo()
+			.buttonDown()
 			//make sure tooltip displays
-			.enyoPropertyGet(app.sliderPopup, "style").should.eventually.not.contain("display: none;")
-			.elementById(app.sliderTapArea)
-			.moveTo(880,20)
-			.delay(1000)
 			.elementById(app.tooltipId)
-			.getClasses().should.eventually.not.contain("moon-slider-popup-flip-h")
-
+			.getClasses().should.eventually.contain(app.flipClass)
+			.elementById(app.sliderPopup)
+			.getAttribute("style").should.eventually.not.contain("display: none;")
+			
+			.elementById(app.sliderTapArea)
+			.moveTo(800,20)
+			.delay(1000)
+			.elementById(app.knobId)
+			.moveTo()
+			.buttonDown()
+			//make sure tooltip displays
+			.elementById(app.tooltipId)
+			.getClasses().should.eventually.not.contain(app.flipClass)
+			.elementById(app.sliderPopup)
+			.getAttribute("style").should.eventually.not.contain("display: none;")
+			.buttonUp()
 			.nodeify(done);
 	});
 
@@ -52,6 +61,6 @@ app = {
 	knobId: "app_slider1_knob",
 	sliderTapArea: "app_slider1_tapArea",
 	sliderPopup: "app_slider1_popup",
-	tooltipId: "app_slider1_popupLabel"
+	tooltipId: "app_slider1_popupLabel",
+	flipClass: "moon-slider-popup-flip-h"
 };
-
