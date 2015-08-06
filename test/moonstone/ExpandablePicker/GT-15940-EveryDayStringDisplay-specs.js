@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/ExpandablePicker/GT-15940-DaysStringDisplay',
+	url = 'ui-tests/test/loader.html?moonstone/ExpandablePicker/GT-15940-EveryDayStringDisplay',
 	title = 'DayPicker: "Every Day" String Displays',
 	tags = ['moonstone', 'qa', 'DayPicker'];	// Tags show up in SauceLabs test output
 
@@ -19,7 +19,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should clear time when time set to null', function (done) {
+	it('should display "Every Day" when all days are checked', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)

@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.GT-15940-DaysStringDisplay",
+	name: "test.GT-15940-EveryDayStringDisplay",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
 		{kind: "moon.Panels", pattern: "activity", classes: "enyo-fit", components: [
