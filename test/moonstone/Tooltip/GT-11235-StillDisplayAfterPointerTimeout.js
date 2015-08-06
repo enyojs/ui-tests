@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.GT-16927-StillDisplayAfterPointerTimeout",
+	name: "test.GT-11235-StillDisplayAfterPointerTimeout",
 	kind: "FittableRows",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
