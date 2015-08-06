@@ -23,10 +23,12 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
-			.waitForElementById(app.dayPicker)
+			.waitForElementById(app.dayPickerHeader)
 			.click()
 			.delay(500)
-			.waitForElementById(app.sundayId)
+			.elementById(app.dayPicker)
+			.getClasses().should.eventually.contain("open")
+			.elementById(app.sundayId)
 			.click()
 			.delay(500)
 			.elementById(app.mondayId)
@@ -47,7 +49,7 @@ describe(title, function() {
 			.elementById(app.saturdayId)
 			.click()
 			.delay(500)
-			.elementById(app.dayPicker)
+			.elementById(app.dayPickerHeader)
 			.click()
 			.delay(500)
 			.elementById(app.currentValueString)
@@ -58,7 +60,8 @@ describe(title, function() {
 });
 
 app = {
-	dayPicker: "app_dayPicker_headerWrapper",
+	dayPicker: "app_dayPicker",
+	dayPickerHeader: "app_dayPicker_headerWrapper",
 	sundayId: "app_dayPicker_checkboxItem",
 	mondayId: "app_dayPicker_checkboxItem2",
 	tuesdayId: "app_dayPicker_checkboxItem3",
