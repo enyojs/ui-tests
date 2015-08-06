@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/Tooltip/GT-16927-StillDisplayAfterPointerTimeout',
+	url = 'ui-tests/test/loader.html?moonstone/Tooltip/GT-11235-StillDisplayAfterPointerTimeout',
 	title = 'Tooltip: Tooltip Displays after Pointer Times Out',
 	tags = ['moonstone', 'tooltip', 'qa'];	// Tags show up in SauceLabs test output
 

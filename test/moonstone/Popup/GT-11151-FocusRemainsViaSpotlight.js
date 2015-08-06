@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.GT-16929-FocusRemainsViaSpotlight",
+	name: "test.GT-11151-FocusRemainsViaSpotlight",
 	classes: "moon enyo-unselectable enyo-fit",
 	components: [
 		{kind: "moon.Divider", content: "Popups"},
