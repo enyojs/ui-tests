@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.GT-16924-ScrollThumbOnWheel",
+	name: "test.GT-13619-ScrollThumbOnWheel",
 	kind: "moon.Panels",
 	pattern: "activity",
 	classes: "moon enyo-unselectable enyo-fit",

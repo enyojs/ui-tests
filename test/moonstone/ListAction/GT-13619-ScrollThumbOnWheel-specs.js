@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/ListAction/GT-16924-ScrollThumbOnWheel',
+	url = 'ui-tests/test/loader.html?moonstone/ListAction/GT-13619-ScrollThumbOnWheel',
 	title = 'ListActions: Scroll Thumb Displays upon Wheeling',
 	tags = ['moonstone', 'qa', 'list', 'list action', 'scroll'];	// Tags show up in SauceLabs test output
 
