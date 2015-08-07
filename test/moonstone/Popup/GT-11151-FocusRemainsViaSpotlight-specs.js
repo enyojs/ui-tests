@@ -2,7 +2,7 @@ var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/Popup/GT-16929-FocusRemainsViaSpotlight',
+	url = 'ui-tests/test/loader.html?moonstone/Popup/GT-11151-FocusRemainsViaSpotlight',
 	title = 'GT-16929 Popup: Focus remains in popup via Spotlight events',
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 

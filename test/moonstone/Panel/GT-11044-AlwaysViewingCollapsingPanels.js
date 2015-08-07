@@ -1,5 +1,5 @@
 enyo.kind({
-	name: "test.GT-16934-AlwaysViewingCollapsingPanels",
+	name: "test.GT-11044-AlwaysViewingCollapsingPanels",
 	classes: "moon enyo-fit enyo-unselectable",
 	style: "background: gray url('http://lorempixel.com/1920/1080/')",
 	components: [

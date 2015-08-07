@@ -1,5 +1,5 @@
 enyo.kind({
-	name: 'test.GT-16935-ContextualPopupDisabledSpotlight',
+	name: 'test.GT-10193-ContextualPopupDisabledSpotlight',
 	classes: 'moon enyo-unselectable enyo-fit',
 	components: [
 		{
