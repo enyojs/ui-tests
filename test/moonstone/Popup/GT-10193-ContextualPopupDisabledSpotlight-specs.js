@@ -3,7 +3,7 @@ var helpers = rootRequire("./helpers"),
 
 var base = 'http://localhost:3000/',
 	url = 'ui-tests/test/loader.html?moonstone/Popup/GT-10193-ContextualPopupDisabledSpotlight',
-	title = 'GT-16935 ContextualPopup: Buttons Do Not Spot outside of SpotlightModal',
+	title = 'ContextualPopup: Buttons Do Not Spot outside of SpotlightModal',
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
