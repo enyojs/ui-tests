@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/Tooltip/GT-16937-TooltipChangesDirectionSlider',
+	url = 'ui-tests/test/loader.html?moonstone/Tooltip/GT-11069-TooltipChangesDirectionSlider',
 	title = 'Tooltip: Slider-Tooltip Direction Changes from Drag',
 	tags = ['moonstone', 'qa', 'slider', 'tooltip'];	// Tags show up in SauceLabs test output
 

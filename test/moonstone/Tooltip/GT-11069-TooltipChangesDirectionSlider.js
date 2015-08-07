@@ -1,6 +1,6 @@
 enyo.kind({
 	kind: "FittableRows",
-	name: "test.GT-16937-TooltipChangesDirectionSlider",
+	name: "test.GT-11069-TooltipChangesDirectionSlider",
 	classes: "moon enyo-unselectable enyo-fit",
 	bindings: [
 		{from: ".$.slider1.value", to:".$.slider2.value"},
