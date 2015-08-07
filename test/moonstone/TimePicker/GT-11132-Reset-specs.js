@@ -27,9 +27,11 @@ describe(title, function() {
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.equal(null, 'starts empty')
 			.elementById(app.pickerID)
 				.click()
+			.delay(100)
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.not.equal(null, 'filled on selection')
 			.elementById(app.resetID)
 				.click()
+			.delay(100)
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.equal(null, 'cleared on reset')
 			.enyoPropertyGet(app.pickerID, 'open').should.eventually.equal(false, 'closed on reset')
 			.nodeify(done);
