@@ -3,7 +3,7 @@ var helpers = rootRequire("./helpers"),
 
 var base = 'http://localhost:3000/',
 	url = 'ui-tests/test/loader.html?moonstone/Panel/GT-11044-AlwaysViewingCollapsingPanels',
-	title = 'GT-16934 AlwaysViewingPanels - Collapsing Panels',
+	title = 'AlwaysViewingPanels - Collapsing Panels',
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
