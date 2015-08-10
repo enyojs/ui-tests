@@ -154,18 +154,18 @@ var helpers = module.exports = {
 			});
 		});
 
-		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
-			var _this = this;
-			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;');
-			});
-		});
-
 		//Returns top element from an elements center coordinates. Helps us find top element in picker scroller.
 		wd.addElementPromiseChainMethod('getTopElementText', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
 				return _this.browser.execute('function getTopElement(id){ var el = document.getElementById(id); var rect = el.getBoundingClientRect(); var x = (rect.left + rect.right) / 2; var y = (rect.top + rect.bottom) / 2; return document.elementFromPoint(x, y).innerHTML; } return getTopElement("'+id+'")');
+			});
+		});
+
+		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
+			var _this = this;
+			return this.getAttribute('id').then(function(id){
+				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;');
 			});
 		});
 
