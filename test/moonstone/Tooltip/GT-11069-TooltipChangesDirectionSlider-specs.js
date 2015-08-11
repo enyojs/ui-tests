@@ -19,13 +19,13 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should clear time when time set to null', function (done) {
+	it('should change tooltip direction', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(url)
 			.waitForElementById(app.knobId)
 			.moveTo()
-			.buttonDown()			
+			.buttonDown()
 			.elementById(app.sliderPopup)
 			.getAttribute("style").should.eventually.not.contain("display: none;")
 			.elementById(app.sliderPopup).text().should.eventually.equal("25")
@@ -42,9 +42,9 @@ describe(title, function() {
 			.elementById(app.tooltipId)
 			.getClasses().should.eventually.contain(app.flipClass)
 			.elementById(app.sliderPopup)
-			.getAttribute("style").should.eventually.not.contain("display: none;")						
+			.getAttribute("style").should.eventually.not.contain("display: none;")
 			.elementById(app.sliderTapArea)
-			.moveTo(800,20)			
+			.moveTo(800,20)
 			.buttonDown()
 			.buttonUp()
 			.delay(1000)
