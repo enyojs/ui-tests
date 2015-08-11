@@ -28,10 +28,9 @@ describe(title, function() {
 			.delay(2000)
 			.elementById(app.scrollPort)
 			.moveTo()
-			.elementById(app.scrollPort)
-			.mousewheel(500)					
+			.mousewheel(500)
 			.elementById(app.scrollThumb)
-			.getClasses().should.eventually.not.contain("hidden")			
+			.getClasses().should.eventually.not.contain("hidden")
 			.nodeify(done);
 	});
 });
