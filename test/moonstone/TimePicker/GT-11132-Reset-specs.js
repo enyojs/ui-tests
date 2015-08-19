@@ -2,16 +2,16 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	src = 'ui-tests/test/moonstone/TimePicker/GT-11132-Reset.js',
+	path = 'test/moonstone/TimePicker/GT-11132-Reset',
 	title = 'Time Picker: Reset Time',
 	tags = ['moonstone', 'qa', 'TimePicker'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
-	var browser, url;
+	var browser;
 
 	before(function(done) {
+		helpers.epack(path);
 		browser = helpers.initBrowser(title, tags, base, done);
-		url = helpers.epack(src);
 	});
 
 	after(function(done) {
@@ -23,14 +23,16 @@ describe(title, function() {
 	it('should clear time when time set to null', function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(base + 'ui-tests/dist')
 			.waitForElementById(app.pickerID)
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.equal(null, 'starts empty')
 			.elementById(app.pickerID)
 				.click()
+			.delay(50)
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.not.equal(null, 'filled on selection')
 			.elementById(app.resetID)
 				.click()
+			.delay(50)
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.equal(null, 'cleared on reset')
 			.enyoPropertyGet(app.pickerID, 'open').should.eventually.equal(false, 'closed on reset')
 			.nodeify(done);
