@@ -16,6 +16,7 @@ try {
 
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
+var shelljs = require('shelljs');
 
 var helpers = module.exports = {
 	wd: wd,
@@ -119,16 +120,16 @@ var helpers = module.exports = {
 			return this.browser.execute('arguments[0].scrollIntoView(true);', [{ELEMENT: this.value}]).then(function() { return _this; });
 		});
 
-		wd.addElementPromiseChainMethod('textAsInt', function() {			
+		wd.addElementPromiseChainMethod('textAsInt', function() {
 			return this
-				.text().then(function(res) {				
-					return parseInt(res)
+				.text().then(function(res) {
+					return parseInt(res);
 				});
 		});
 
-		wd.addElementPromiseChainMethod('mousewheel', function(scrollAmount) {			
+		wd.addElementPromiseChainMethod('mousewheel', function(scrollAmount) {
 			var _this = this;
-			return this.getAttribute("id").then(function(res){				
+			return this.getAttribute("id").then(function(res){
 				return _this.browser.execute("function wheel(){}view = document.getElementById('"+res+"');view.addEventListener('DOMMouseScroll',wheel,!1),window.ChromeWheel=function(){var e=document.createEvent('MouseEvents');e.initMouseEvent('DOMMouseScroll',!0,!0,window,"+scrollAmount+",0,0,0,0,0,0,0,0,0,null),view.dispatchEvent(e)};ChromeWheel()"
 				)
 			})
@@ -136,17 +137,30 @@ var helpers = module.exports = {
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertyGet', function(id, prop) {
-			return this.execute('return enyo.$["' + id + '"].get("' + prop + '");');
+			return this.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["' + id + '"].get("' + prop + '");');
 		});
 
 		// Sets the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
-			return this.execute('enyo.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
+			return this.execute('dispatcher = require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
+	},
+	// Runs the enyo pack command to generate output
+	epack: function(module) {
+		var libpath = 'lib',
+			command = 'enyo pack --script-safe --clean --paths=' + libpath + ' -d dist ' + module;
 
-
-
+		try {
+			var result = shelljs.exec(command, {silent: true});
+			if(result.code !== 0) {
+					console.log('Error running enyo pack:');
+					console.log(result.output);
+			} else { console.log(result.output); }
+		} catch(err) {
+			console.log("enyo pack exec failure");
+			console.log(err);
+		}
 	},
 	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
 	keys: wd.SPECIAL_KEYS
