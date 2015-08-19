@@ -42,7 +42,8 @@
     "chai-as-promised": "latest",
     "lodash": "latest",
     "colors": "latest",
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+	"shelljs": "latest"
   },
   "optionalDependencies": {
     "webos-wdjs-adapter": "git+ssh://gpro.lgsvl.com:29418/webos-pro/webos-wdjs-adapter"
