@@ -14,9 +14,9 @@ install:
     - cd enyo-dev
     - npm install
     - npm link
-    - cd ../ui-tests
-    - enyo init
     - cd ..
+    - npm install
+    - enyo init
 before_script:
     - serve -L &
 script:
