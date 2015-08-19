@@ -10,9 +10,8 @@ env:
 install:
     - npm -g install mocha grunt-cli serve
     - echo -e "\x1b\x5b35;1m*** Checking out Enyo dev tools\x1b\x5b0m"
-    - git clone --depth 1 https://github.com/enyojs/enyo-dev.git enyo-dev
+    - git clone --depth 1 -b remove-nodegit --single-branch https://github.com/enyojs/enyo-dev.git enyo-dev
     - cd enyo-dev
-    - git checkout remove-nodegit
     - npm install
     - npm link
     - cd ..
