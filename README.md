@@ -42,7 +42,7 @@ If you want to run the local tests through selenium then you'll need to be sure 
 java -jar selenium-server-standalone-2.42.2.jar -Dwebdriver.chromeriver=chromedriver
 ```
 
-Finally, the tests assume there is a web server running on port 3000 and that the root contains Enyo, the required libraries in *lib*, and the *ui-tests* directory.
+Finally, the tests assume there is a web server running on port 3000 and that the root contains the *ui-tests* directory. Initialize the enyo libraries by excecuting the `enyo init` command within the *ui-tests* directory.
 
 These tests are intended to be run as a Travis CI task.
 

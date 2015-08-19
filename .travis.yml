@@ -9,19 +9,14 @@ env:
       - secure: PEgAZikBNY1sI6j8NZ+wFQOJQa5xNY1XOryGNgfytN9rbY7WvYYiS4aXMSKfjUjtDjRcFIzskYfOLaYPPlaa928Kzo9zdZx8A55Aa/UcKdx4pze9IuaCtzUMtwuuZM8FTUiO+tmOUQJ46PN1X36Yh4CFF7BlZFynGerUwkoo3h4=
 install:
     - npm -g install mocha grunt-cli serve
-    - echo -e "\x1b\x5b35;1m*** Checking out Enyo\x1b\x5b0m"
-    - git clone --depth 1 https://github.com/enyojs/enyo.git enyo
-    - mkdir lib
-    - echo -e "\x1b\x5b35;1m*** Checking out Moonstone\x1b\x5b0m"
-    - git clone --depth 1 https://github.com/enyojs/moonstone.git lib/moonstone
-    - echo -e "\x1b\x5b35;1m*** Checking out Layout\x1b\x5b0m"
-    - git clone --depth 1 https://github.com/enyojs/layout.git lib/layout
-    - echo -e "\x1b\x5b35;1m*** Checking out iLib\x1b\x5b0m"
-    - git clone --depth 1 https://github.com/enyojs/enyo-ilib.git lib/enyo-ilib
-    - echo -e "\x1b\x5b35;1m*** Checking out Spotlight\x1b\x5b0m"
-    - git clone --depth 1 https://github.com/enyojs/spotlight.git lib/spotlight
-    - echo -e "\x1b\x5b35;1m*** Installing npm modules\x1b\x5b0m"
+    - echo -e "\x1b\x5b35;1m*** Checking out Enyo dev tools\x1b\x5b0m"
+    - git clone --depth 1 https://github.com/enyojs/enyo-dev.git enyo-dev
+    - cd enyo-dev
     - npm install
+    - npm link
+    - cd ../ui-tests
+    - enyo init
+    - cd ..
 before_script:
     - serve -L &
 script:
