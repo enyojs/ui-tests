@@ -23,7 +23,7 @@ describe(title, function() {
 	it("should test description", function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(base + 'ui-tests/dist')
+			.get('ui-tests/dist')
 			.nodeify(done);
 	});
 

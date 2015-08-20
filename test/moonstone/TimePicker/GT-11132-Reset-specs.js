@@ -23,7 +23,7 @@ describe(title, function() {
 	it('should clear time when time set to null', function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(base + 'ui-tests/dist')
+			.get('ui-tests/dist')
 			.waitForElementById(app.pickerID)
 			.enyoPropertyGet(app.pickerID, 'value').should.eventually.equal(null, 'starts empty')
 			.elementById(app.pickerID)
