@@ -3,6 +3,7 @@ node_js:
     - "0.12"
 addons:
     sauce_connect: true
+sudo: false
 env: 
   global: 
       - secure: AmG4KmgELDGWeYjQ2BNGRG/yuhwDdVPdLekr/paySTL320CxcFY7aPJPht9iSytmq95N5fbF/6I7aqEZg5SoVuaPi81a8xvj/SCeV0dE0nzHV/EwadgdkOSxZ8+ctbN1hVOrcBLsPMOrVPaWP9zBCRAC5Q1TOE/r+N0BrQMhahA=
@@ -22,5 +23,6 @@ before_script:
 script:
     - echo -e "\x1b\x5b35;1m*** Starting tests...\x1b\x5b0m"
     - grunt test:sauce:chrome
+    - find . -name dist
     - echo -e "\x1b\x5b35;1m*** Tests complete\x1b\x5b0m"
 
