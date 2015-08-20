@@ -66,12 +66,14 @@ These tests are intended to be run as a Travis CI task.
 The `helpers` module adds some promise chain methods specifically for testing Enyo. Currently, these methods include:
 
 * `getClasses` - Element method that returns the classes as an array
+* `textAsInt` - Element method that runs parseInt on the current element's text
 * `enyoPropertyGet` - Browser method that finds an enyo instance by id and returns the value of a property.
 * `enyoPropertySet` - Browser method that finds an enyo instance by id and sets the value of a property.
 
 There is also a general method to scroll elements into view:
 
 * `scrollIntoView` - Element method that calls scrollIntoView on the supplied element
+* `mousewheel` - Element method that simulates a mouse scroll. Use a positive number to scroll down and a negative number to scroll up
 
 Additionally, the `helpers` library includes a `keys` property that contains keycodes from `wd.SPECIAL_KEYS` as well as some Spotlight specific keys (`SpotlightDown`, `SpotlightSelect`, etc.).
 
