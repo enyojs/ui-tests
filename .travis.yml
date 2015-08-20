@@ -21,6 +21,6 @@ before_script:
     - serve -L &
 script:
     - echo -e "\x1b\x5b35;1m*** Starting tests...\x1b\x5b0m"
-    - grunt test:sauce:parallel
+    - grunt test:sauce:chrome
     - echo -e "\x1b\x5b35;1m*** Tests complete\x1b\x5b0m"
 
