@@ -2,14 +2,16 @@ var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/Popup/GT-11155-DirectPopupHide',
+	path = 'test/moonstone/Popup/GT-11155-DirectPopupHide',
 	title = 'Popup: Direct Popup dismisses with Hide button',
+	directory = "ui-tests/dist",
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
+		helpers.epack(path);
 		browser = helpers.initBrowser(title, tags, base, done);
 	});
 
@@ -22,7 +24,7 @@ describe(title, function() {
 	it("Should dismiss Direct Popup with hide button", function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(directory)
 			//Click on Direct Popup to activate popup
 			.waitForElementById(app.DirectPopUpButtonId)
 			.elementById(app.DirectPopUpButtonId)
@@ -47,9 +49,11 @@ describe(title, function() {
 
 });
 
+
+
 app = {
-	DirectPopUpButtonId: "app_button_tapArea",
-	HideDirectPopupButtonId: "app_button2_tapArea",
-	DirectPopupId: "app_directPopup",
+	DirectPopUpButtonId: "gT-11155-DirectPopupHide_button",
+	HideDirectPopupButtonId: "gT-11155-DirectPopupHide_button2",
+	DirectPopupId: "gT-11155-DirectPopupHide_directPopup",
 	appLayer: "floatingLayer"
 };
