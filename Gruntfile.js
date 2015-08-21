@@ -8,6 +8,7 @@ var _ = require('lodash');
 
 var desireds = rootRequire('desireds');
 var local_desireds = rootRequire('local_desireds');
+var testGenerator = rootRequire('test_generator/create_test.js');
 var globalConfig = {};
 
 var gruntConfig = {
@@ -108,5 +109,11 @@ module.exports = function(grunt) {
 			globalConfig.file = filename;
 			grunt.task.run('simplemocha:spec');
 		});
+	});
+
+	grunt.registerTask('generate:test', function(){
+		//forces grunt to wait for task to finish.
+		var done = this.async();
+		testGenerator.createTest(done);
 	});
 };
