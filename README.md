@@ -82,6 +82,22 @@ There is also a general method to scroll elements into view:
 
 Additionally, the `helpers` library includes a `keys` property that contains keycodes from `wd.SPECIAL_KEYS` as well as some Spotlight specific keys (`SpotlightDown`, `SpotlightSelect`, etc.).
 
+## Gotchas
+Most things work intuitively, but some code requires a work around for it work as intended
+#### Spotlight
+To have a spotlight show up you must use multiple `moveTo()` statements. The reason is because webdriver will not focus on an element on the first move. In chrome we must use 3 moves and in webOS we can use 2 moves. So we'll just use three moves to keep things safe.
+```
+// bad - this will not cause spotlight
+.elementById(app.elementId)
+.moveTo()
+
+// good - this will cause spotlight to showup
+.elementById(app.elementId)
+.moveTo()
+.moveTo(10,10)
+.moveTo(20,20)
+```
+
 ## Test Examples
 
 The *test/qa* directory contains several tests that serve as examples. In particular, GT-13635, GT-13891, and GT-13913. For more information on the methods available for testing, refer to the [wd.js repo](https://github.com/admc/wd).
