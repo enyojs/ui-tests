@@ -23,7 +23,7 @@ describe(title, function() {
 	it('Should not loop hours while the minute picker loops', function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get("ui-tests/dist")
+			.get('ui-tests/dist')
 			.waitForElementById(app.timePickerID)
 			.elementById(app.timePickerID)
 			.click()
@@ -41,7 +41,7 @@ describe(title, function() {
 });
 
 app = {
-	appId: "gT-11141-DoesNotLoop",
+	appId: 'gT-11141-DoesNotLoop',
 	timePickerID: 'gT-11141-DoesNotLoop_pickerTimeLinked',
 	hourUpArrowID: 'gT-11141-DoesNotLoop_pickerTimeLinked_hour_nextOverlay',
 	minuteUpArrowID: 'gT-11141-DoesNotLoop_pickerTimeLinked_minute_nextOverlay'
