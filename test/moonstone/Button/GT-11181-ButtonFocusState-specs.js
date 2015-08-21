@@ -1,16 +1,17 @@
 var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
-var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/Button/GT-11181-ButtonFocusState',
-	title = 'Button: "Selected + Focus" State displays after pointer timeout',
+var base = 'http://localhost:3000/',	
+	path = 'test/moonstone/Button/GT-11181-ButtonFocusState',
+	title = 'Button: \'Selected + Focus\' State displays after pointer timeout',
+	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'button'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {
@@ -19,11 +20,10 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-
-	it("should maintain selected and focus state after pointer times out", function (done) {
+	it('should maintain selected and focus state after pointer times out', function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(directory)
 			//start cursor on app_divider
 			.waitForElementById(app.appDivider)
 			.moveTo()
@@ -66,8 +66,8 @@ describe(title, function() {
 });
 
 app = {
-	appleButtonID: 'app_appleButton',
-	bananaButtonID: 'app_bananaButton',
-	appDivider: 'app_divider',
-	appID: 'app'
+	appleButtonID: 'gT-11181-ButtonFocusState_appleButton',
+	bananaButtonID: 'gT-11181-ButtonFocusState_bananaButton',
+	appDivider: 'gT-11181-ButtonFocusState_divider',
+	appID: 'gT-11181-ButtonFocusState'
 };
