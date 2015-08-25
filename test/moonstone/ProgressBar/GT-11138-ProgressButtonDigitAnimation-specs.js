@@ -11,8 +11,7 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		helpers.epack(path);
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {
