@@ -7,8 +7,8 @@ if(locale) {
 	i18n.updateLocale(locale);
 }
 
-module.exports = function(testKind)  {
+module.exports = function(TestKind)  {
 	ready(function() {
-		new testKind().renderInto(document.body);
+		new TestKind().renderInto(document.body);
 	});
 };
