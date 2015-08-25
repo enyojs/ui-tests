@@ -4,6 +4,7 @@ var helpers = rootRequire('./helpers'),
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-11141-DoesNotLoop',
 	title = 'Time Picker: Does Not Loop',
+	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'TimePicker', 'qa'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
@@ -23,7 +24,7 @@ describe(title, function() {
 	it('Should not loop hours while the minute picker loops', function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get('ui-tests/dist')
+			.get(directory)
 			.waitForElementById(app.timePickerID)
 			.elementById(app.timePickerID)
 			.click()
