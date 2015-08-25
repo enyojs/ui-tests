@@ -18,16 +18,29 @@ var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
 var shelljs = require('shelljs');
 
+var fakeBrowser = {
+	quit: function() {
+		return wd.Q(true);
+	}
+};
+
 var helpers = module.exports = {
 	wd: wd,
 	// initBrowser sets up the browser object that forms the base of the test integration
+	//  On error, it will abort the test and return a dummy browser object.
 	// arguments: title - A string representing the title of the test
 	//            tags - an array of strings for SauceLabs
 	//            baseUrl - base URL for configuring HTTP
+	//            path - Path to test JS file directory for packaging
 	//            done - a callback to be handled when initialization complete
 	// returns:   browser - a reference to the browser object
-	initBrowser: function (title, tags, baseUrl, done) {
+	initBrowser: function (title, tags, baseUrl, path, done) {
 		var browser, desired;
+
+		if(!this.epack(path)) {
+			done(new Error('enyo pack error'));
+			return fakeBrowser;
+		}
 
 		chai.use(chaiAsPromised);
 		chai.should();
@@ -156,11 +169,14 @@ var helpers = module.exports = {
 			if(result.code !== 0) {
 					console.log('Error running enyo pack:');
 					console.log(result.output);
+					return false;
 			} else { console.log(result.output); }
 		} catch(err) {
 			console.log("enyo pack exec failure");
 			console.log(err);
+			return false;
 		}
+		return true;
 	},
 	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
 	keys: wd.SPECIAL_KEYS
