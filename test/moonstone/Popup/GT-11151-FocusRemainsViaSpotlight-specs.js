@@ -1,16 +1,17 @@
 var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
-var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/Popup/GT-11151-FocusRemainsViaSpotlight',
+var base = 'http://localhost:3000/',	
+	path = 'test/moonstone/Popup/GT-11151-FocusRemainsViaSpotlight',
 	title = 'Popup: Focus remains in popup via Spotlight events',
+	directory = 'ui-tests/dist',
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {
@@ -18,11 +19,10 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
-
 	it("Should focus on button in popup", function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(directory)
 			.waitForElementById(app.buttonTapArea)
 			.click()
 			.delay(1000)
@@ -49,7 +49,7 @@ describe(title, function() {
 
 app = {
 	scrim: "scrim",
-	buttonTapArea: "app_button_tapArea",
-	popupId: "app_buttonPopup",
-	helloButton: "app_button4"
+	buttonTapArea: "gT-11151-FocusRemainsViaSpotlight_button",
+	popupId: "gT-11151-FocusRemainsViaSpotlight_buttonPopup",
+	helloButton: "gT-11151-FocusRemainsViaSpotlight_button4"
 };

@@ -4,15 +4,14 @@ var helpers = rootRequire("./helpers"),
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ProgressBar/GT-11138-ProgressButtonDigitAnimation',
 	title = 'ProgressButton: Digits animates up/downward in Simple Progress Button',
-	directory = 'ui-tests/dist'
+	directory = 'ui-tests/dist',
 	tags = ['sample', 'Progess Button', 'Animation'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		helpers.epack(path);
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {

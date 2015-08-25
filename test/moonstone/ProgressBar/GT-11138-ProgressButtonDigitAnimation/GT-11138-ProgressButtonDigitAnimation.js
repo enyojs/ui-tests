@@ -34,7 +34,7 @@ var
 			{from: '$.animateSetting.checked', to: '$.autoDownload.animated'},
 			{from: '$.animateSetting.checked', to: '$.progressButton.animated'}
 		],
-		changeValue: function(inSender, inEvent) {
+		changeValue: function() {
 			if (this.$.animateSetting.getChecked()) {
 				this.$.progressButton.animateProgressTo(this.$.input.getValue());
 			} else {
