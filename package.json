@@ -1,5 +1,10 @@
 {
   "name": "ui-tests",
+  "assets": [],
+  "devAssets": [],
+  "styles": [],
+  "main": "lib/ui-tests",
+  "moduleDir": "lib",
   "description": "Enyo UI tests",
   "version": "0.1.0",
   "homepage": "http://enyojs.com",
@@ -24,7 +29,6 @@
       "url": "http://enyojs.com/blob/master/LICENSE-2.0"
     }
   ],
-  "main": "lib/ui-tests",
   "engines": {
     "node": ">= 0.10.0"
   },
@@ -43,7 +47,7 @@
     "lodash": "latest",
     "colors": "latest",
     "grunt": "~0.4.5",
-	"shelljs": "latest"
+    "shelljs": "latest"
   },
   "optionalDependencies": {
     "webos-wdjs-adapter": "git+ssh://gpro.lgsvl.com:29418/webos-pro/webos-wdjs-adapter"
