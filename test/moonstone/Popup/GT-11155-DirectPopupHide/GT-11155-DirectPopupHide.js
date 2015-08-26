@@ -1,22 +1,21 @@
 var
-	kind = require('enyo/kind');
+	kind = require('enyo/kind'),
 	Button = require('moonstone/Button'),
 	Divider = require('moonstone/Divider'),
 	Popup = require('moonstone/Popup'),
-	ToggleButton = require('moonstone/ToggleButton'),
 	load = require('../../../load'),
 	Test = kind({
-		name: "test.GT-11155-DirectPopupHide",
-		classes: "moon enyo-unselectable enyo-fit",
+		name: 'test.GT-11155-DirectPopupHide',
+		classes: 'moon enyo-unselectable enyo-fit',
 		components: [
-			{kind: Divider, content: "Popups"},
-			{classes: "moon-hspacing moon-vspacing-s", components: [
-				{kind: Button, content: "Direct Popup", ontap: "showPopup", popup: "directPopup", direct: true}
+			{kind: Divider, content: 'Popups'},
+			{classes: 'moon-hspacing moon-vspacing-s', components: [
+				{kind: Button, content: 'Direct Popup', ontap: 'showPopup', popup: 'directPopup', direct: true}
 			]},
-			// The directPopup only works when we programmatically call "showDirect" or "hideDirect". So, we set autoDismiss as false here.
-			{name: "directPopup", kind: Popup, autoDismiss: false, components: [
-				{content: "Direct Popup"},
-				{kind: Button, content: "Hide Direct", ontap: "hidePopup", popup: "directPopup", direct: true}
+			// The directPopup only works when we programmatically call 'showDirect' or 'hideDirect'. So, we set autoDismiss as false here.
+			{name: 'directPopup', kind: Popup, autoDismiss: false, components: [
+				{content: 'Direct Popup'},
+				{kind: Button, content: 'Hide Direct', ontap: 'hidePopup', popup: 'directPopup', direct: true}
 			]}
 		],
 		popupActivator: null,
