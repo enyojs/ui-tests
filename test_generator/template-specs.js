@@ -2,10 +2,10 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	path = 'test/moonstone/path/to/test',
-	title = 'Skeleton Test',
+	path = filePath,
+	title = skeletonTest,
 	directory = 'ui-tests/dist',
-	tags = ['sample'];	// Tags show up in SauceLabs test output
+	tags = specTags;	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
@@ -20,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should test description', function (done) {
+	it(behavior , function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)

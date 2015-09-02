@@ -7,6 +7,6 @@ module.exports = {
 	explorer: {browserName: 'internet explorer'},
 	webOS: {
 		webOS: true,
-		appId: 'com.webos.app.smartshare'
+		appId: 'com.webos.app.channeledit'
 	}
 };

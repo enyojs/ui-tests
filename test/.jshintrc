@@ -1,24 +1,33 @@
 {
+    "globals": {
+        "rootRequire": false,
+        // Mocha
+        "describe"   : false,
+        "xdescribe"  : false,
+        "it"         : false,
+        "xit"        : false,
+        "before"     : false,
+        "beforeEach" : false,
+        "after"      : false,
+        "afterEach"  : false,
+        "expect"     : false,
+        "sinon"      : false,
+        "JSON": false
+    },
+    "browser": true,
     "curly": true,
-    "eqeqeq": true,
     "immed": true,
+    "trailing": false,
     "latedef": true,
     "newcap": true,
     "noarg": true,
     "sub": true,
+    "laxbreak": true,
+    "laxcomma": true,
+    "indent": 4,
     "undef": true,
     "unused": true,
-    "boss": true,
     "eqnull": true,
     "node": true,
-    "globals": {
-        "describe": true,
-        "it": true,
-        "before": true,
-        "after": true,
-        "afterEach": true,
-        "beforeEach": true,
-        "enyo": true,
-        "rootRequire": true
-    }
+    "expr": true
 }

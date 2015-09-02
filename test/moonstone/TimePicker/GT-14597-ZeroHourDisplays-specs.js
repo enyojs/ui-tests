@@ -31,12 +31,12 @@ describe(title, function() {
 				.execute('return ilib.getLocale()').should.eventually.equal('fr-FR')
 				.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
 
-				.waitForElementById(app.timePickerID)
 				.execute('enyo.$["app"].set("value", new Date("Mar 08 2015 23:59"));')
 				.elementById(app.timePickerID)
 				.click()
 				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
+				.delay(800)
 				.execute(app.getVisibleScrollerText, [app.hourPickerID]).should.eventually.equal('00')
 
 				.nodeify(done);
@@ -60,6 +60,7 @@ describe(title, function() {
 				.click()
 				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
+				.delay(800)
 				.execute('return enyo.$["app"].get("value").getHours()').should.eventually.equal(0)
 
 				.nodeify(done);
