@@ -6,7 +6,7 @@ Enyo UI tests
 
 ### Installing
 
-UI testing relies on [node](nodejs.org) and the [enyo dev tools](https://github.com/enyojs/enyo-dev). Be sure these are installed correctly. As of this writing, it relies on the `remove-nodegit` branch, so be sure to check that branch out.
+UI testing relies on [node](nodejs.org) and the [enyo dev tools](https://github.com/enyojs/enyo-dev). Be sure these are installed correctly.
 
 In addition, you will also need some form of web driver interface. See the documentation section below for more information on setting one up.
 .
