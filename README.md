@@ -48,6 +48,11 @@ grunt test:local:firefox
 grunt spec:local:chrome:GT-13944
 grunt spec:sauce:firefox:radio-item
 ```
+### Generating Test Files
+If you would like to generate the files of a test run:
+```
+grunt generate:test
+```
 
 ## Documentation
 
