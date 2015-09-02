@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	path = 'test/moonstone/Radio/RadioItem',
+	path = 'test/moonstone/RadioItem/RadioItem',
 	title = 'Moonstone Radio Item Sample',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','RadioItem'];	// Tags show up in SauceLabs test output
