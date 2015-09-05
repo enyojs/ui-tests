@@ -1,16 +1,17 @@
-var helpers = rootRequire("./helpers"),
+var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'lib/moonstone/samples/Sample.html?DataGridListSample',
+	path = 'test/moonstone/DataGridList/GT-13635-PagingControls',
 	title = 'GT-13635 DataGridList Paging Controls',
+	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'DataGridList','QA'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {
@@ -19,15 +20,14 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it("Should enable paging controls when available to scroll", function (done) {
-		browser
+	it('Should enable paging controls when available to scroll', function (done) {browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(directory)
 			// Wait for the app to load and render our element (returns the element)
 			.waitForElementById(app.PageUpControlId, 6000)
 			// Verify that our PageUp Control is disabled when we're at the top of the scroller
 				.getClasses().should.eventually.contain('disabled', 'Starts disabled')
-			.waitForElementById("app_gridSampleItem", 6000)
+			.waitForElementById(app.FirstGridListItemId, 6000)
 			// Move down the page, causing scroll
 			.keys(helpers.keys.SpotlightRight)
 			.delay(200)
@@ -47,6 +47,6 @@ describe(title, function() {
 });
 
 app = {
-	PageUpControlId: "app_gridList_scroller_strategy_pageUpControl",
-	FirstGridListItemId: 'app_gridSampleItem'
+	PageUpControlId: 'gT-13635-PagingControls_gridList_scroller_strategy_pageUpControl',
+	FirstGridListItemId: 'gT-13635-PagingControls_gridSampleItem'
 };
