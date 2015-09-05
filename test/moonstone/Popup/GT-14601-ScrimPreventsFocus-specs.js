@@ -25,9 +25,9 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(directory)
 			.waitForElementById(app.scrollerButton)
-			// .click()
-			// .elementById(app.scrollerPopup)
-			// .getClasses().should.eventually.contain('showing')
+			.click()
+			.elementById(app.scrollerPopup)
+			.getClasses().should.eventually.contain('showing')
 			//move three times to force spotlight
 			.elementById(app.buttonInPopupButton)
 			.moveTo()
