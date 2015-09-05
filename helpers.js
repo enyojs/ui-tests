@@ -143,8 +143,7 @@ var helpers = module.exports = {
 		wd.addElementPromiseChainMethod('mousewheel', function(scrollAmount) {
 			var _this = this;
 			return this.getAttribute("id").then(function(res){
-				return _this.browser.execute("function wheel(){}view = document.getElementById('"+res+"');view.addEventListener('DOMMouseScroll',wheel,!1),window.ChromeWheel=function(){var e=document.createEvent('MouseEvents');e.initMouseEvent('DOMMouseScroll',!0,!0,window,"+scrollAmount+",0,0,0,0,0,0,0,0,0,null),view.dispatchEvent(e)};ChromeWheel()"
-				)
+				return _this.browser.execute("function wheel(){}view = document.getElementById('"+res+"');view.addEventListener('DOMMouseScroll',wheel,!1),window.ChromeWheel=function(){var e=document.createEvent('MouseEvents');e.initMouseEvent('DOMMouseScroll',!0,!0,window,"+scrollAmount+",0,0,0,0,0,0,0,0,0,null),view.dispatchEvent(e)};ChromeWheel()")
 			})
 		});
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
