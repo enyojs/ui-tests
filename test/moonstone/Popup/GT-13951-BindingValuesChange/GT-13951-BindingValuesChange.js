@@ -36,7 +36,7 @@ var
 			}
 		],
 		bindings: [
-			{from: '.$.nestedRadioGroup.active.content', to: '.$.nestedRadioValue.content', transform: function(val){
+			{from: '$.nestedRadioGroup.active.content', to: '$.nestedRadioValue.content', transform: function(val){
 				this.dismissRadioSelection();
 				return val;
 			}}
