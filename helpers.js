@@ -164,6 +164,7 @@ var helpers = module.exports = {
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
 			return this.execute('dispatcher = require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
+
 	},
 	// Runs the enyo pack command to generate output
 	epack: function(module) {
