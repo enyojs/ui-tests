@@ -20,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should activate marquee on 5way focus', function (done) {
+	it('should marquee with 5way when both arrows enabled', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
