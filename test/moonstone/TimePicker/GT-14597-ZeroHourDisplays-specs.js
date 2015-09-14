@@ -28,6 +28,7 @@ describe(title, function() {
 				.elementById(app.localePickerID)
 				.click()
 				.waitForElementById(app.frLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
+				.delay(250)
 				.click()
 				.execute('ilib = require("enyo-ilib"); return ilib.getLocale()').should.eventually.equal('fr-FR')
 				.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
@@ -48,6 +49,7 @@ describe(title, function() {
 				.elementById(app.localePickerID)
 				.click()
 				.waitForElementById(app.frLocaleCheckboxID, helpers.wd.asserters.isDisplayed, 1000)
+				.delay(250)
 				.click()
 				.execute('ilib = require("enyo-ilib"); return ilib.getLocale()').should.eventually.equal('fr-FR')
 				.waitForElementById(app.localePickerID, helpers.wd.asserters.isDisplayed, 1000)
@@ -55,7 +57,7 @@ describe(title, function() {
 				.click()
 				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
-				.delay(800)				
+				.delay(800)
 				.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+app.appId+'"].get("value").getHours()').should.eventually.equal(0)
 				.nodeify(done);
 	});
