@@ -153,6 +153,7 @@ var helpers = module.exports = {
 				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;')
 			})
 		});
+
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertyGet', function(id, prop) {
