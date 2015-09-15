@@ -30,34 +30,45 @@ describe(title, function() {
 			//check default time
 			.elementById(app.currentTime)
 			.text().should.eventually.equal('1:50pm')
-			.waitForElementById(app.hourUpArrowID)
+			.elementById(app.hourUpArrowID)
 			.click()
 			.click()
+			//need to add this moveTo to force the focus elsewhere. without this move focus messes up helper
+			.elementById(app.appId)
+			.moveTo()
 			//check displayed time equals pickers
 			//enyoPropertyGet looks for the last element with the Id name	
-			.enyoPropertyGet(app.hourText, 'content').should.eventually.equal('3')
+			.elementById(app.hourText)
+			.getTopElementText().should.eventually.equal('3')
 			.elementById(app.minuteText)
-			.text().should.eventually.equal('50')
+			.getTopElementText().should.eventually.equal('50')
 			.elementById(app.meridiemText)
-			.text().should.eventually.equal('pm')
+			.getTopElementText().should.eventually.equal('pm')
 			.elementById(app.currentTime)
 			.text().should.eventually.equal('3:50pm')
 			.elementById(app.minuteUpArrowID)
 			.click()
-			.click()			
-			.enyoPropertyGet(app.hourText, 'content').should.eventually.equal('3')
-			.enyoPropertyGet(app.minuteText, 'content').should.eventually.equal('52')
+			.click()
+			.elementById(app.appId)
+			.moveTo()
+			.elementById(app.hourText)
+			.getTopElementText().should.eventually.equal('3')
+			.elementById(app.minuteText)
+			.getTopElementText().should.eventually.equal('52')
 			.elementById(app.meridiemText)
-			.text().should.eventually.equal('pm')
+			.getTopElementText().should.eventually.equal('pm')
 			.elementById(app.currentTime)
 			.text().should.eventually.equal('3:52pm')
 			.elementById(app.meridiemUpArrowID)
 			.click()
+			.elementById(app.appId)
+			.moveTo()
 			.elementById(app.hourText)
-			.text().should.eventually.equal('3')
-			.enyoPropertyGet(app.minuteText, 'content').should.eventually.equal('52')
+			.getTopElementText().should.eventually.equal('3')
+			.elementById(app.minuteText)
+			.getTopElementText().should.eventually.equal('52')
 			.elementById(app.meridiemText)
-			.text().should.eventually.equal('am')
+			.getTopElementText().should.eventually.equal('am')
 			.elementById(app.currentTime)
 			.text().should.eventually.equal('3:52am')
 			.nodeify(done);
@@ -66,12 +77,13 @@ describe(title, function() {
 });
 
 app = {
+	appId: 'gT-11184-DurationReflectsPicker',
 	timePickerID: 'gT-11184-DurationReflectsPicker_control',
 	hourUpArrowID: 'gT-11184-DurationReflectsPicker_pickerTime_hour_nextOverlay',
 	minuteUpArrowID: 'gT-11184-DurationReflectsPicker_pickerTime_minute_nextOverlay',
 	meridiemUpArrowID: 'gT-11184-DurationReflectsPicker_pickerTime_meridiem_control2',
-	hourText: 'gT-11184-DurationReflectsPicker_pickerTime_hour_item',
-	minuteText: 'gT-11184-DurationReflectsPicker_pickerTime_minute_item',
-	meridiemText: 'gT-11184-DurationReflectsPicker_pickerTime_meridiem_item',
+	hourText: 'gT-11184-DurationReflectsPicker_pickerTime_hour_scroller_strategy_client',
+	minuteText: 'gT-11184-DurationReflectsPicker_pickerTime_minute_scroller_strategy_client',
+	meridiemText: 'gT-11184-DurationReflectsPicker_pickerTime_meridiem_scroller_strategy_client',
 	currentTime: 'gT-11184-DurationReflectsPicker_pickerTime_header_text',
 };
