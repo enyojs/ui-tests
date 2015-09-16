@@ -20,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should start animation on button spotlight', function (done) {
+	it('should marquee with 5way when one arrow enabled', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
@@ -64,6 +64,5 @@ app = {
 	buttonRight: 'gT-11261-StartsWhenButtonSpotlight_picker1_buttonRight',
 	buttonLeft: 'gT-11261-StartsWhenButtonSpotlight_picker1_buttonLeft',
 	hebrewText: 'gT-11261-StartsWhenButtonSpotlight_marqueeText4_marqueeText',
-	transition: '4.86666666666667s linear',
 	animateMarqueeClass: 'animate-marquee'
 };
