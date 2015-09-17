@@ -147,7 +147,7 @@ var helpers = module.exports = {
 			});
 		});
 
-		wd.addElementPromiseChainMethod('getParentElement', function() {
+		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
 				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;');

@@ -30,13 +30,13 @@ describe(title, function() {
 			.click()
 			//Day First
 			.elementById(app.dayLabel)
-			.getParentElement().should.eventually.equal(app.firstItem)
+			.enyoGetParentElementId().should.eventually.equal(app.firstItem)
 			//Month Second
 			.elementById(app.monthLabel)
-			.getParentElement().should.eventually.equal(app.secondItem)
+			.enyoGetParentElementId().should.eventually.equal(app.secondItem)
 			//Year Third
 			.elementById(app.yearLabel)
-			.getParentElement().should.eventually.equal(app.thirdItem)
+			.enyoGetParentElementId().should.eventually.equal(app.thirdItem)
 			.nodeify(done);
 	});
 
