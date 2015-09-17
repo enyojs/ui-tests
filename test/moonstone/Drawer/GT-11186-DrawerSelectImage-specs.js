@@ -31,6 +31,12 @@ describe(title, function() {
 			.enyoPropertyGet(app.pickerIconDrawer, 'style').should.eventually.not.contain('display: none;')
 			.elementById(app.drawerCheckbox)
 			.click()
+			// The following click is needed on machines where the screen height doesn't adjust properly
+			//  to 1280px. Slow scrolling prevents the click from being recognized as a tap on the control.
+			//  This appears to pass on the TV, though it could cause issues down the line. Mostly, it
+			//  causes the picker to open again.  Another fix could be to adjust the test to prevent
+			//  scrolling caused by the long picker contents.
+			.click()
 			.delay(1000)
 			.elementById(app.drawerIcon)
 			.getClasses().should.eventually.contain('moon-icon-drawer')
