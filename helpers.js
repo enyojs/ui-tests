@@ -143,15 +143,23 @@ var helpers = module.exports = {
 		wd.addElementPromiseChainMethod('mousewheel', function(scrollAmount) {
 			var _this = this;
 			return this.getAttribute("id").then(function(res){
-				return _this.browser.execute("function wheel(){}view = document.getElementById('"+res+"');view.addEventListener('DOMMouseScroll',wheel,!1),window.ChromeWheel=function(){var e=document.createEvent('MouseEvents');e.initMouseEvent('DOMMouseScroll',!0,!0,window,"+scrollAmount+",0,0,0,0,0,0,0,0,0,null),view.dispatchEvent(e)};ChromeWheel()")
-			})
+				return _this.browser.execute("function wheel(){}view = document.getElementById('"+res+"');view.addEventListener('DOMMouseScroll',wheel,!1),window.ChromeWheel=function(){var e=document.createEvent('MouseEvents');e.initMouseEvent('DOMMouseScroll',!0,!0,window,"+scrollAmount+",0,0,0,0,0,0,0,0,0,null),view.dispatchEvent(e)};ChromeWheel()");
+			});
 		});
 
 		wd.addElementPromiseChainMethod('getParentElement', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;')
-			})
+				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;');
+			});
+		});
+
+		//Returns top element from an elements center coordinates. Helps us find top element in picker scroller.
+		wd.addElementPromiseChainMethod('getTopElementText', function() {
+			var _this = this;
+			return this.getAttribute('id').then(function(id){
+				return _this.browser.execute('function getTopElement(id){ var el = document.getElementById(id); var rect = el.getBoundingClientRect(); var x = (rect.left + rect.right) / 2; var y = (rect.top + rect.bottom) / 2; return document.elementFromPoint(x, y).innerHTML; } return getTopElement("'+id+'")');
+			});
 		});
 
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
