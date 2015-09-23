@@ -174,6 +174,10 @@ var helpers = module.exports = {
 			return this.execute('dispatcher = require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
 
+		//Runs enyo method on enyo element and return result.
+		wd.addPromiseChainMethod('enyoPropertyMethod', function(id, method) {
+			return this.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["' + id + '"].' + method);
+		});
 	},
 	// Runs the enyo pack command to generate output
 	epack: function(module) {
