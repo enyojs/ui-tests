@@ -20,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('Should have knob remain the same company', function (done) {
+	it('Should have knob remain the same color', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
