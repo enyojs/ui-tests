@@ -51,16 +51,13 @@ var helpers = module.exports = {
 		if(process.env.SAUCE === 'true') {
 			var username = process.env.SAUCE_USERNAME;
 			var accessKey = process.env.SAUCE_ACCESS_KEY;
-			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
-			browser.testEnv = 'sauce';
+			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);			
 		} else if(desired.webOS) {
 			var ip = process.env.WEBOS_IP;
 			var port = process.env.WEBOS_PORT || 22;
-			browser = wd.promiseChainTVRemote(ip, port);
-			browser.testEnv = 'webOS';
+			browser = wd.promiseChainTVRemote(ip, port);			
 		} else {
-			browser = wd.promiseChainRemote();
-			browser.testEnv = 'browser';
+			browser = wd.promiseChainRemote();			
 		}
 		browser.init(desired).nodeify(done);
 		return browser;
