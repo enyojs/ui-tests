@@ -17,7 +17,7 @@ var
 		components: [
 			{
 				name: 'player',
-				kind: VideoPlayer,			
+				kind: VideoPlayer,
 				src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4',
 				poster: '@../assets/video-poster.png',
 				inline: true,

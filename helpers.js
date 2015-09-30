@@ -51,13 +51,13 @@ var helpers = module.exports = {
 		if(process.env.SAUCE === 'true') {
 			var username = process.env.SAUCE_USERNAME;
 			var accessKey = process.env.SAUCE_ACCESS_KEY;
-			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);			
+			browser = wd.promiseChainRemote("ondemand.saucelabs.com", 80, username, accessKey);
 		} else if(desired.webOS) {
 			var ip = process.env.WEBOS_IP;
 			var port = process.env.WEBOS_PORT || 22;
-			browser = wd.promiseChainTVRemote(ip, port);			
+			browser = wd.promiseChainTVRemote(ip, port);
 		} else {
-			browser = wd.promiseChainRemote();			
+			browser = wd.promiseChainRemote();
 		}
 		browser.init(desired).nodeify(done);
 		return browser;
@@ -147,6 +147,13 @@ var helpers = module.exports = {
 			});
 		});
 
+		wd.addElementPromiseChainMethod('getProperty', function(prop) {
+			var _this = this;
+			return this.getAttribute('id').then(function(id){
+				return _this.browser.execute('return document.getElementById("'+id+'").'+prop+';');
+			});
+		});
+
 		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
@@ -179,11 +186,6 @@ var helpers = module.exports = {
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
 			return this.execute('dispatcher = require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
-		});
-
-		//Runs enyo method on enyo element and return result.
-		wd.addPromiseChainMethod('enyoPropertyMethod', function(id, method) {
-			return this.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["' + id + '"].' + method);
 		});
 	},
 	// Runs the enyo pack command to generate output
