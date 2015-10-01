@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Slider/GT-18124-PopupDisplaysThroughout5way',
-	title = 'Slider: Slider Indicator Popup Displays Thoughout with 5way',
+	title = 'Slider: Slider Indicator Popup Displays Throughout with 5way',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','slider','tooltip','popup'];	// Tags show up in SauceLabs test output
 
@@ -39,16 +39,17 @@ describe(title, function() {
 			.keys([helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp])
 			.elementById(app.popupLabel)
 			.getComputedCss('display').should.eventually.not.equal('none')
-			.elementById(app.popupLabel)
-			.getComputedCss('display').should.eventually.not.equal('none')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
 			.elementById(app.popupLabel)
 			.getComputedCss('display').should.eventually.not.equal('none')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
+			.elementById(app.popupLabel)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.keys([helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown])
-			.delay(1000)
+			.elementById(app.popupLabel)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.nodeify(done);
 	});
 
