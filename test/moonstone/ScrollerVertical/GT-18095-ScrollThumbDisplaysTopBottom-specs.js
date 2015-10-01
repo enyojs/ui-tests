@@ -73,7 +73,6 @@ describe(title, function() {
 	//set point after scroll down. HOW TO USE: set second to last scroll up/down. and check after last scroll.
 	var setPoint = function(res){
 		lastPoint = res.y;
-		console.log(lastPoint);
 	};
 
 	//Check if last point lowest point is equal to current point. Will determine if we're at the top or bottom.
