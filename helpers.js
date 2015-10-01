@@ -204,5 +204,5 @@ helpers.keys.SpotlightUp = wd.SPECIAL_KEYS['Up arrow'];
 helpers.keys.SpotlightRight = wd.SPECIAL_KEYS['Right arrow'];
 helpers.keys.SpotlightLeft = wd.SPECIAL_KEYS['Left arrow'];
 helpers.keys.SpotlightSelect = wd.SPECIAL_KEYS['Enter'];
-helpers.keys.PageDown = wd.SPECIAL_KEYS['Pagedown'];
-helpers.keys.PageUp = wd.SPECIAL_KEYS['Pageup'];
+helpers.keys.Pagedown = wd.SPECIAL_KEYS['Pagedown'];
+helpers.keys.Pageup = wd.SPECIAL_KEYS['Pageup'];
