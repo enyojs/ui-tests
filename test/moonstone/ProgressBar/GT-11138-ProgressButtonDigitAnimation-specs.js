@@ -2,15 +2,16 @@ var helpers = rootRequire("./helpers"),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/ProgressBar/GT-11138-ProgressButtonDigitAnimation',
+	path = 'test/moonstone/ProgressBar/GT-11138-ProgressButtonDigitAnimation',
 	title = 'ProgressButton: Digits animates up/downward in Simple Progress Button',
+	directory = 'ui-tests/dist',
 	tags = ['sample', 'Progess Button', 'Animation'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {
@@ -22,7 +23,7 @@ describe(title, function() {
 	it("should animate digits in an upward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(directory)
 			.waitForElementById(app.numberInputID)
 			.enyoPropertySet(app.numberInputID, "value", app.lowNumber)
 			.elementById(app.setButton)
@@ -45,7 +46,7 @@ describe(title, function() {
 	it("should animate digits in an downward count", function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
+			.get(directory)
 			.waitForElementById(app.numberInputID)
 			.enyoPropertySet(app.numberInputID, "value", app.highNumber)
 			.elementById(app.setButton)
@@ -67,9 +68,9 @@ describe(title, function() {
 });
 
 app = {
-	progressBarDigit: "app_progressButton_progressPercent",
-	numberInputID: "app_input",
-	setButton: "app_button_tapArea",
+	progressBarDigit: "gT-11138-ProgressButtonDigitAnimation_progressButton_progressPercent",
+	numberInputID: "gT-11138-ProgressButtonDigitAnimation_input",
+	setButton: "gT-11138-ProgressButtonDigitAnimation_button_client",
 	highNumber: 99,
 	lowNumber: 9
 };

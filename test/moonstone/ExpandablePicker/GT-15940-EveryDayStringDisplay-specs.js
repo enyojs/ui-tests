@@ -2,15 +2,16 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	url = 'ui-tests/test/loader.html?moonstone/ExpandablePicker/GT-15940-EveryDayStringDisplay',
-	title = 'DayPicker: "Every Day" String Displays',
+	path = 'test/moonstone/ExpandablePicker/GT-15940-EveryDayStringDisplay',
+	title = 'DayPicker: \'Every Day\' String Displays',
+	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'DayPicker'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, done);
+		browser = helpers.initBrowser(title, tags, base, path, done);
 	});
 
 	after(function(done) {
@@ -19,15 +20,15 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should display "Every Day" when all days are checked', function (done) {
+	it('should display \'Every Day\' when all days are checked', function (done) {
 		browser
 			.setWindowSize(1920,1280)
-			.get(url)
-			.waitForElementById(app.dayPickerHeader)
+			.get(directory)
+			.waitForElementById(app.dayPicker)
 			.click()
 			.delay(500)
 			.elementById(app.dayPicker)
-			.getClasses().should.eventually.contain("open")
+			.getClasses().should.eventually.contain('open')
 			.elementById(app.sundayId)
 			.click()
 			.delay(500)
@@ -53,22 +54,21 @@ describe(title, function() {
 			.click()
 			.delay(500)
 			.elementById(app.currentValueString)
-			.text().should.eventually.equal("Every Day")
+			.text().should.eventually.contain('Every Day')
 			.nodeify(done);
 	});
 
 });
 
 app = {
-	dayPicker: "app_dayPicker",
-	dayPickerHeader: "app_dayPicker_headerWrapper",
-	sundayId: "app_dayPicker_checkboxItem",
-	mondayId: "app_dayPicker_checkboxItem2",
-	tuesdayId: "app_dayPicker_checkboxItem3",
-	wednesdayId: "app_dayPicker_checkboxItem4",
-	thursdayId: "app_dayPicker_checkboxItem5",
-	fridayId: "app_dayPicker_checkboxItem6",
-	saturdayId: "app_dayPicker_checkboxItem7",
-	currentValueString: "app_dayPicker_currentValue"
+	dayPicker: 'gT-15940-EveryDayStringDisplay_dayPicker',
+	dayPickerHeader: 'gT-15940-EveryDayStringDisplay_nonGroupedPanel_header_title',
+	sundayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem',
+	mondayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem2',
+	tuesdayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem3',
+	wednesdayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem4',
+	thursdayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem5',
+	fridayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem6',
+	saturdayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem7',
+	currentValueString: 'gT-15940-EveryDayStringDisplay_nonGroupedPanel_header_subTitleBelow'
 };
-
