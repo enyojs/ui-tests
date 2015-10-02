@@ -1,6 +1,5 @@
 var
-	kind = require('enyo/kind'),
-	ilib = require('enyo-ilib');
+	kind = require('enyo/kind');
 
 var
 	FittableRows = require('layout/FittableRows');

@@ -11,7 +11,6 @@ describe(title, function() {
 	var browser,
 		inlineWidth = 0,
 		pausedWidth = 0,
-		currentTime = 0,
 		fullscreeWidth = 0;
 
 	before(function(done) {
