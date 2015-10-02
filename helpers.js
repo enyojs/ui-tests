@@ -157,10 +157,10 @@ var helpers = module.exports = {
 		wd.addElementPromiseChainMethod('enyoGetVisibleScrollerText', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('dispatcher = require("enyo/dispatcher");return (function(pickerId) { var c = dispatcher.$[pickerId], scroller = c.$.scroller, scrollTop = scroller.scrollTop; var visible = Array.prototype.filter.call(scroller.node.querySelectorAll(".moon-scroll-picker-item"), function(node) { return node.offsetTop === scrollTop; })[0]; return visible && visible.textContent; })("'+id+'");');				
+				return _this.browser.execute('dispatcher = require("enyo/dispatcher");return (function(pickerId) { var c = dispatcher.$[pickerId], scroller = c.$.scroller, scrollTop = scroller.scrollTop; var visible = Array.prototype.filter.call(scroller.node.querySelectorAll(".moon-scroll-picker-item"), function(node) { return node.offsetTop === scrollTop; })[0]; return visible && visible.textContent; })("'+id+'");');
 			});
 		});
-		
+
 		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
@@ -179,7 +179,7 @@ var helpers = module.exports = {
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
 			return this.execute('dispatcher = require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
-		
+
 	},
 	// Runs the enyo pack command to generate output
 	epack: function(module) {
