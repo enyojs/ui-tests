@@ -161,13 +161,6 @@ var helpers = module.exports = {
 			});
 		});
 
-		wd.addElementPromiseChainMethod('getProperty', function(prop) {
-			var _this = this;
-			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('return document.getElementById("'+id+'").'+prop+';');
-			});
-		});
-
 		//Returns top element from an elements center coordinates. Helps us find top element in picker scroller.
 		wd.addElementPromiseChainMethod('getTopElementText', function() {
 			var _this = this;
