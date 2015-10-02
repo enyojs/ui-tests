@@ -9,7 +9,7 @@ var base = 'http://localhost:3000/',
 
 describe(title, function() {
 	var browser,
-	 	inlineWidth = 0,
+		inlineWidth = 0,
 		pausedWidth = 0,
 		currentTime = 0,
 		fullscreeWidth = 0;

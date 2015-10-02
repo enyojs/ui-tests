@@ -73,7 +73,7 @@ The `helpers` module adds some promise chain methods specifically for testing En
 * `getClasses` - Element method that returns the classes as an array.
 * `textAsInt` - Element method that runs parseInt on the current element's text.
 * `getTopElementText` - Element method that finds the top most element from the elements center coordinates.
-* `getElementPropety` - Element method that returns a specific property for an element.
+* `getProperty` - Element method that returns a specific property for an element.
 * `enyoGetParentElementId` - Element method that finds the parent element ID for the current enyo element.
 * `enyoPropertyGet` - Browser method that finds an enyo instance by id and returns the value of a property.
 * `enyoPropertySet` - Browser method that finds an enyo instance by id and sets the value of a property.
