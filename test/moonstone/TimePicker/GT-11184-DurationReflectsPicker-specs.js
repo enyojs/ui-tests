@@ -33,6 +33,7 @@ describe(title, function() {
 			.elementById(app.hourUpArrowID)
 			.click()
 			.click()
+			.delay(500)
 			//need to add this moveTo to force the focus elsewhere. without this move focus messes up helper
 			.elementById(app.appId)
 			.moveTo()
@@ -49,6 +50,7 @@ describe(title, function() {
 			.elementById(app.minuteUpArrowID)
 			.click()
 			.click()
+			.delay(500)
 			.elementById(app.appId)
 			.moveTo()
 			.elementById(app.hourText)
