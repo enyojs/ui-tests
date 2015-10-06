@@ -154,14 +154,13 @@ var helpers = module.exports = {
 			});
 		});
 
-		//Returns top element from an elements center coordinates. Helps us find top element in picker scroller.
-		wd.addElementPromiseChainMethod('getTopElementText', function() {
+		wd.addElementPromiseChainMethod('enyoGetVisibleScrollerText', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('function getTopElement(id){ var el = document.getElementById(id); var rect = el.getBoundingClientRect(); var x = (rect.left + rect.right) / 2; var y = (rect.top + rect.bottom) / 2; return document.elementFromPoint(x, y).innerHTML; } return getTopElement("'+id+'")');
+				return _this.browser.execute('dispatcher = require("enyo/dispatcher");return (function(pickerId) { var c = dispatcher.$[pickerId], scroller = c.$.scroller, scrollTop = scroller.scrollTop; var visible = Array.prototype.filter.call(scroller.node.querySelectorAll(".moon-scroll-picker-item"), function(node) { return node.offsetTop === scrollTop; })[0]; return visible && visible.textContent; })("'+id+'");');				
 			});
 		});
-
+		
 		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){

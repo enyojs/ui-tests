@@ -37,7 +37,8 @@ describe(title, function() {
 				.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 				.click()
 				.delay(800)
-				.execute(app.getVisibleScrollerText, [app.hourPickerID]).should.eventually.equal('00')
+				.elementById(app.hourPickerID)
+				.enyoGetVisibleScrollerText().should.eventually.equal('00')
 				.nodeify(done);
 	});
 
@@ -71,12 +72,5 @@ app = {
 	hourNumberID: 'gT-14597-ZeroHourDisplays_pickerTime_hour_item',
 	hourUpArrowID: 'gT-14597-ZeroHourDisplays_pickerTime_hour_nextOverlay',
 	localePickerID: 'gT-14597-ZeroHourDisplays_pickerLocale',
-	frLocaleCheckboxID: 'gT-14597-ZeroHourDisplays_checkboxItem2',
-	getVisibleScrollerText: 'dispatcher = require("enyo/dispatcher"); return (function (pickerId) {' +
-		'var c = dispatcher.$[pickerId],' +
-		'	scroller = c.$.scroller,' +
-		'	scrollTop = scroller.scrollTop;' +
-		'var visible = Array.prototype.filter.call(scroller.node.querySelectorAll(".moon-scroll-picker-item"), function (node) { return node.offsetTop === scrollTop; })[0];' +
-		'return visible && visible.textContent;' +
-		'})(arguments[0]);'
+	frLocaleCheckboxID: 'gT-14597-ZeroHourDisplays_checkboxItem2'
 };
