@@ -9,6 +9,7 @@ var _ = require('lodash');
 var desireds = rootRequire('desireds');
 var local_desireds = rootRequire('local_desireds');
 var testGenerator = rootRequire('test_generator/create_test.js');
+var moonstoneExtraCheck = rootRequire('moonstone-extra-checks');
 var globalConfig = {};
 
 var gruntConfig = {
@@ -22,7 +23,7 @@ var gruntConfig = {
 					timeout: 240000,
 					reporter: 'spec'
 				},
-				src: ['test/**/*-specs.js']
+				src: moonstoneExtraCheck.getAllUsedTests()
 			},
 			spec: {
 				options: {
@@ -106,7 +107,20 @@ module.exports = function(grunt) {
 		grunt.registerTask('test:local:' + key, ['env:local_' + key, 'simplemocha:all']);
 		grunt.registerTask('spec:local:' + key, function(filename) {
 			grunt.task.run('env:local_' + key);
-			globalConfig.file = filename;
+
+			//Needed for TAS to work properly with MOONSTONE_EXTRA flag
+			//Currently does not work with * (e.g. GT-12345*), but TAS uses full file names so it is currently a non-issue
+			if(process.env.MOONSTONE_EXTRA === 'false'){
+				var moonstoneExtraTests = moonstoneExtraCheck.getMoonstoneExtraTests();
+				var isTestMoonstoneExtra = _.includes(moonstoneExtraTests, filename);
+				if(!isTestMoonstoneExtra){
+					globalConfig.file = filename;
+				}
+				//if test is not a moonstone test do nothing and test will not run.
+			} else {
+				globalConfig.file = filename;
+			}
+
 			grunt.task.run('simplemocha:spec');
 		});
 	});
