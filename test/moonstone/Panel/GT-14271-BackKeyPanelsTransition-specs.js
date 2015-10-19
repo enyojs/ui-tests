@@ -28,15 +28,18 @@ describe(title, function() {
 			.delay(1000)
 			.elementById(app.itemOne)
 			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.panel)
+			.getAttribute('style').should.eventually.equal('transform: translateZ(0px);')
 			.keys(helpers.keys.SpotlightSelect)
 			.delay(1000)
-			.elementById(app.panel2Title)
-			.text().should.eventually.equal('SECOND PANEL')
-			.elementById(app.panel2Title).getComputedCss('display')
-			.back()
+			.elementById(app.panel2)
+			.getAttribute('style').should.eventually.equal('transform: translateZ(0px);')
+			.keys(helpers.keys.Back)
 			.delay(1000)
 			.elementById(app.itemOne)
 			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.panel)
+			.getAttribute('style').should.eventually.equal('transform: translateZ(0px);')
 			.nodeify(done);
 	});
 
@@ -44,6 +47,8 @@ describe(title, function() {
 
 app = {
 	itemOne: 'gT-14271-BackKeyPanelsTransition_item',
+	panel: 'gT-14271-BackKeyPanelsTransition_panel',
+	panel2: 'gT-14271-BackKeyPanelsTransition_panel2',
 	panel1Title: 'gT-14271-BackKeyPanelsTransition_panel_header_title',
 	panel2Title: 'gT-14271-BackKeyPanelsTransition_panel2_header_title'
 };
