@@ -24,9 +24,8 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
-			.waitForElementById(app.appId)			
+			.waitForElementById(app.appId)
 			.keys(helpers.keys.SpotlightRight)
-			
 			.elementById(app.sideHandle)
 			.getClasses().should.eventually.contain('spotlight')
 			.keys(helpers.keys.SpotlightSelect)
