@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Popup/GT-14269-FocusReturnsContextualPopup',
-	title = 'BackKey: Focus returns to Parent in ContextualPopup',
+	title = 'GT-14269 - BackKey: Focus returns to Parent in ContextualPopup',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','BackKey','ContextualPopup'];	// Tags show up in SauceLabs test output
 
@@ -20,7 +20,7 @@ describe(title, function() {
 			.nodeify(done);
 	});
 
-	it('should return focus to parent after back key' , function (done) {
+	it('should return focus to parent after back key', function (done) {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
@@ -31,9 +31,13 @@ describe(title, function() {
 			.keys(helpers.keys.SpotlightSelect)
 			.elementById(app.rightButtonPopup)
 			.getComputedCss('display').should.eventually.not.equal('none')
-			.back()
+			.elementById(app.rightButtonId)
+			.getClasses().should.eventually.not.contain('spotlight')
+			.keys(helpers.keys.Back)
 			.elementById(app.rightButtonPopup)
 			.getComputedCss('display').should.eventually.equal('none')
+			.elementById(app.rightButtonId)
+			.getClasses().should.eventually.contain('spotlight')
 			.nodeify(done);
 	});
 
