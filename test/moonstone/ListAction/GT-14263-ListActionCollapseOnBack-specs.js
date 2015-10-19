@@ -35,8 +35,10 @@ describe(title, function() {
 			.getClasses().should.eventually.contain('open')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
-			.back()
+			.keys(helpers.keys.Back)
 			.delay(500)
+			.elementById(app.drawerClient)
+			.getClasses().should.eventually.not.contain('open')
 			.elementById(app.dummyIcon)
 			.getClasses().should.eventually.contain('spotlight')
 			.nodeify(done);
