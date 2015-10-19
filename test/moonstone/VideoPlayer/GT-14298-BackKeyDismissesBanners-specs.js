@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-14298-BackKeyDismissesBanners',
-	title = 'BackKey: Back Key dismisses Playback Controls/Channel Banner',
+	title = 'GT-14298 - BackKey: Back Key dismisses Playback Controls/Channel Banner',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','BackKey','VideoPlayer'];	// Tags show up in SauceLabs test output
 
@@ -33,17 +33,17 @@ describe(title, function() {
 			.elementById(app.videoPlayer)
 			.moveTo(0,0)
 			.moveTo(10,10)
-			.moveTo()			
-			.keys(helpers.keys.SpotlightUp)			
+			.moveTo()
+			.keys(helpers.keys.SpotlightUp)
 			.elementById(app.videoInfoClient)
 			.getComputedCss('display').should.eventually.not.equal('none')
-			.back()
+			.keys(helpers.keys.Back)
 			.elementById(app.videoInfoClient)
-			.getComputedCss('display').should.eventually.equal('none')			
+			.getComputedCss('display').should.eventually.equal('none')
 			.keys(helpers.keys.SpotlightDown)
 			.elementById(app.playerControl)
 			.getComputedCss('display').should.eventually.not.equal('none')
-			.back()
+			.keys(helpers.keys.Back)
 			.elementById(app.playerControl)
 			.getComputedCss('display').should.eventually.equal('none')
 			.nodeify(done);
