@@ -32,7 +32,7 @@ describe(title, function() {
 			.delay(1000)
 			.elementById(app.thirdPanel)
 			.getAttribute('style').should.eventually.equal(app.panelShowingTransform)
-			.back()
+			.keys(helpers.keys.Back)
 			.delay(1000)
 			.elementById(app.secondPanel)
 			.getAttribute('style').should.eventually.equal(app.panelShowingTransform)
