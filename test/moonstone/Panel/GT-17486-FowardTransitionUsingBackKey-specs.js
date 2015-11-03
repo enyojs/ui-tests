@@ -44,15 +44,13 @@ describe(title, function() {
 			.delay(1000)
 			.elementById(app.panel6Breadcrumb)
 			.getAttribute('style').should.eventually.equal('transform: translateX(-100%);')
-			.elementById(app.panel1Breadcrumb)
+			.elementById(app.panel2Breadcrumb)
 			.click()
-			.delay(1000)
-			.elementById(app.panel1Breadcrumb)
-			.getAttribute('style').should.eventually.equal('')
+			.delay(1000)			
 			.keys(helpers.keys.Back)
 			.delay(500)
-			.elementById(app.panel6Breadcrumb)
-			.getAttribute('style').should.eventually.equal('transform: translateX(-100%);')
+			.elementById(app.panel1)
+			.getAttribute('style').should.eventually.equal('transform: translateZ(0px);')
 			.nodeify(done);
 	});
 
