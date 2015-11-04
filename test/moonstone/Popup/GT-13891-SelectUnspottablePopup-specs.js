@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Popup/GT-13891-SelectUnspottablePopup',
-	title = 'GT-13891 5-way Select Unspottable Popup',	// Title shows up in test output
+	title = 'GT-13891 - 5-way Select Unspottable Popup',	// Title shows up in test output
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'spotlight','QA'];	// Tags show up in SauceLabs test output
 

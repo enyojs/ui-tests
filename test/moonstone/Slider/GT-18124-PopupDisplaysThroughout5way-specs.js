@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Slider/GT-18124-PopupDisplaysThroughout5way',
-	title = 'Slider: Slider Indicator Popup Displays Throughout with 5way',
+	title = 'GT-18124 - Slider: Slider Indicator Popup Displays Throughout with 5way',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','slider','tooltip','popup'];	// Tags show up in SauceLabs test output
 

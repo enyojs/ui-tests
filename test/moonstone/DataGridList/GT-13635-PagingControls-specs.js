@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DataGridList/GT-13635-PagingControls',
-	title = 'GT-13635 DataGridList Paging Controls',
+	title = 'GT-13635 - DataGridList Paging Controls',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'DataGridList','QA'];	// Tags show up in SauceLabs test output
 

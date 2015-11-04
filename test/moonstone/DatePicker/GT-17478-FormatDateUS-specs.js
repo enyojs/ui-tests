@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DatePicker/GT-17478-FormatDateUS',
-	title = 'DatePicker: \'MDY\' Format Displays for en-US Locale',
+	title = 'GT-17478 - DatePicker: \'MDY\' Format Displays for en-US Locale',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','datepicker','qa','locale'];	// Tags show up in SauceLabs test output
 

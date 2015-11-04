@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ExpandableInput/GT-11229-KeyboardSymbolsDisplayLTRinRTL',
-	title = 'ExpandableInput - Keyboard Symbols display in LTR in RTL setting',
+	title = 'GT-11229 - ExpandableInput - Keyboard Symbols display in LTR in RTL setting',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','rtl','ltr','symbols','qa','ExpandableInput'];	// Tags show up in SauceLabs test output
 

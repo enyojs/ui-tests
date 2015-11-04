@@ -3,7 +3,7 @@ var helpers = rootRequire("./helpers"),
 
 var base = 'http://localhost:3000/',	
 	path = 'test/moonstone/Popup/GT-11151-FocusRemainsViaSpotlight',
-	title = 'Popup: Focus remains in popup via Spotlight events',
+	title = 'GT-11151 - Popup: Focus remains in popup via Spotlight events',
 	directory = 'ui-tests/dist',
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 

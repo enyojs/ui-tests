@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ToggleButton/GT-17493-ToggleButtonRTL',
-	title = 'ToggleButton-RTL: Toggle Flips Position in RTL',
+	title = 'GT-17493 - ToggleButton-RTL: Toggle Flips Position in RTL',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','ToggleButton','RTL'];	// Tags show up in SauceLabs test output
 

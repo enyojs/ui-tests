@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-14597-ZeroHourDisplays',
-	title = 'TimePicker: \'0\' Hour Displays in 24 Hour Locale Format',
+	title = 'GT-14597 - TimePicker: \'0\' Hour Displays in 24 Hour Locale Format',
 	directory = 'ui-tests/dist',
 	tags = ['sample'];	// Tags show up in SauceLabs test output
 

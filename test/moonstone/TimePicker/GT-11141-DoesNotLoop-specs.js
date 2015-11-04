@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-11141-DoesNotLoop',
-	title = 'Time Picker: Does Not Loop',
+	title = 'GT-11141 - Time Picker: Does Not Loop',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'TimePicker', 'qa'];	// Tags show up in SauceLabs test output
 

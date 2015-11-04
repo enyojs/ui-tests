@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ExpandableListItem/GT-17041-GroupedListOnlyOneExpanded',
-	title = 'ExpandableListItem: List Collapses/Expands in Grouped Lists',
+	title = 'GT-17041 - ExpandableListItem: List Collapses/Expands in Grouped Lists',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'ExpandableListItem', 'qa', 'grouped lists'];	// Tags show up in SauceLabs test output
 

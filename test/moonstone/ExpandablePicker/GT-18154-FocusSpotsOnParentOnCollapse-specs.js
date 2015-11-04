@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ExpandablePicker/GT-18154-FocusSpotsOnParentOnCollapse',
-	title = 'ExpandablePicker: Focus Spots Parent when Integer Picker collapses',
+	title = 'GT-18154 - ExpandablePicker: Focus Spots Parent when Integer Picker collapses',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','Integer Picker'];	// Tags show up in SauceLabs test output
 

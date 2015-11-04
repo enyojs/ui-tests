@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ScrollerVertical/GT-14802-ScrollThumbDoesNotAppear',
-	title = 'PageUp/Down: Scroll Thumb Does Not Display at the end and top of the Viewport',
+	title = 'GT-14802 - PageUp/Down: Scroll Thumb Does Not Display at the end and top of the Viewport',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','vertical scroller'];	// Tags show up in SauceLabs test output
 

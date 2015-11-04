@@ -4,7 +4,7 @@ var helpers = rootRequire('./helpers'),
 	// This URL allows us to specify the locale when loading a sample
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Header/GT-13913-DirectionString',
-	title = 'GT-13913 Header RTL LTR String',	// Title shows up in test output
+	title = 'GT-13913 - Header RTL LTR String',	// Title shows up in test output
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'RTL','QA'];	// Tags show up in SauceLabs test output
 

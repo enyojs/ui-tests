@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DatePicker/GT-11271-DatePickerResets',
-	title = 'DatePicker: \'Reset Date\' resets Picker',
+	title = 'GT-11271 - DatePicker: \'Reset Date\' resets Picker',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','DatePicker'];	// Tags show up in SauceLabs test output
 
