@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DatePicker/GT-11153-ActiveYearChanges',
-	title = 'DatePicker: Active \'Year\' changes display in Open State',
+	title = 'GT-11153 - DatePicker: Active \'Year\' changes display in Open State',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','DatePicker'];	// Tags show up in SauceLabs test output
 

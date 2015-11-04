@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Drawer/GT-11186-DrawerSelectImage',
-	title = 'Drawer: New icon and image displays simultaneously in Drawer Handle',
+	title = 'GT-11186 - Drawer: New icon and image displays simultaneously in Drawer Handle',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'drawer'];	// Tags show up in SauceLabs test output
 

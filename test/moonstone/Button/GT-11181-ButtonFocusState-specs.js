@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',	
 	path = 'test/moonstone/Button/GT-11181-ButtonFocusState',
-	title = 'Button: \'Selected + Focus\' State displays after pointer timeout',
+	title = 'GT-11181 - Button: \'Selected + Focus\' State displays after pointer timeout',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'button'];	// Tags show up in SauceLabs test output
 

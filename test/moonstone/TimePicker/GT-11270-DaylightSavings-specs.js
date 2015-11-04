@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-11270-DaylightSavings',
-	title = 'Time Picker: Daylight Savings',
+	title = 'GT-11270 - Time Picker: Daylight Savings',
 	tags = ['moonstone', 'qa', 'TimePicker'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {

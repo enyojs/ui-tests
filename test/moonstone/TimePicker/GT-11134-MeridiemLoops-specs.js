@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-11134-MeridiemLoops',
-	title = 'TimePicker: Meridiem Loops upon Hour Picker\'s action',
+	title = 'GT-11134 - TimePicker: Meridiem Loops upon Hour Picker\'s action',
 	tags = ['sample'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {

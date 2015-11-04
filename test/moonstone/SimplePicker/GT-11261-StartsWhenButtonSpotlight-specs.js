@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/SimplePicker/GT-11261-StartsWhenButtonSpotlight',
-	title = 'SimplePicker: Marquee Starts when Button Obtains Spotlight',
+	title = 'GT-11261 - SimplePicker: Marquee Starts when Button Obtains Spotlight',
 	directory = 'ui-tests/dist',
 	tags = ['Marquee', 'SimplePicker', 'QA'];	// Tags show up in SauceLabs test output
 

@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/SimplePicker/GT-13631-MarqueeStartsOn5way',
-	title = 'SimplePicker: Marquee Starts upon 5way focus',
+	title = 'GT-13631 - SimplePicker: Marquee Starts upon 5way focus',
 	directory = 'ui-tests/dist',
 	tags = ['Marquee', 'SimplePicker', 'QA'];	// Tags show up in SauceLabs test output
 

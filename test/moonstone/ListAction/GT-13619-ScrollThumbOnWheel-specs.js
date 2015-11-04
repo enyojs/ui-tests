@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ListAction/GT-13619-ScrollThumbOnWheel',
-	title = 'ListActions: Scroll Thumb Displays upon Wheeling',
+	title = 'GT-13619 - ListActions: Scroll Thumb Displays upon Wheeling',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'list', 'list action', 'scroll'];	// Tags show up in SauceLabs test output
 

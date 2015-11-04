@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ExpandablePicker/GT-15940-EveryDayStringDisplay',
-	title = 'DayPicker: \'Every Day\' String Displays',
+	title = 'GT-15940 - DayPicker: \'Every Day\' String Displays',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'DayPicker'];	// Tags show up in SauceLabs test output
 

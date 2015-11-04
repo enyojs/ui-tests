@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ProgressBar/GT-17161-TooltipFlipsOnSetValue',
-	title = 'Progress: Tooltip flips direction when Setting Value',
+	title = 'GT-17161 - Progress: Tooltip flips direction when Setting Value',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','Progress Bar'];	// Tags show up in SauceLabs test output
 

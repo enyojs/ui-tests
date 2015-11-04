@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ToggleItem/GT-14672-KnobColorRemainsOnHover',
-	title = 'ToggleItem: Knob Color remains the same upon Hover',
+	title = 'GT-14672 - ToggleItem: Knob Color remains the same upon Hover',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'knob', 'qa', 'ToggleItem'];	// Tags show up in SauceLabs test output
 
