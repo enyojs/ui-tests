@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-17318-PopupWithControlsDisplays',
-	title = 'VideoPlayer: Status Indicator Popup Centers and Aligns with Playback Controls',
+	title = 'GT-17318 - VideoPlayer: Status Indicator Popup Centers and Aligns with Playback Controls',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','VideoPlayer','controls'];	// Tags show up in SauceLabs test output
 

@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ListAction/GT-14263-ListActionCollapseOnBack',
-	title = 'BackKey: ListActions Collapses upon Back Key',
+	title = 'GT-14263 - BackKey: ListActions Collapses upon Back Key',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','ListActions','BackKey'];	// Tags show up in SauceLabs test output
 
