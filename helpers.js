@@ -210,3 +210,8 @@ helpers.keys.SpotlightUp = wd.SPECIAL_KEYS['Up arrow'];
 helpers.keys.SpotlightRight = wd.SPECIAL_KEYS['Right arrow'];
 helpers.keys.SpotlightLeft = wd.SPECIAL_KEYS['Left arrow'];
 helpers.keys.SpotlightSelect = wd.SPECIAL_KEYS['Enter'];
+if(JSON.parse(process.env.DESIRED).webOS){
+	helpers.keys.Back = 'remote_back';
+} else {
+	helpers.keys.Back = wd.SPECIAL_KEYS['Back space'];
+}
