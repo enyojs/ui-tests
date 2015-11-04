@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ActivityPanels/GT-14530-PanelsTransitionBackKey',
-	title = 'BackKey: Panels Transition via BackKey in Pointer Mode ',
+	title = 'GT-14530 - BackKey: Panels Transition via BackKey in Pointer Mode ',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','BackKey','ActivityPanels'];	// Tags show up in SauceLabs test output
 
