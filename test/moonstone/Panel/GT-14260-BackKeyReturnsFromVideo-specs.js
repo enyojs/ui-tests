@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Panel/GT-14260-BackKeyReturnsFromVideo',
-	title = 'BackKey: Back Key Returns Panels from Full Screen Video',
+	title = 'GT-14260 - BackKey: Back Key Returns Panels from Full Screen Video',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','BackKey','AlwaysViewingPanels'];	// Tags show up in SauceLabs test output
 
