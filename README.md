@@ -114,6 +114,7 @@ Several environment variables are supported for configuring how tests execute on
 * `WEBOS_IP` - IP Address of the webOS device. e.g. `WEBOS_IP=10.0.1.25`
 * `WEBOS_PORT` - Port of webOS device (default 22).  e.g. `WEBOS_PORT=9922`
 * `REMAP_LOCALHOST` - Looks for `localhost:3000` in web addresses and remaps them to the supplied IP address:port.  e.g.  `REMAP_LOCALHOST=10.0.1.9:8888`
+* `MOONSTONE_EXTRA` - Flag for moonstone extra library. `MOONSTONE_EXTRA=false` means run all tests that do not use moonstone extra. If you want to run moonstone extra tests just omit this variable.
 
 ## Contributing
 
