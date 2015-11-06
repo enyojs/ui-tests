@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/SelectableItem/GT-17267-IconsAlignWithText',
-	title = 'SelectableItem: Item\'s Icon Aligns with Text',
+	title = 'GT-17267 - SelectableItem: Item\'s Icon Aligns with Text',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','SelectableItem'];	// Tags show up in SauceLabs test output
 
