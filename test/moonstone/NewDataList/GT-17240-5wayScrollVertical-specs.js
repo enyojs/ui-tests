@@ -43,11 +43,11 @@ describe(title, function() {
 			.delay(500)
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
-			.keys(helpers.keys.SpotlightDown).then(checkTransformValue)
+			.keys(helpers.keys.SpotlightDown).then(checkThumbPosition)
 			.nodeify(done);
 	});
 
-	var checkTransformValue = function(){
+	var checkThumbPosition = function(){
 			return Q.fcall(function(){
 				return browser
 							.elementById(app.vthumb)
