@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/NewDataList/GT-17242-5WayScrollingHorizontal',
-	title = 'NewDataList: Scrolling using 5-way in Horizontal layout',
+	title = 'GT-17242 - NewDataList: Scrolling using 5-way in Horizontal layout',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','NewDataList','scroll'];	// Tags show up in SauceLabs test output
 

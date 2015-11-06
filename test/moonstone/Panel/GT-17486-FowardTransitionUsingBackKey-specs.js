@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Panel/GT-17486-FowardTransitionUsingBackKey',
-	title = 'BackKey: Forward Transition in AlwaysViewingPanels',
+	title = 'GT-17486 - BackKey: Forward Transition in AlwaysViewingPanels',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','AlwaysViewingPanels','BackKey'];	// Tags show up in SauceLabs test output
 
