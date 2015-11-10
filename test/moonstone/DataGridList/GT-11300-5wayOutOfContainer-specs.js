@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DataGridList/GT-11300-5wayOutOfContainer',
-	title = 'DataGridList: 5way Out of a Container',
+	title = 'GT-11300 - DataGridList: 5way Out of a Container',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','DataGridList'];	// Tags show up in SauceLabs test output
 
