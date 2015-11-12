@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-14608-SliderUpdates',
-	title = 'VideoPlayerInline: Slider Updates in Fullscreen and Inline Player',
+	title = 'GT-14608 - VideoPlayerInline: Slider Updates in Fullscreen and Inline Player',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'video', 'qa'];	// Tags show up in SauceLabs test output
 

@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/RadioItem/RadioItem',
-	title = 'Moonstone Radio Item Sample',
+	title = 'RadioItem - Moonstone Radio Item Sample',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','RadioItem'];	// Tags show up in SauceLabs test output
 

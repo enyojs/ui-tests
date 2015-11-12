@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-11132-Reset',
-	title = 'Time Picker: Reset Time',
+	title = 'GT-11132 - Time Picker: Reset Time',
 	tags = ['moonstone', 'qa', 'TimePicker'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {

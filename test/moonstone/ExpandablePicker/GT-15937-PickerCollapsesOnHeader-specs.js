@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
     path = 'test/moonstone/ExpandablePicker/GT-15937-PickerCollapsesOnHeader',
-    title = 'DayPicker: Picker Collapses upon Pointer/5way on Picker Header',
+    title = 'GT-15937 - DayPicker: Picker Collapses upon Pointer/5way on Picker Header',
     directory = 'ui-tests/dist',
     tags = ['moonstone', 'qa', 'DayPicker']; // Tags show up in SauceLabs test output
 

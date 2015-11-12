@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Popup/GT-11155-DirectPopupHide',
-	title = 'Popup: Direct Popup dismisses with Hide button',
+	title = 'GT-11155 - Popup: Direct Popup dismisses with Hide button',
 	directory = 'ui-tests/dist',
 	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
 

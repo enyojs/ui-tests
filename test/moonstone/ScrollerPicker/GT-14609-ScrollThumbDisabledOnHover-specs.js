@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ScrollerPicker/GT-14609-ScrollThumbDisabledOnHover',
-	title = 'ScrollerVertical: Scroll Thumb Does Not Display upon item Hover',
+	title = 'GT-14609 - ScrollerVertical: Scroll Thumb Does Not Display upon item Hover',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'Scroller Vertical', 'hover'];	// Tags show up in SauceLabs test output
 

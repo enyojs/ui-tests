@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Popup/GT-13951-BindingValuesChange',
-	title = 'ContextualPopup: Binding Values change in Popup',
+	title = 'GT-13951 - ContextualPopup: Binding Values change in Popup',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone', 'qa', 'popup'];	// Tags show up in SauceLabs test output
 

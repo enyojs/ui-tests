@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DatePicker/GT-14760-FocusDisplaysOnInteger',
-	title = 'DatePicker: Focus displays the integer pickers on upon 5way',
+	title = 'GT-14760 - DatePicker: Focus displays the integer pickers on upon 5way',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','5way','DatePicker'];	// Tags show up in SauceLabs test output
 

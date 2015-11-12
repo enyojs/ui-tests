@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18091-FowardSkipResumesPlaying',
-	title = 'VideoPlayerInline - Forward Skip and Back to List resumes Playback',
+	title = 'GT-18091 - VideoPlayerInline - Forward Skip and Back to List resumes Playback',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','VideoPlayer'];	// Tags show up in SauceLabs test output
 

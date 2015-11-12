@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Popup/GT-14601-ScrimPreventsFocus',
-	title = 'Popup: Scrim prevents Focus events',
+	title = 'GT-14601 - Popup: Scrim prevents Focus events',
 	directory = 'ui-tests/dist',
 	tags = ['scrim','moonstone','qa','popup'];	// Tags show up in SauceLabs test output
 

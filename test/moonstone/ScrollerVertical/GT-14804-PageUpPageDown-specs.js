@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ScrollerVertical/GT-14804-PageUpPageDown',
-	title = 'PageUp/Down: USB Keyboard\'s Page Up/Down scrolls content',
+	title = 'GT-14804 - PageUp/Down: USB Keyboard\'s Page Up/Down scrolls content',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','pageup','pagedn','ScrollerVertical'];	// Tags show up in SauceLabs test output
 

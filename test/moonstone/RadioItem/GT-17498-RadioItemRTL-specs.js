@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/RadioItem/GT-17498-RadioItemRTL',
-	title = 'RadioItem-RTL: Toggle Flips Position in RTL',
+	title = 'GT-17498 - RadioItem-RTL: Toggle Flips Position in RTL',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','radioItem','RTL'];	// Tags show up in SauceLabs test output
 
