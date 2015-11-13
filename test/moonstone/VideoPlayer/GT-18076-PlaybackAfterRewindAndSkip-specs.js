@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18076-PlaybackAfterRewindAndSkip',
-	title = 'VideoPlayer: Playback resumes after Steps of Rewinding then Skipping',
+	title = 'GT-18076 - VideoPlayer: Playback resumes after Steps of Rewinding then Skipping',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','video'];	// Tags show up in SauceLabs test output
 
