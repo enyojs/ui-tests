@@ -32,15 +32,14 @@ describe(title, function() {
 			.elementById(app.nestedRadioValue)
 			.text().should.eventually.contain('Creek')
 			.elementById(app.creekRadioButton)
-			.getAttribute('selected').should.eventually.equal('true')
-
+			.getAttribute('selected').should.eventually.be.ok
 			.elementById(app.oceanRadioButton)
 			.click()
 			.delay(1000)
 			.elementById(app.nestedRadioValue)
 			.text().should.eventually.contain('Ocean')
 			.elementById(app.oceanRadioButton)
-			.getAttribute('selected').should.eventually.equal('true')
+			.getAttribute('selected').should.eventually.be.ok
 			.nodeify(done);
 	});
 

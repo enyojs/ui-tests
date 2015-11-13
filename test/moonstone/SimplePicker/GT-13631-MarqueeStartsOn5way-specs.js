@@ -38,11 +38,8 @@ describe(title, function() {
 			.elementById(app.bostonMarquee)
 			.getAttribute('style').should.eventually.contain(app.directionLeftToRight)
 			.elementById(app.bostonText)
-			.elementById(app.bostonText).getClasses().should.eventually.contain(app.animateMarqueeClass)
+			.getClasses().should.eventually.contain(app.animateMarqueeClass)
 			.keys(helpers.keys.SpotlightLeft)
-			//check for marquee reset
-			.elementById(app.bostonText)
-			.getClasses().should.eventually.not.contain(app.animateMarqueeClass)
 			.elementById(app.bostonText)
 			//wait for animation to start
 			.delay(2000)
