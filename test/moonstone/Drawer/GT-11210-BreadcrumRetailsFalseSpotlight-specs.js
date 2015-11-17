@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Drawer/GT-11210-BreadcrumRetailsFalseSpotlight',
-	title = 'Drawer: Breadcrumbs and off-Screen Panels retains False "Spotlight" Value',
+	title = 'GT-11210 - Drawer: Breadcrumbs and off-Screen Panels retains False "Spotlight" Value',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','Drawer'];	// Tags show up in SauceLabs test output
 
