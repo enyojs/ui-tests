@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ScrollerVertical/GT-14792-ControlSpotsInViewportAfterScroll',
-	title = 'PageUp/Down: Control Spots in Viewport after Scroll',
+	title = 'GT-14792 - PageUp/Down: Control Spots in Viewport after Scroll',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','ScrollerVertical','PageUp','PageDown'];	// Tags show up in SauceLabs test output
 

@@ -11,7 +11,7 @@ var
 	Scroller = require('moonstone/Scroller'),
 	load = require('../../../load'),
 	Test = kind({
-		name: 'test.GT-11210-BreadcrumRetailsFalseSpotlight',
+		name: 'test.GT-18384-XRemainsStationary',
 		classes: 'moon enyo-unselectable enyo-fit',
 		components: [
 			{
@@ -136,10 +136,10 @@ var
 			// correctly, the height of the control drawer has to be set via CSS. In this sample, that
 			// has been done via the moon-partial-drawer-client class. The height of the drawer content
 			// need not be explicitly set as it will fill the remaining space.
-			if (open || controlsOpen) {
+			if (open || controlsOpen){ 
 				this.$.partialControls.show();
 			}
-			if (open) {
+			if (open){
 				this.$.partialPanel.show();
 			}
 

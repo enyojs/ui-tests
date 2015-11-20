@@ -9,7 +9,7 @@ var rl = readline.createInterface({
 
 exports.createTest = function(done) {
     rl.question('What is the name of your test?\n(e.g. GT-15940-EveryDayStringDisplay)\n\n', function(testName) {
-        rl.question('What is the title of your Test?\n(e.g. DayPicker: \'Every Day\' String Displays)\n\n', function(titleName) {
+        rl.question('What is the title of your Test?\n(e.g. GT-15940 - DayPicker: \'Every Day\' String Displays)\n\n', function(titleName) {
             rl.question('What is should your test do?\n(e.g. should display \'Every Day\' when all days are checked)\n\n', function(behavior) {
                 rl.question('What are the tags for your test?\n(seperate tags by comma)\n(e.g. moonstone, qa, DayPicker, Picker )\n\n', function(tags) {
                     rl.question('Where would you like to place your test?\n(e.g. moonstone/ExpandablePicker)\n\n', function(path) {
