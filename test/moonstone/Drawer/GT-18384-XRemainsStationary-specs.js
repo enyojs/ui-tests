@@ -61,21 +61,21 @@ describe(title, function() {
 	});
 
 	var setParentLocation = function(location){		
-		parentLocation = parseInt(location.y)
-	}
+		parentLocation = parseInt(location.y);
+	};
 
 	var setButtonLocation = function(location){
-		buttonLocation = parseInt(location.y)
-	}
+		buttonLocation = parseInt(location.y);
+	};
 
-	var setDifferenceBetweenLocations = function(location){
+	var setDifferenceBetweenLocations = function(){
 		differenceBetweenLocations = buttonLocation - parentLocation;
-	}	
+	};	
 
 	var checkIfDifferencesAreEqual = function(){
 		var currentDifferenceBetweenLocations = buttonLocation - parentLocation;		
 		currentDifferenceBetweenLocations.should.equal(differenceBetweenLocations);
-	}
+	};
 });
 
 app = {

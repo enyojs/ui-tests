@@ -113,7 +113,7 @@ var
 				]
 			}
 		],
-		next: function (sender, event) {
+		next: function () {
 			this.$.panels.next();
 			return true;
 		},
@@ -136,8 +136,12 @@ var
 			// correctly, the height of the control drawer has to be set via CSS. In this sample, that
 			// has been done via the moon-partial-drawer-client class. The height of the drawer content
 			// need not be explicitly set as it will fill the remaining space.
-			if (open || controlsOpen) this.$.partialControls.show();
-			if (open) this.$.partialPanel.show();
+			if (open || controlsOpen) {
+				this.$.partialControls.show();
+			}
+			if (open) {
+				this.$.partialPanel.show();
+			}
 
 			this.$.openMoreButton.set('showing', !open);
 		},
