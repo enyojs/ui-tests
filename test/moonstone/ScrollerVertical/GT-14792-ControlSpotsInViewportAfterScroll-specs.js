@@ -38,7 +38,7 @@ describe(title, function() {
 			.moveTo(0, 0)
 			.moveTo()
 			.getClasses().should.eventually.contain('spotlight')
-			// .elementsByClassName('spotlight').should.eventually.have.length(1)
+			.elementsByClassName('spotlight').should.eventually.have.length(1)
 			.nodeify(done);
 	});
 
