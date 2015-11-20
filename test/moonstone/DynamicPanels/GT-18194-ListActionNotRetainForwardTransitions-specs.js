@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DynamicPanels/GT-18194-ListActionNotRetainForwardTransitions',
-	title = 'DynamicPanels: ListActions is Not Retained in Forward Transition',
+	title = 'GT-18194 - DynamicPanels: ListActions is Not Retained in Forward Transition',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','DynamicPanels'];	// Tags show up in SauceLabs test output
 
