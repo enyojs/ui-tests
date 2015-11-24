@@ -28,6 +28,11 @@ describe(title, function() {
 			.click()
 			.waitForElementById(app.client2)
 			.getComputedCss('transition').should.eventually.equal('opacity 0.5s ease-out 0s')
+			.elementById(app.client2)
+			.getComputedCss('opacity').should.eventually.equal('0')
+			.elementById(app.client2)
+			.delay(2000)
+			.getComputedCss('opacity').should.eventually.equal('1')
 			.nodeify(done);
 	});
 
