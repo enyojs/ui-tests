@@ -36,16 +36,17 @@ describe(title, function() {
 			.keys(helpers.keys.SpotlightRight)
 			.delay(300)
 			.keys(helpers.keys.SpotlightSelect)
-			.delay(300)
+			.delay(500)
 			//make sure menu opens
 			.elementById(app.drawerClient)
 			.getClasses().should.eventually.contain('open')
 			.keys([helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown])
-			.delay(300)
+			.delay(500)
 			//check for disabled arrow
 			.elementById(app.pageDownControl)
 			.getClasses().should.eventually.contain('disabled')
 			.keys([helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp,helpers.keys.SpotlightUp])
+			.delay(1000)
 			.elementById(app.pageUpControl)
 			.getClasses().should.eventually.contain('disabled')
 			.nodeify(done);
