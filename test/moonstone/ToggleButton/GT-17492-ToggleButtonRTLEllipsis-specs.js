@@ -33,9 +33,9 @@ describe(title, function() {
 			.getClasses().should.eventually.contain('moon-toggle-button-on')
 			.elementById(app.notificationsText)
 			.getProperty('scrollWidth').then(setScrollWidth)
-			//if checkWidth is true then text overflow is true then ellipsis should show
+			//if checkForTextOverflow is true, then ellipsis should show
 			.elementById(app.notificationsText)
-			.getComputedCss('width').then(checkWidth)
+			.getComputedCss('width').then(checkForTextOverflow)
 			.elementById(app.notificationsText)
 			.getComputedCss('textOverflow').should.eventually.equal('ellipsis')
 			.nodeify(done);
@@ -45,8 +45,7 @@ describe(title, function() {
 		scrollWidth = response;
 	};
 
-	//if this is true then text overflow is true
-	var checkWidth = function(response){
+	var checkForTextOverflow = function(response){
 		var width = parseInt(response);
 		width.should.be.below(scrollWidth);
 	};
