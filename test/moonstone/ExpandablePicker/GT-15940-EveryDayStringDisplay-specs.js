@@ -55,6 +55,8 @@ describe(title, function() {
 			.delay(500)
 			.elementById(app.currentValueString)
 			.text().should.eventually.contain('Every Day')
+			.elementById(app.headerText)
+			.text().should.eventually.contain('Every Day')
 			.nodeify(done);
 	});
 
@@ -62,7 +64,8 @@ describe(title, function() {
 
 app = {
 	dayPicker: 'gT-15940-EveryDayStringDisplay_dayPicker',
-	dayPickerHeader: 'gT-15940-EveryDayStringDisplay_nonGroupedPanel_header_header',
+	dayPickerHeader: 'gT-15940-EveryDayStringDisplay_dayPicker_header_header',
+	headerText: 'gT-15940-EveryDayStringDisplay_dayPicker_header_text',
 	sundayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem',
 	mondayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem2',
 	tuesdayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem3',
