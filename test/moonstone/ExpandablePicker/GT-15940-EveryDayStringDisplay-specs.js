@@ -62,7 +62,7 @@ describe(title, function() {
 
 app = {
 	dayPicker: 'gT-15940-EveryDayStringDisplay_dayPicker',
-	dayPickerHeader: 'gT-15940-EveryDayStringDisplay_nonGroupedPanel_header_title',
+	dayPickerHeader: 'gT-15940-EveryDayStringDisplay_nonGroupedPanel_header_header',
 	sundayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem',
 	mondayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem2',
 	tuesdayId: 'gT-15940-EveryDayStringDisplay_dayPicker_checkboxItem3',
