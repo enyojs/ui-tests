@@ -31,7 +31,7 @@ describe(title, function() {
 			.keys([helpers.keys.SpotlightDown, helpers.keys.SpotlightDown])
 			.delay(1000)
 			.elementById(app.playerControl)
-			.getComputedCss('display').should.eventually.not.equal('none')			
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.elementById(app.progressBar)
 			.moveTo()
 			.moveTo(100, 50)
@@ -51,8 +51,8 @@ describe(title, function() {
 
 	/*
 	Check that pixels width of slider bar is within the width of the knob
-	knob's width is 96px and scaled 0.5 so width is 48px. 
-	For progress bar to be within then the knob and the progress bar width needs to be within 24px of each side 
+	knob's width is 96px and scaled 0.5 so width is 48px.
+	For progress bar to be within then the knob and the progress bar width needs to be within 24px of each side
 	*/
 	var checkPosition = function(response){
 		var widthPosition = parseInt(response);
