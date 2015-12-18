@@ -1,4 +1,4 @@
-var helpers = rootRequire('./helpers'),
+	var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
@@ -58,7 +58,7 @@ describe(title, function() {
 
 	//regular scroll moves about 25 px so we need to make sure the the difference is less than that
 	var checkCurrentScrollPosition = function(location){
-		currentVThumbPosition.should.be.closeTo(location.y, 16);
+		currentVThumbPosition.should.be.closeTo(location.y, 24);
 	};
 
 });
