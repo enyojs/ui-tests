@@ -42,6 +42,6 @@ describe(title, function() {
 });
 
 app = {
-	expandablePicker: 'gT-10896-OnlyOnePickerExpands_expandablePicker9',
-	nonAutoCollapsingPicker: 'gT-10896-OnlyOnePickerExpands_expandablePicker10'
+	expandablePicker: 'gT-10896-OnlyOnePickerExpands_expandablePicker',
+	nonAutoCollapsingPicker: 'gT-10896-OnlyOnePickerExpands_expandablePicker2'
 };
