@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18077-PlaybackAfterFastFowardAndSkip',
-	title = 'VideoPlayer: Playback resumes after Steps of Forwarding then Skipping',
+	title = 'GT-18077 - VideoPlayer: Playback resumes after Steps of Forwarding then Skipping',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','video'];	// Tags show up in SauceLabs test output
 
@@ -35,10 +35,12 @@ describe(title, function() {
 			.elementById(app.playerControl)
 			.getComputedCss('display').should.eventually.not.equal('none')
 			.elementById(app.fastFowardButton)
+			.moveTo(10,10)
+			.moveTo(20,20)
 			.click()
 			.delay(2000)
 			.elementById(app.videoPlayer)
-			.getProperty('playbackRate').should.eventually.equal(2)			
+			.getProperty('playbackRate').should.eventually.equal(2)
 			.enyoPropertyGet(app.videoPlayer, 'onloadeddata').should.eventually.equal('dataloaded')
 			.elementById(app.jumpBackButton)
 			.click()
