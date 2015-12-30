@@ -3,7 +3,7 @@ var helpers = rootRequire('./helpers'),
 
 var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ToggleButton/GT-17492-ToggleButtonRTLEllipsis',
-	title = 'ToggleButton-RTL: Ellipsis displays with Overflowing Text',
+	title = 'GT-17492 - ToggleButton-RTL: Ellipsis displays with Overflowing Text',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','ToggleButton','RTL','ellipsis'];	// Tags show up in SauceLabs test output
 
