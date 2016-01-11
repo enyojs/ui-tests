@@ -29,6 +29,8 @@ var getAllUsedTests = function(){
 
 		//returns array of all tests without moonstone-extra
 		return nonExtraTestsArr;
+	} else if(process.env.LIBRARY){
+		return ['test/'+process.env.LIBRARY+'/**/*-specs.js'];
 	} else {
 		return ['test/**/*-specs.js'];
 	}
