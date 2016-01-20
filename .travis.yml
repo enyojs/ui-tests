@@ -22,6 +22,6 @@ before_script:
     - serve -L .. &
 script:
     - echo -e "\x1b\x5b35;1m*** Starting tests...\x1b\x5b0m"
-    - MOONSTONE_EXTRA=false grunt test:sauce:chrome
+    - PATTERN='moonstone-extra' INVERSE=true grunt test:sauce:chrome
     - echo -e "\x1b\x5b35;1m*** Tests complete\x1b\x5b0m"
 

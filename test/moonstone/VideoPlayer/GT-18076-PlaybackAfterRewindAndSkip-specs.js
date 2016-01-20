@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18076-PlaybackAfterRewindAndSkip',
 	title = 'GT-18076 - VideoPlayer: Playback resumes after Steps of Rewinding then Skipping',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','video'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','video','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Tooltip/GT-11235-StillDisplayAfterPointerTimeout',
 	title = 'GT-11235 - Tooltip: Tooltip Displays after Pointer Times Out',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone', 'tooltip', 'qa'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone', 'tooltip', 'qa','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ActivityPanels/GT-14318-BackKeyTransitionActivityPanelVideo',
 	title = 'GT-14318 - BackKey: Forward Transition in ActivityPanelsWithVideo',
 	directory = 'ui-tests/dist',
-	tags = ["moonstone","qa","BackKey","ActivityPanelsWithVideo"];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','BackKey','ActivityPanelsWithVideo','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

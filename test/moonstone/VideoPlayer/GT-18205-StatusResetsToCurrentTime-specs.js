@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18205-StatusResetsToCurrentTime',
 	title = 'GT-18205 - VideoPlayer: Status Indicator Popup Resets to Current Paused Time',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','VideoPlayer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','VideoPlayer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

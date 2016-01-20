@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Panel/GT-14260-BackKeyReturnsFromVideo',
 	title = 'GT-14260 - BackKey: Back Key Returns Panels from Full Screen Video',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','BackKey','AlwaysViewingPanels'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','BackKey','AlwaysViewingPanels','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

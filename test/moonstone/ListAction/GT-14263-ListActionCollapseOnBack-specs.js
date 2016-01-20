@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ListAction/GT-14263-ListActionCollapseOnBack',
 	title = 'GT-14263 - BackKey: ListActions Collapses upon Back Key',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','ListActions','BackKey'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','ListActions','BackKey','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DynamicPanels/GT-18195-ListActionRetainedBackTransition',
 	title = 'GT-18195 - DynamicPanels: ListActions is Retained in Back Transition',
 	directory = 'ui-tests/dist',
-	tags = ["moonstone","qa","DynamicPanels"];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','DynamicPanels','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

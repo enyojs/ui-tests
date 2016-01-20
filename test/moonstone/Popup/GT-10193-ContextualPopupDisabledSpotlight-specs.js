@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Popup/GT-10193-ContextualPopupDisabledSpotlight',
 	title = 'GT-10193 - ContextualPopup: Buttons Do Not Spot outside of SpotlightModal',
 	directory = 'ui-tests/dist',
-	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
+	tags = ['popup', 'QA', 'moonstone','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-14820-IconsDisplayInPopup',
 	title = 'GT-14820 - VideoPlayer: Icons display in Status Indicator Popup',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','VideoPlayer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','VideoPlayer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

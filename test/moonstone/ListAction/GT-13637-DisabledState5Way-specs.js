@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ListAction/GT-13637-DisabledState5Way',
 	title = 'GT-13637 - ListActions: Disabled State is Triggered via 5way',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','ListAction','5way'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','ListAction','5way','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/SimplePicker/GT-11261-StartsWhenButtonSpotlight',
 	title = 'GT-11261 - SimplePicker: Marquee Starts when Button Obtains Spotlight',
 	directory = 'ui-tests/dist',
-	tags = ['Marquee', 'SimplePicker', 'QA'];	// Tags show up in SauceLabs test output
+	tags = ['Marquee', 'SimplePicker', 'QA','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ScrollerVertical/GT-18095-ScrollThumbDisplaysTopBottom',
 	title = 'GT-18095 - ScrollerVertical: Scroll Thumb Displays when reaching Top/End of Scroll Content',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','Scroller','Scroll Thumb'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','Scroller','Scroll Thumb','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

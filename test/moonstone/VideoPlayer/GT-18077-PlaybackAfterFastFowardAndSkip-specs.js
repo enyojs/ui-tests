@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18077-PlaybackAfterFastFowardAndSkip',
 	title = 'GT-18077 - VideoPlayer: Playback resumes after Steps of Forwarding then Skipping',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','video'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','video','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

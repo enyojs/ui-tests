@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Tooltip/GT-11069-TooltipChangesDirectionSlider',
 	title = 'GT-11069 - Tooltip: Slider-Tooltip Direction Changes from Drag',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone', 'qa', 'slider', 'tooltip'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone', 'qa', 'slider', 'tooltip','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

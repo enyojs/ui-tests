@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/SimplePicker/GT-13631-MarqueeStartsOn5way',
 	title = 'GT-13631 - SimplePicker: Marquee Starts upon 5way focus',
 	directory = 'ui-tests/dist',
-	tags = ['Marquee', 'SimplePicker', 'QA'];	// Tags show up in SauceLabs test output
+	tags = ['Marquee', 'SimplePicker', 'QA','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

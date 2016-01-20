@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/DataGridList/GT-11300-5wayOutOfContainer',
 	title = 'GT-11300 - DataGridList: 5way Out of a Container',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','DataGridList'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','DataGridList','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

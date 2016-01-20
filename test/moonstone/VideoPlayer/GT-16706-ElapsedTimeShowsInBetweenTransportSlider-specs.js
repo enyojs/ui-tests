@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-16706-ElapsedTimeShowsInBetweenTransportSlider',
 	title = 'GT-16706 - VideoPlayer: Elapsed time\'s indicator partially displays behind the Video TransportSlider',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','VideoPlayer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','VideoPlayer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

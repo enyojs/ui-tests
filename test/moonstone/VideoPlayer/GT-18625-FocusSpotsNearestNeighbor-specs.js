@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18625-FocusSpotsNearestNeighbor',
 	title = 'GT-18625 - VideoPlayer: Focus Spots Nearest Neighbor from Progress Bar',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','VideoPlayer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','VideoPlayer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

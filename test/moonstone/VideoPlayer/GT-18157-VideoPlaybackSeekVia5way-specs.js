@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-18157-VideoPlaybackSeekVia5way',
 	title = 'GT-18157 - VideoPlayer: Playback Seeks to Video TransportSlider Selection via 5way',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','5way','VideoPlayer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','5way','VideoPlayer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

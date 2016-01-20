@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-17318-PopupWithControlsDisplays',
 	title = 'GT-17318 - VideoPlayer: Status Indicator Popup Centers and Aligns with Playback Controls',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','VideoPlayer','controls'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','VideoPlayer','controls','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

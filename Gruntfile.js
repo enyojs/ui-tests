@@ -9,7 +9,7 @@ var _ = require('lodash');
 var desireds = rootRequire('desireds');
 var local_desireds = rootRequire('local_desireds');
 var testGenerator = rootRequire('test_generator/create_test.js');
-var moonstoneExtraCheck = rootRequire('moonstone-extra-checks');
+var flags = rootRequire('flags');
 var globalConfig = {};
 
 var gruntConfig = {
@@ -23,7 +23,7 @@ var gruntConfig = {
 					timeout: 240000,
 					reporter: 'spec'
 				},
-				src: moonstoneExtraCheck.getAllUsedTests()
+				src: flags.getAllUsedTests()
 			},
 			spec: {
 				options: {
@@ -111,7 +111,7 @@ module.exports = function(grunt) {
 			//Needed for TAS to work properly with MOONSTONE_EXTRA flag
 			//Currently does not work with * (e.g. GT-12345*), but TAS uses full file names so it is currently a non-issue
 			if(process.env.MOONSTONE_EXTRA === 'false'){
-				var moonstoneExtraTests = moonstoneExtraCheck.getMoonstoneExtraTests();
+				var moonstoneExtraTests = flags.getMoonstoneExtraTests();
 				var isTestMoonstoneExtra = _.includes(moonstoneExtraTests, filename);
 				if(!isTestMoonstoneExtra){
 					globalConfig.file = filename;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-14608-SliderUpdates',
 	title = 'GT-14608 - VideoPlayerInline: Slider Updates in Fullscreen and Inline Player',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone', 'video', 'qa'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone', 'video', 'qa','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser,

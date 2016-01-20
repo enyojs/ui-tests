@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Panel/GT-14271-BackKeyPanelsTransition',
 	title = 'GT-14271 - BackKey: Panels Transition while Focus spots back on Item',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','BackKey','panels','drawer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','BackKey','panels','drawer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

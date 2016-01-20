@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Drawer/GT-18384-XRemainsStationary',
 	title = 'GT-18384 - Drawer: X Button Remains Stationary With Partial Drawer',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','Drawer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','Drawer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Panel/GT-11044-AlwaysViewingCollapsingPanels',
 	title = 'GT-11044 - AlwaysViewingPanels - Collapsing Panels',
 	directory = 'ui-tests/dist',
-	tags = ['popup', 'QA', 'moonstone'];	// Tags show up in SauceLabs test output
+	tags = ['popup', 'QA', 'moonstone','P2','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

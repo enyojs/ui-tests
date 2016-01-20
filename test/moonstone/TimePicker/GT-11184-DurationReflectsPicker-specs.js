@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/TimePicker/GT-11184-DurationReflectsPicker',
 	title = 'GT-11184 - TimePicker: Duration picker reflects current changes',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone', 'TimePicker', 'qa'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone', 'TimePicker', 'qa','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/Drawer/GT-11210-BreadcrumRetailsFalseSpotlight',
 	title = 'GT-11210 - Drawer: Breadcrumbs and off-Screen Panels retains False "Spotlight" Value',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','Drawer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','Drawer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

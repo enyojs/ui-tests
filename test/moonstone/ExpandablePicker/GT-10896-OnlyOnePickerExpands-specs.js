@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/ExpandablePicker/GT-10896-OnlyOnePickerExpands',
 	title = 'GT-10896 - ExpandablePicker: One Picker Stays Expanded in Grouped Pickers',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','ExpandablePicker'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','ExpandablePicker','P2'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;

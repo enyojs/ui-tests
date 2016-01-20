@@ -5,7 +5,7 @@ var base = 'http://localhost:3000/',
 	path = 'test/moonstone/VideoPlayer/GT-14298-BackKeyDismissesBanners',
 	title = 'GT-14298 - BackKey: Back Key dismisses Playback Controls/Channel Banner',
 	directory = 'ui-tests/dist',
-	tags = ['moonstone','qa','BackKey','VideoPlayer'];	// Tags show up in SauceLabs test output
+	tags = ['moonstone','qa','BackKey','VideoPlayer','moonstone-extra'];	// Tags show up in SauceLabs test output
 
 describe(title, function() {
 	var browser;
