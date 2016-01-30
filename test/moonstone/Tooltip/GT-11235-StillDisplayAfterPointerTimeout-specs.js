@@ -24,23 +24,36 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
-			//extra move for spotlight in chrome
-			.moveTo(null, 100,100)
-			.moveTo(null, 200,200)
-			.elementById(app.rightButton)
+			.waitForElementById(app.rightButton)
+			.moveTo(0,0)
+			.moveTo(10, 10)
 			.moveTo()
 			.delay(1000)
-			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain('display: none;')
+			.elementById(app.rightTooltip)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.elementById(app.rightButton)
-			//wait for cursor to time out on webOS. 
-			.delay(10000)
-			.enyoPropertyGet(app.rightTooltip, 'style').should.eventually.not.contain('display: none;')
+			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.appId)
+			.delay(2000)
+			.moveTo()
+			.elementById(app.rightTooltip)
+			.getComputedCss('display').should.eventually.equal('none')
+			.elementById(app.rightButton)
+			.getClasses().should.eventually.not.contain('spotlight')
+			//wait for cursor to time out on webOS.
+			.elementById(app.appId)
+			.delay(12000)
+			.elementById(app.rightTooltip)
+			.getComputedCss('display').should.eventually.not.equal('none')
+			.elementById(app.rightButton)
+			.getClasses().should.eventually.contain('spotlight')
 			.nodeify(done);
 	});
 
 });
 
 app = {
+	appId: 'gT-11235-StillDisplayAfterPointerTimeout',
 	rightButton: 'gT-11235-StillDisplayAfterPointerTimeout_button',
 	rightTooltip: 'gT-11235-StillDisplayAfterPointerTimeout_toolTip',
 };
