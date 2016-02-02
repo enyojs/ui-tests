@@ -47,7 +47,8 @@
     "lodash": "latest",
     "colors": "latest",
     "grunt": "~0.4.5",
-    "shelljs": "latest"
+    "shelljs": "latest",
+    "superagent": "latest"
   },
   "optionalDependencies": {
     "webos-wdjs-adapter": "git+ssh://gpro.lgsvl.com:29418/webos-pro/webos-wdjs-adapter"
