@@ -10,6 +10,7 @@ var desireds = rootRequire('desireds');
 var local_desireds = rootRequire('local_desireds');
 var testGenerator = rootRequire('test_generator/create_test.js');
 var moonstoneExtraCheck = rootRequire('moonstone-extra-checks');
+var enyoBuild = rootRequire('enyo-version-on-build');
 var globalConfig = {};
 
 var gruntConfig = {
@@ -107,6 +108,11 @@ module.exports = function(grunt) {
 		grunt.registerTask('test:local:' + key, ['env:local_' + key, 'simplemocha:all']);
 		grunt.registerTask('spec:local:' + key, function(filename) {
 			grunt.task.run('env:local_' + key);
+
+			//Needed for when we want enyo libraries to match the versions on the BUILD_NUMBER
+			if(process.env.BUILD_NUMBER && process.env.BOARD_NUMBER && process.env.NAME && process.env.PASSWORD){
+				enyoBuild.changeEnyoVersions();
+			}
 
 			//Needed for TAS to work properly with MOONSTONE_EXTRA flag
 			//Currently does not work with * (e.g. GT-12345*), but TAS uses full file names so it is currently a non-issue
