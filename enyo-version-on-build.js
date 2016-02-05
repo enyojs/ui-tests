@@ -2,19 +2,23 @@ var request = require('superagent');
 var _ = require('lodash');
 var shelljs = require('shelljs');
 
-var changeEnyoVersions = function(){
+var changeEnyoVersions = function(buildNumber, boardNumber, username, password){
 
-	var boardNumber = {
-		m14: 'starfish-master-official-m14tv',
-		h15: 'starfish-master-official-h15',
-		m16: 'starfish-master-official-m16',
-		w2: 'webos-wearable-master-official-w2'
-	};
+	if(_.includes(boardNumber.toLowerCase(), 'm14')){
+		var deviceType = 'starfish-master-official-m14tv';
+	} else if(_.includes(boardNumber.toLowerCase(), 'h15')){
+		var deviceType = 'starfish-master-official-h15';
+	} else if(_.includes(boardNumber.toLowerCase(), 'm16')){
+		var deviceType = 'starfish-master-official-m16';
+	} else if(_.includes(boardNumber.toLowerCase(), 'w2')){
+		var deviceType = 'webos-wearable-master-official-w2';
+	}
 
 	request
-	  .get('http://ushquc001.palm.com/official_26/'+boardNumber[process.env.BOARD_NUMBER]+'/'+process.env.BUILD_NUMBER+'/package-srcuris.txt')
-	  .auth(process.env.NAME, process.env.PASSWORD)
+	  .get('http://ushquc001.palm.com/official_26/'+deviceType+'/'+buildNumber+'/package-srcuris.txt')
+	  .auth(username, password)
 	  .end(function(err, res){
+	  	// console.log(res);
 	  	var list = _.split(res.text, '\n');
 
 	  	var libraries = ['canvas', 'enyo', 'enyo-cordova','enyo-ilib', 'enyo-webos', 'layout', 'moonstone-extra', 'moonstone', 'onyx', 'spotlight', 'garnet', 'svg'];
