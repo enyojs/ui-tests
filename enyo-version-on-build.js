@@ -2,7 +2,7 @@ var request = require('superagent');
 var _ = require('lodash');
 var shelljs = require('shelljs');
 
-var changeEnyoVersions = function(buildNumber, boardNumber, username, password){
+var changeEnyoVersions = function(buildNumber, boardNumber, username, password, done){
 
 	if(_.includes(boardNumber.toLowerCase(), 'm14')){
 		var deviceType = 'starfish-master-official-m14tv';
@@ -18,7 +18,6 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password){
 	  .get('http://ushquc001.palm.com/official_26/'+deviceType+'/'+buildNumber+'/package-srcuris.txt')
 	  .auth(username, password)
 	  .end(function(err, res){
-	  	// console.log(res);
 	  	var list = _.split(res.text, '\n');
 
 	  	var libraries = ['canvas', 'enyo', 'enyo-cordova','enyo-ilib', 'enyo-webos', 'layout', 'moonstone-extra', 'moonstone', 'onyx', 'spotlight', 'garnet', 'svg'];
@@ -38,7 +37,9 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password){
 	  	});
 
 		_.forEach(commitIds, gitCheckoutLibrary);
+		done();
 	  });
+
 };
 //checkout commit
 function gitCheckoutLibrary(commitId, library){
