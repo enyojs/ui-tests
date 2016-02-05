@@ -25,7 +25,7 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(directory)
 			.waitForElementById(app.appId)
-			.moveTo()			
+			.moveTo()
 			.elementById(app.picker)
 			.moveTo()
 			//extra Spotlight Down for chrome to behave like webOS
@@ -44,9 +44,8 @@ describe(title, function() {
 			.elementById(app.scrollThumb)
 			.getClasses().should.eventually.contain('hidden')
 			.keys(helpers.keys.Pagedown)
-			.delay(200)
 			.elementById(app.scrollThumb)
-			.getClasses().should.eventually.contain('hidden')
+			.getClasses().should.eventually.not.contain('hidden')
 			.keys(helpers.keys.Pageup)
 			.delay(200)
 			.keys(helpers.keys.Pageup)
@@ -58,9 +57,8 @@ describe(title, function() {
 			.elementById(app.scrollThumb)
 			.getClasses().should.eventually.contain('hidden')
 			.keys(helpers.keys.Pageup)
-			.delay(200)
 			.elementById(app.scrollThumb)
-			.getClasses().should.eventually.contain('hidden')
+			.getClasses().should.eventually.not.contain('hidden')
 			.nodeify(done);
 	});
 
