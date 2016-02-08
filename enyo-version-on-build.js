@@ -4,6 +4,7 @@ var shelljs = require('shelljs');
 
 var changeEnyoVersions = function(buildNumber, boardNumber, username, password, done){
 	console.log('checking out ...');
+	console.log(buildNumber, boardNumber);
 	if(_.includes(boardNumber.toLowerCase(), 'm14')){
 		var deviceType = 'starfish-master-official-m14tv';
 	} else if(_.includes(boardNumber.toLowerCase(), 'h15')){
@@ -17,7 +18,7 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password, 
 	request
 	  .get('http://ushquc001.palm.com/official_26/'+deviceType+'/'+buildNumber+'/package-srcuris.txt')
 	  .auth(username, password)
-	  .end(function(err, res){
+	  .end(function(err, res){	  	
 	  	var list = _.split(res.text, '\n');
 
 	  	var libraries = ['canvas', 'enyo', 'enyo-cordova','enyo-ilib', 'enyo-webos', 'layout', 'moonstone-extra', 'moonstone', 'onyx', 'spotlight', 'garnet', 'svg'];
@@ -44,8 +45,10 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password, 
 //checkout commit
 function gitCheckoutLibrary(commitId, library){
 	if(commitId){
+		console.log("checking out enyo library...", library, commitId);
 		//allow output for TAS debugging
-		shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: false});
+		var result = shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: false});
+		console.log(result.output);
 	}
 }
 
