@@ -3,7 +3,7 @@ var _ = require('lodash');
 var shelljs = require('shelljs');
 
 var changeEnyoVersions = function(buildNumber, boardNumber, username, password, done){
-
+	console.log('checking out ...');
 	if(_.includes(boardNumber.toLowerCase(), 'm14')){
 		var deviceType = 'starfish-master-official-m14tv';
 	} else if(_.includes(boardNumber.toLowerCase(), 'h15')){

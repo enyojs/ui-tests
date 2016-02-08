@@ -188,6 +188,7 @@ var helpers = module.exports = {
 
 		try {
 			var result = shelljs.exec(command, {silent: true});
+			console.log('packing...');
 			if(result.code !== 0) {
 					console.log('Error running enyo pack:');
 					console.log(result.output);
