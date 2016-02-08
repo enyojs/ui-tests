@@ -1,7 +1,6 @@
 var request = require('superagent');
 var _ = require('lodash');
 var shelljs = require('shelljs');
-var Q = require('q');
 
 var changeEnyoVersions = function(buildNumber, boardNumber, username, password, done){
 	if(_.includes(boardNumber.toLowerCase(), 'm14')){
@@ -47,7 +46,7 @@ function gitCheckoutLibrary(commitId, library){
 		var result = shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: true});
 		console.log('result');
 		console.log(commitId, library);
-		console.log(result)
+		console.log(result);
 		console.log(result.output);
 	}
 }
