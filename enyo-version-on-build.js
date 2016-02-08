@@ -1,10 +1,9 @@
 var request = require('superagent');
 var _ = require('lodash');
 var shelljs = require('shelljs');
+var Q = require('q');
 
 var changeEnyoVersions = function(buildNumber, boardNumber, username, password, done){
-	console.log('checking out ...');
-	console.log(buildNumber, boardNumber);
 	if(_.includes(boardNumber.toLowerCase(), 'm14')){
 		var deviceType = 'starfish-master-official-m14tv';
 	} else if(_.includes(boardNumber.toLowerCase(), 'h15')){
@@ -44,10 +43,11 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password, 
 };
 //checkout commit
 function gitCheckoutLibrary(commitId, library){
-	if(commitId){
-		console.log("checking out enyo library...", library, commitId);
-		//allow output for TAS debugging
-		var result = shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: false});
+	if(commitId){				
+		var result = shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: true});
+		console.log('result');
+		console.log(commitId, library);
+		console.log(result)
 		console.log(result.output);
 	}
 }
