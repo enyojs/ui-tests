@@ -3,7 +3,6 @@ var _ = require('lodash');
 var shelljs = require('shelljs');
 
 var changeEnyoVersions = function(buildNumber, boardNumber, username, password, done){
-
 	if(_.includes(boardNumber.toLowerCase(), 'm14')){
 		var deviceType = 'starfish-master-official-m14tv';
 	} else if(_.includes(boardNumber.toLowerCase(), 'h15')){
@@ -44,8 +43,7 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password, 
 //checkout commit
 function gitCheckoutLibrary(commitId, library){
 	if(commitId){
-		//allow output for TAS debugging
-		shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: false});
+		var result = shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: true});
 	}
 }
 
