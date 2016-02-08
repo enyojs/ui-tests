@@ -112,7 +112,7 @@ module.exports = function(grunt) {
 			//Needed for when we want enyo libraries to match the versions on the BUILD_NUMBER
 			if(process.env.BUILD_NUMBER && process.env.BOARD_NUMBER && process.env.NAME && process.env.PASSWORD){
 				//forces grunt to wait for enyo versions to checkout
-				var done = this.async();				
+				var done = this.async();
 				enyoBuild.changeEnyoVersions(process.env.BUILD_NUMBER, process.env.BOARD_NUMBER, process.env.NAME, process.env.PASSWORD, done);
 			}
 

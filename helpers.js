@@ -187,7 +187,7 @@ var helpers = module.exports = {
 			command = 'enyo pack --script-safe --clean --paths=' + libpath + ' -d dist ' + module;
 
 		try {
-			var result = shelljs.exec(command, {silent: true});			
+			var result = shelljs.exec(command, {silent: true});
 			if(result.code !== 0) {
 					console.log('Error running enyo pack:');
 					console.log(result.output);

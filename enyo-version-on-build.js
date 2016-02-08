@@ -16,7 +16,7 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password, 
 	request
 	  .get('http://ushquc001.palm.com/official_26/'+deviceType+'/'+buildNumber+'/package-srcuris.txt')
 	  .auth(username, password)
-	  .end(function(err, res){	  	
+	  .end(function(err, res){
 	  	var list = _.split(res.text, '\n');
 
 	  	var libraries = ['canvas', 'enyo', 'enyo-cordova','enyo-ilib', 'enyo-webos', 'layout', 'moonstone-extra', 'moonstone', 'onyx', 'spotlight', 'garnet', 'svg'];
@@ -42,12 +42,8 @@ var changeEnyoVersions = function(buildNumber, boardNumber, username, password, 
 };
 //checkout commit
 function gitCheckoutLibrary(commitId, library){
-	if(commitId){				
+	if(commitId){
 		var result = shelljs.exec('cd lib/'+_.kebabCase(library)+' && git checkout '+commitId+' && cd ../..',{silent: true});
-		console.log('result');
-		console.log(commitId, library);
-		console.log(result);
-		console.log(result.output);
 	}
 }
 
