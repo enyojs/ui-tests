@@ -45,6 +45,6 @@ describe(title, function() {
 
 app = {
 	appId: 'gT-14269-FocusReturnsContextualPopup',
-	rightButtonId: 'gT-14269-FocusReturnsContextualPopup_contextualPopupButton5',
+	rightButtonId: 'gT-14269-FocusReturnsContextualPopup_button5',
 	rightButtonPopup: 'gT-14269-FocusReturnsContextualPopup_contextualPopup4'
 };
