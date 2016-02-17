@@ -46,7 +46,7 @@ describe(title, function() {
 });
 
 app = {
-	buttonTapArea: 'gT-13951-BindingValuesChange_contextualPopupButton_client',
+	buttonTapArea: 'gT-13951-BindingValuesChange_button_client',
 	creekRadioButton: 'gT-13951-BindingValuesChange_radioItem',
 	oceanRadioButton: 'gT-13951-BindingValuesChange_radioItem3',
 	nestedRadioValue: 'gT-13951-BindingValuesChange_nestedRadioValue',
