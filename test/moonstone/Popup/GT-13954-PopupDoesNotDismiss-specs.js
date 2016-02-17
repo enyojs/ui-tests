@@ -44,7 +44,7 @@ describe(title, function() {
 });
 
 app = {
-	buttonTapArea: 'gT-13954-PopupDoesNotDismiss_contextualPopupButton3',
+	buttonTapArea: 'gT-13954-PopupDoesNotDismiss_button3',
 	riverRadioButton: 'gT-13954-PopupDoesNotDismiss_radioItem2',
 	nestedRadioValue: 'gT-13954-PopupDoesNotDismiss_nestedRadioValue',
 	nestedRadioPopup: 'gT-13954-PopupDoesNotDismiss_nestedRadioPopup'
