@@ -42,7 +42,7 @@ describe(title, function() {
 
 app = {
 	appId: 'gT-10193-ContextualPopupDisabledSpotlight',
-	averageButton: 'gT-10193-ContextualPopupDisabledSpotlight_button_client',
-	modalButton: 'gT-10193-ContextualPopupDisabledSpotlight_button10_client',
+	averageButton: 'gT-10193-ContextualPopupDisabledSpotlight_contextualPopupButton_client',
+	modalButton: 'gT-10193-ContextualPopupDisabledSpotlight_contextualPopupButton10_client',
 	popup: 'gT-10193-ContextualPopupDisabledSpotlight_buttonPopup'
 };
