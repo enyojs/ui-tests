@@ -3,7 +3,7 @@ var
 
 var
 	Item = require('moonstone/Item'),
-	Panels = require('moonstone-extra/Panels'),
+	Panels = require('moonstone/Panels'),
 	Scroller = require('moonstone/Scroller'),
 	ToggleButton = require('moonstone/ToggleButton');
 

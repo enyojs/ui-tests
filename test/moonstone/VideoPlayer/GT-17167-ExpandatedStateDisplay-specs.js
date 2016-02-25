@@ -47,6 +47,7 @@ describe(title, function() {
 			.getClasses().should.eventually.contain('pressed')
 			.elementById(app.knob)
 			.getComputedCss('transform').should.eventually.contain('0.75')
+			.buttonUp()
 			.nodeify(done);
 	});
 
