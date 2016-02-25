@@ -6,7 +6,7 @@ var
 	Divider = require('moonstone/Divider'),
 	Item = require('moonstone/Item'),
 	ListActions = require('moonstone/ListActions'),
-	Panels = require('moonstone-extra/Panels'),
+	Panels = require('moonstone/Panels'),
 	Scroller = require('moonstone/Scroller'),
 	Tooltip = require('moonstone/Tooltip'),
 	TooltipDecorator = require('moonstone/TooltipDecorator');

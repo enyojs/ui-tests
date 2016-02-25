@@ -5,15 +5,15 @@ var
 	Spotlight = require('spotlight');
 
 var
-	ChannelInfo = require('moonstone-extra/ChannelInfo'),
+	ChannelInfo = require('moonstone/ChannelInfo'),
 	Clock = require('moonstone/Clock'),
 	IconButton = require('moonstone/IconButton'),
 	Item = require('moonstone/Item'),
-	Panels = require('moonstone-extra/Panels'),
+	Panels = require('moonstone/Panels'),
 	ToggleItem = require('moonstone/ToggleItem'),
-	VideoInfoBackground = require('moonstone-extra/VideoInfoBackground'),
-	VideoInfoHeader = require('moonstone-extra/VideoInfoHeader'),
-	VideoPlayer = require('moonstone-extra/VideoPlayer');
+	VideoInfoBackground = require('moonstone/VideoInfoBackground'),
+	VideoInfoHeader = require('moonstone/VideoInfoHeader'),
+	VideoPlayer = require('moonstone/VideoPlayer');
 
 var
 	load = require('../../../load'),
@@ -21,7 +21,7 @@ var
 	name: 'test.GT-14260-BackKeyReturnsFromVideo',
 	classes: 'moon enyo-fit enyo-unselectable',
 	components: [
-        {name: 'player', kind: VideoPlayer, src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', poster: 'moonstone-extra/assets/video-poster.png', autoplay: true, showing: false, infoComponents: [
+        {name: 'player', kind: VideoPlayer, src: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', poster: 'moonstone/assets/video-poster.png', autoplay: true, showing: false, infoComponents: [
 			{kind: VideoInfoBackground, orient: 'left', background: true, fit: true, components: [
 				{
 					kind: ChannelInfo,
