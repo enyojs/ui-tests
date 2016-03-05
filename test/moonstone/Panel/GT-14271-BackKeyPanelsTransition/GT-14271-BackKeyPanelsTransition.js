@@ -6,8 +6,8 @@ var
 	Drawers = require('moonstone/Drawers'),
 	ExpandablePicker = require('moonstone/ExpandablePicker'),
 	Item = require('moonstone/Item'),
-	Panel = require('moonstone-extra/Panel'),
-	Panels = require('moonstone-extra/Panels'),
+	Panel = require('moonstone/Panel'),
+	Panels = require('moonstone/Panels'),
 	Scroller = require('moonstone/Scroller');
 
 var

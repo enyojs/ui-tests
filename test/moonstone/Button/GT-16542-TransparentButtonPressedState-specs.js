@@ -44,6 +44,7 @@ describe(title, function() {
 			.getClasses().should.eventually.not.contain('spotlight')
 			.elementById(app.transparentButton)
 			.getComputedCss('backgroundColor').should.eventually.contain(app.backgroundColor)
+			.buttonUp()			
 			.nodeify(done);			
 	});
 

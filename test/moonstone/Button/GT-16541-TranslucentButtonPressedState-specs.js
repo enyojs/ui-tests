@@ -24,6 +24,9 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
+			.waitForElementById(app.appId)			
+			.moveTo()
+			.moveTo(0, 0)			
 			.waitForElementById(app.translucentButton)			
 			.getComputedCss('backgroundColor').should.eventually.contain(app.backgroundColor)
 			.elementById(app.translucentButton)
@@ -44,6 +47,7 @@ describe(title, function() {
 			.getClasses().should.eventually.not.contain('spotlight')
 			.elementById(app.translucentButton)
 			.getComputedCss('backgroundColor').should.eventually.contain(app.backgroundColor)
+			.buttonUp()
 			.nodeify(done);		
 	});
 });

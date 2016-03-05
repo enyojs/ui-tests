@@ -2,13 +2,13 @@ var
 	kind = require('enyo/kind');
 
 var
-	ChannelInfo = require('moonstone-extra/ChannelInfo'),
+	ChannelInfo = require('moonstone/ChannelInfo'),
 	Clock = require('moonstone/Clock'),
 	IconButton = require('moonstone/IconButton'),
-	VideoFullscreenToggleButton = require('moonstone-extra/VideoFullscreenToggleButton'),
-	VideoInfoBackground = require('moonstone-extra/VideoInfoBackground'),
-	VideoInfoHeader = require('moonstone-extra/VideoInfoHeader'),
-	VideoPlayer = require('moonstone-extra/VideoPlayer'),
+	VideoFullscreenToggleButton = require('moonstone/VideoFullscreenToggleButton'),
+	VideoInfoBackground = require('moonstone/VideoInfoBackground'),
+	VideoInfoHeader = require('moonstone/VideoInfoHeader'),
+	VideoPlayer = require('moonstone/VideoPlayer'),
 	load = require('../../../load'),
 	Test = kind({
 		name: 'test.GT-14608-SliderUpdates',

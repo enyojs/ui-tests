@@ -9,7 +9,6 @@ var base = 'http://localhost:3000/',
 
 describe(title, function() {
 	var browser;
-	var Q = helpers.wd.Q;
 	var startingLocation = 0;
 
 	before(function(done) {
@@ -26,7 +25,8 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
-			.waitForElementById(app.hthumb).getLocationInView().then(setLocationHeight)
+			.waitForElementById(app.hthumb)
+			.getLocationInView().then(setLocationThumb)
 			.keys(helpers.keys.SpotlightRight)
 			.delay(500)
 			.keys(helpers.keys.SpotlightRight)
@@ -35,22 +35,17 @@ describe(title, function() {
 			.delay(500)
 			.keys(helpers.keys.SpotlightRight)
 			.delay(500)
-			.keys(helpers.keys.SpotlightRight).then(checkThumbPosition)
+			.keys(helpers.keys.SpotlightRight)
+			.elementById(app.hthumb)
+			.getLocationInView().then(checkLocationThumb)
 			.nodeify(done);
 	});
 
-	var checkThumbPosition = function(){
-			return Q.fcall(function(){
-				return browser
-							.elementById(app.hthumb)
-							.getLocationInView()
-							.should.eventually.have.property('x')
-							.should.be.eventually.above(startingLocation);
-			}
-		);
+	var checkLocationThumb = function(location){
+		location.x.should.be.above(startingLocation);
 	};
 
-	var setLocationHeight = function(location){
+	var setLocationThumb = function(location){
 		startingLocation = location.x;
 	};
 });

@@ -25,7 +25,7 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(directory)
 			.waitForElementById(app.autoCollapseInput)
-			.click()			
+			.click()
 			.getAttribute('checked').should.eventually.be.not.ok
 			.elementById(app.multiSelectionInput)
 			.click()
@@ -59,7 +59,7 @@ describe(title, function() {
 			.click()
 			.getAttribute('checked').should.eventually.be.not.ok
 			.elementById(app.firstItemCheck)
-			.getComputedCss('opacity').should.eventually.contain('0.3')			
+			.getComputedCss('opacity').should.eventually.contain('0.3')
 			.elementById(app.secondItem)
 			.click()
 			.getAttribute('checked').should.eventually.be.not.ok
@@ -70,7 +70,7 @@ describe(title, function() {
 			.getAttribute('checked').should.eventually.be.not.ok
 			.elementById(app.thirdItemCheck)
 			.delay(1000)
-			.getComputedCss('opacity').should.eventually.contain('0.3')			
+			.getComputedCss('opacity').should.eventually.contain('0.3')
 			.nodeify(done);
 	});
 
@@ -79,12 +79,12 @@ describe(title, function() {
 app = {
 	multiSelectionInput: 'gT-14230-VisibleCheckmarksMultipleSelection_formCheckbox_input',
 	autoCollapseInput: 'gT-14230-VisibleCheckmarksMultipleSelection_formCheckbox2_input',
-	firstItem: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem_input',
-	secondItem: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem2_input',
-	thirdItem: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem3_input',
-	firstItemCheck: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem_input_checkboxIcon',
-	secondItemCheck: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem2_input_checkboxIcon',
-	thirdItemCheck: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem3_input_checkboxIcon',
-	picker: 'gT-14230-VisibleCheckmarksMultipleSelection_picker',	
+	firstItem: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem4_input',
+	secondItem: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem5_input',
+	thirdItem: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem6_input',
+	firstItemCheck: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem4_input_checkboxIcon',
+	secondItemCheck: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem5_input_checkboxIcon',
+	thirdItemCheck: 'gT-14230-VisibleCheckmarksMultipleSelection_picker_checkboxItem6_input_checkboxIcon',
+	picker: 'gT-14230-VisibleCheckmarksMultipleSelection_picker',
 	whiteColor: '255, 255, 255',
 };

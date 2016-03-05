@@ -42,9 +42,12 @@ describe(title, function() {
 			.click()
 			.delay(1000)
 			//check to see active + spotlight state
-			.elementById(app.appleButtonID,1000)
+			.elementById(app.appleButtonID)
 			.getClasses().should.eventually.contain('active')
-			.elementById(app.appleButtonID,1000)
+			.elementById(app.appleButtonID)
+			.moveTo(10,10)
+			.moveTo()
+			.elementById(app.appleButtonID)
 			.getClasses().should.eventually.contain('spotlight')
 			//move cursor off button
 			.elementById(app.appDivider)
@@ -59,7 +62,7 @@ describe(title, function() {
 			.moveTo()
 			//wait for cursor to disappear
 			.delay(10000)
-			.elementById(app.appleButtonID,1000)
+			.elementById(app.appleButtonID)
 			.getClasses().should.eventually.contain('spotlight')
 			.nodeify(done);
 	});

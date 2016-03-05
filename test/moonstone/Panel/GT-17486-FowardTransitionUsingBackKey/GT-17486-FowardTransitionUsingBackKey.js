@@ -4,7 +4,7 @@ var
 var
 	IconButton = require('moonstone/IconButton'),
 	Item = require('moonstone/Item'),
-	Panels = require('moonstone-extra/Panels'),
+	Panels = require('moonstone/Panels'),
 	Tooltip = require('moonstone/Tooltip'),
 	TooltipDecorator = require('moonstone/TooltipDecorator'),
 	load = require('../../../load'),

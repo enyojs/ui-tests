@@ -2,7 +2,7 @@ var
 	kind = require('enyo/kind');
 var
 	Button = require('moonstone/Button'),
-	ChannelInfo = require('moonstone-extra/ChannelInfo'),
+	ChannelInfo = require('moonstone/ChannelInfo'),
 	Clock = require('moonstone/Clock'),
 	ContextualPopup = require('moonstone/ContextualPopup'),
 	ContextualPopupDecorator = require('moonstone/ContextualPopupDecorator'),
@@ -12,9 +12,9 @@ var
 	ToggleButton = require('moonstone/ToggleButton'),
 	Tooltip = require('moonstone/Tooltip'),
 	TooltipDecorator = require('moonstone/TooltipDecorator'),
-	VideoInfoBackground = require('moonstone-extra/VideoInfoBackground'),
-	VideoInfoHeader = require('moonstone-extra/VideoInfoHeader'),
-	VideoPlayer = require('moonstone-extra/VideoPlayer'),
+	VideoInfoBackground = require('moonstone/VideoInfoBackground'),
+	VideoInfoHeader = require('moonstone/VideoInfoHeader'),
+	VideoPlayer = require('moonstone/VideoPlayer'),
 	load = require('../../../load'),
 	Test = kind({
 		name: 'test.GT-14298-BackKeyDismissesBanners',

@@ -24,6 +24,9 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
+			.waitForElementById(app.appId)
+			.moveTo(0,0)
+			.moveTo()
 			.waitForElementById(app.datePicker)
 			.click()
 			.delay(1000)
