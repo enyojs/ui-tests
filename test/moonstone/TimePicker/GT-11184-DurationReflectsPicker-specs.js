@@ -29,7 +29,7 @@ describe(title, function() {
 			.delay(500)
 			//check default time
 			.elementById(app.currentTime)
-			.text().should.eventually.equal('1:50pm')
+			.text().should.eventually.contain('1:50pm')
 			.elementById(app.hourUpArrowID)
 			.click()
 			.click()
@@ -42,7 +42,7 @@ describe(title, function() {
 			.elementById(app.meridiemText)
 			.enyoGetVisibleScrollerText().should.eventually.equal('pm')
 			.elementById(app.currentTime)
-			.text().should.eventually.equal('3:50pm')
+			.text().should.eventually.contain('3:50pm')
 			.elementById(app.minuteUpArrowID)
 			.click()
 			.click()
@@ -54,7 +54,7 @@ describe(title, function() {
 			.elementById(app.meridiemText)
 			.enyoGetVisibleScrollerText().should.eventually.equal('pm')
 			.elementById(app.currentTime)
-			.text().should.eventually.equal('3:52pm')
+			.text().should.eventually.contain('3:52pm')
 			.elementById(app.meridiemUpArrowID)
 			.click()
 			.delay(1000)
@@ -65,7 +65,7 @@ describe(title, function() {
 			.elementById(app.meridiemText)
 			.enyoGetVisibleScrollerText().should.eventually.equal('am')
 			.elementById(app.currentTime)
-			.text().should.eventually.equal('3:52am')
+			.text().should.eventually.contain('3:52am')
 			.nodeify(done);
 	});
 
