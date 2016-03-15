@@ -36,11 +36,11 @@ describe(title, function() {
 			.enyoGetVisibleScrollerText().should.eventually.equal('2015')
 			.elementById(app.headerText)
 			.click()
-			.text().should.eventually.equal('Thursday, October 1, 2015')
+			.text().should.eventually.contain('Thursday, October 1, 2015')
 			.elementById(app.resetButton)
 			.click()
 			.elementById(app.headerText)
-			.text().should.eventually.equal('Pick a Date')
+			.text().should.eventually.contain('Pick a Date')
 			.nodeify(done);
 	});
 

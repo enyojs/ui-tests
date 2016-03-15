@@ -28,7 +28,7 @@ describe(title, function() {
 			.click()
 			.delay(1000)
 			.elementById(app.headerText)
-			.text().should.eventually.equal('Thursday, October 1, 2015')
+			.text().should.eventually.contain('Thursday, October 1, 2015')
 			.elementById(app.monthClient)
 			.enyoGetVisibleScrollerText().should.eventually.equal('10')
 			.elementById(app.monthUp)
