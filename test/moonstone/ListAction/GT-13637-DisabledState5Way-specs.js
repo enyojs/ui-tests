@@ -38,14 +38,14 @@ describe(title, function() {
 			.keys(helpers.keys.SpotlightSelect)
 			.delay(500)
 			//make sure menu opens
-			.elementById(app.drawerClient)
-			.getClasses().should.eventually.contain('open')
+			.elementById(app.contextualPopupActivator)
+			.getClasses().should.eventually.contain('active')
 			.keys([helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown, helpers.keys.SpotlightDown])
 			.delay(500)
 			//check for disabled arrow
 			.elementById(app.pageDownControl)
 			.getClasses().should.eventually.contain('disabled')
-			.keys([helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp,helpers.keys.SpotlightUp])
+			.keys([helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp, helpers.keys.SpotlightUp,helpers.keys.SpotlightUp, helpers.keys.SpotlightUp])
 			.delay(1000)
 			.elementById(app.pageUpControl)
 			.getClasses().should.eventually.contain('disabled')
@@ -56,7 +56,7 @@ describe(title, function() {
 
 app = {
 	appID: 'gT-13637-DisabledState5Way',
-	drawerClient: 'gT-13637-DisabledState5Way_listActions3_drawer_client',
+	contextualPopupActivator: 'gT-13637-DisabledState5Way_contextualPopupDecorator2_activator',
 	pageDownControl: 'gT-13637-DisabledState5Way_scroller4_strategy_pageDownControl',
 	pageUpControl: 'gT-13637-DisabledState5Way_scroller4_strategy_pageUpControl'
 };
