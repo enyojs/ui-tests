@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -26,7 +28,7 @@ describe(title, function() {
 			.get(directory + '/#ur-PK')
 			.waitForElementById(app.expandableHeader)
 			.click()
-			.execute('ilib = require("enyo-ilib"); return ilib.getLocale()').should.eventually.equal('ur-PK')
+			.execute('ilib = enyo.require("enyo-ilib"); return ilib.getLocale()').should.eventually.equal('ur-PK')
 			.enyoPropertySet(app.input, 'value', app.textToInput)
 			.elementById(app.expandableHeader)
 			.click()

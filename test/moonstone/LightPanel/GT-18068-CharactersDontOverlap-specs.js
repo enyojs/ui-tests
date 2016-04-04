@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -19,6 +21,35 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	//check that the item showing has visible and all other items are hidden
+	function checkShowingItem(showingNum) {
+		var showingArray = ['hidden', 'hidden', 'hidden', 'hidden', 'hidden', 'hidden','hidden','hidden','hidden'];
+		var showingIndex = showingNum - 1;
+		showingArray[showingIndex] = 'visible';
+
+	  	return function() {
+	    	return browser
+				.elementById(app.controlItem1)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[0])
+				.elementById(app.controlItem2)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[1])
+				.elementById(app.controlItem3)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[2])
+				.elementById(app.controlItem4)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[3])
+				.elementById(app.controlItem5)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[4])
+				.elementById(app.controlItem6)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[5])
+				.elementById(app.controlItem7)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[6])
+				.elementById(app.controlItem8)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[7])
+				.elementById(app.controlItem9)
+				.getComputedCss('visibility').should.eventually.equal(showingArray[8]);
+	  	};
+	}
 
 	it('should not have overlapping characters' , function (done) {
 		browser
@@ -96,35 +127,6 @@ describe(title, function() {
 			.then(checkShowingItem(5))
 			.nodeify(done);
 	});
-
-	//check that the item showing has visible and all other items are hidden
-	function checkShowingItem(showingNum) {
-		var showingArray = ['hidden', 'hidden', 'hidden', 'hidden', 'hidden', 'hidden','hidden','hidden','hidden'];
-		var showingIndex = showingNum - 1;
-		showingArray[showingIndex] = 'visible';
-
-	  	return function() {
-	    	return browser
-				.elementById(app.controlItem1)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[0])
-				.elementById(app.controlItem2)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[1])
-				.elementById(app.controlItem3)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[2])
-				.elementById(app.controlItem4)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[3])
-				.elementById(app.controlItem5)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[4])
-				.elementById(app.controlItem6)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[5])
-				.elementById(app.controlItem7)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[6])
-				.elementById(app.controlItem8)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[7])
-				.elementById(app.controlItem9)
-				.getComputedCss('visibility').should.eventually.equal(showingArray[8]);
-	  	};
-	}
 
 });
 

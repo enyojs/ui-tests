@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -29,12 +31,12 @@ describe(title, function() {
 			.click()
 			.waitForElementById(app.hourUpArrowID, helpers.wd.asserters.isDisplayed, 1000)
 			.click()
-			.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+app.appId+'"].get("value").getHours()').should.eventually.equal(3)
+			.execute('dispatcher = enyo.require("enyo/dispatcher"); return dispatcher.$["'+app.appId+'"].get("value").getHours()').should.eventually.equal(3)
 			.elementById(app.minuteUpArrowID)
 			.click()
 			.click()
 			.click()
-			.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+app.appId+'"].get("value").getHours()').should.eventually.equal(3)
+			.execute('dispatcher = enyo.require("enyo/dispatcher"); return dispatcher.$["'+app.appId+'"].get("value").getHours()').should.eventually.equal(3)
 			.nodeify(done);
 	});
 

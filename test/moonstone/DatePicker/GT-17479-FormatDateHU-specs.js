@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -25,7 +27,7 @@ describe(title, function() {
 			.setWindowSize(1920,1280)
 			.get(directory + '/#hu-HU')
 			.waitForElementById(app.appId)
-			.execute('ilib = require("enyo-ilib"); return ilib.getLocale()').should.eventually.equal('hu-HU')
+			.execute('ilib = enyo.require("enyo-ilib"); return ilib.getLocale()').should.eventually.equal('hu-HU')
 			.elementById(app.datePickerId)
 			.click()
 			//Year First

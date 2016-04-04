@@ -12,7 +12,9 @@ describe(title, function() {
 	var scrollWidth = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,15 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var setScrollWidth = function(response){
+		scrollWidth = response;
+	};
+
+	var checkForTextOverflow = function(response){
+		var width = parseInt(response);
+		width.should.be.below(scrollWidth);
+	};
 
 	it('should display ellipsis with overflowing text' , function (done) {
 		browser
@@ -40,15 +51,6 @@ describe(title, function() {
 			.getComputedCss('textOverflow').should.eventually.equal('ellipsis')
 			.nodeify(done);
 	});
-
-	var setScrollWidth = function(response){
-		scrollWidth = response;
-	};
-
-	var checkForTextOverflow = function(response){
-		var width = parseInt(response);
-		width.should.be.below(scrollWidth);
-	};
 });
 
 app = {

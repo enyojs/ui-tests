@@ -13,7 +13,9 @@ describe(title, function() {
 	var startingLocation = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -21,6 +23,21 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var checkThumbPosition = function(){
+			return Q.fcall(function(){
+				return browser
+							.elementById(app.vthumb)
+							.getLocationInView()
+							.should.eventually.have.property('y')
+							.should.be.eventually.above(startingLocation);
+			}
+		);
+	};
+
+	var setLocationHeight = function(location){
+		startingLocation = location.y;
+	};
 
 	it('should scroll using 5way' , function (done) {
 		browser
@@ -46,21 +63,6 @@ describe(title, function() {
 			.keys(helpers.keys.SpotlightDown).then(checkThumbPosition)
 			.nodeify(done);
 	});
-
-	var checkThumbPosition = function(){
-			return Q.fcall(function(){
-				return browser
-							.elementById(app.vthumb)
-							.getLocationInView()
-							.should.eventually.have.property('y')
-							.should.be.eventually.above(startingLocation);
-			}
-		);
-	};
-
-	var setLocationHeight = function(location){
-		startingLocation = location.y;
-	};
 
 });
 

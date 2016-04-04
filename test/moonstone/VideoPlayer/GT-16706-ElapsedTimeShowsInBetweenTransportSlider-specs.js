@@ -12,7 +12,9 @@ describe(title, function() {
 	var knobPosition = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,20 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var setPosition = function(response){
+		knobPosition = parseInt(response);
+	};
+
+	/*
+	Check that pixels width of slider bar is within the width of the knob
+	knob's width is 96px and scaled 0.5 so width is 48px.
+	For progress bar to be within then the knob and the progress bar width needs to be within 24px of each side
+	*/
+	var checkPosition = function(response){
+		var widthPosition = parseInt(response);
+		widthPosition.should.be.closeTo(knobPosition, 24);
+	};
 
 	it('should have elapsed time indicator shows partially behind Video Transport Slider' , function (done) {
 		browser
@@ -44,21 +60,6 @@ describe(title, function() {
 			.getComputedCss('width').then(checkPosition)
 			.nodeify(done);
 	});
-
-	var setPosition = function(response){
-		knobPosition = parseInt(response);
-	};
-
-	/*
-	Check that pixels width of slider bar is within the width of the knob
-	knob's width is 96px and scaled 0.5 so width is 48px.
-	For progress bar to be within then the knob and the progress bar width needs to be within 24px of each side
-	*/
-	var checkPosition = function(response){
-		var widthPosition = parseInt(response);
-		widthPosition.should.be.closeTo(knobPosition, 24);
-	};
-
 });
 
 app = {

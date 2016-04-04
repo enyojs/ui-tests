@@ -12,7 +12,9 @@ describe(title, function() {
 	var currentVThumbPosition = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,15 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var setCurrentScrollPosition = function(location){
+		currentVThumbPosition = location.y;
+	};
+
+	//regular scroll moves about 25 px so we need to make sure the the difference is less than that
+	var checkCurrentScrollPosition = function(location){
+		currentVThumbPosition.should.be.closeTo(location.y, 24);
+	};
 
 	it('should stop scrolling when focus is off scroll controls' , function (done) {
 		browser
@@ -51,15 +62,6 @@ describe(title, function() {
 			.elementByCss('.spotlight').getClasses().should.eventually.contain('moon-gridlist-imageitem')
 			.nodeify(done);
 	});
-
-	var setCurrentScrollPosition = function(location){
-		currentVThumbPosition = location.y;
-	};
-
-	//regular scroll moves about 25 px so we need to make sure the the difference is less than that
-	var checkCurrentScrollPosition = function(location){
-		currentVThumbPosition.should.be.closeTo(location.y, 24);
-	};
 
 });
 

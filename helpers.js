@@ -14,9 +14,9 @@ try {
 	wd = require('wd');
 }
 
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
-var shelljs = require('shelljs');
+var chai = require("chai"),
+	chaiAsPromised = require("chai-as-promised"),
+	enyoDev = require('enyo-dev');
 
 var fakeBrowser = {
 	quit: function() {
@@ -37,11 +37,6 @@ var helpers = module.exports = {
 	initBrowser: function (title, tags, baseUrl, path, done) {
 		var browser, desired;
 
-		if(!this.epack(path)) {
-			done(new Error('enyo pack error'));
-			return fakeBrowser;
-		}
-
 		chai.use(chaiAsPromised);
 		chai.should();
 		chaiAsPromised.transferPromiseness = wd.transferPromiseness;
@@ -61,6 +56,7 @@ var helpers = module.exports = {
 		}
 		browser.init(desired).nodeify(done);
 		return browser;
+
 	},
 	// An internal method used by initBrowser but left in place in case it is needed separately.
 	// Initializes the requested environment
@@ -157,48 +153,42 @@ var helpers = module.exports = {
 		wd.addElementPromiseChainMethod('enyoGetVisibleScrollerText', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('dispatcher = require("enyo/dispatcher");return (function(pickerId) { var c = dispatcher.$[pickerId], scroller = c.$.scroller, scrollTop = scroller.scrollTop; var visible = Array.prototype.filter.call(scroller.node.querySelectorAll(".moon-scroll-picker-item"), function(node) { return node.offsetTop === scrollTop; })[0]; return visible && visible.textContent; })("'+id+'");');
+				return _this.browser.execute('dispatcher = enyo.require("enyo/dispatcher");return (function(pickerId) { var c = dispatcher.$[pickerId], scroller = c.$.scroller, scrollTop = scroller.scrollTop; var visible = Array.prototype.filter.call(scroller.node.querySelectorAll(".moon-scroll-picker-item"), function(node) { return node.offsetTop === scrollTop; })[0]; return visible && visible.textContent; })("'+id+'");');
 			});
 		});
 
 		wd.addElementPromiseChainMethod('enyoGetParentElementId', function() {
 			var _this = this;
 			return this.getAttribute('id').then(function(id){
-				return _this.browser.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;');
+				return _this.browser.execute('dispatcher = enyo.require("enyo/dispatcher"); return dispatcher.$["'+id+'"].parent.id;');
 			});
 		});
 
 		// Returns the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertyGet', function(id, prop) {
-			return this.execute('dispatcher = require("enyo/dispatcher"); return dispatcher.$["' + id + '"].get("' + prop + '");');
+			return this.execute('dispatcher = enyo.require("enyo/dispatcher"); return dispatcher.$["' + id + '"].get("' + prop + '");');
 		});
 
 		// Sets the value of an enyo kind's property. The kind is referenced by its `id`.
 		// TODO: Add an element method?
 		wd.addPromiseChainMethod('enyoPropertySet', function(id, prop, value) {
-			return this.execute('dispatcher = require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
+			return this.execute('dispatcher = enyo.require("enyo/dispatcher"); dispatcher.$["' + id + '"].set("' + prop + '", ' + JSON.stringify(value) + ');');
 		});
 
 	},
 	// Runs the enyo pack command to generate output
-	epack: function(module) {
-		var libpath = 'lib',
-			command = 'enyo pack --script-safe --clean --paths=' + libpath + ' -d dist ' + module;
+	epack: function(module, cb) {
+		var opts = {
+			package: module,
+			outDir: 'dist',
+			paths: 'lib',
+			clean: true,
+			cache: false
+		};
 
-		try {
-			var result = shelljs.exec(command, {silent: true});
-			if(result.code !== 0) {
-					console.log('Error running enyo pack:');
-					console.log(result.output);
-					return false;
-			} else { console.log(result.output); }
-		} catch(err) {
-			console.log("enyo pack exec failure");
-			console.log(err);
-			return false;
-		}
-		return true;
+		var packager = enyoDev.packager(opts);
+		packager.on('end', cb);
 	},
 	// An alias for the special keys.  We add some Spotlight specific names below for clarity.
 	keys: wd.SPECIAL_KEYS

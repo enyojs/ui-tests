@@ -12,8 +12,9 @@ describe(title, function() {
 	var labelTime = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
-
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -21,6 +22,16 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var setLabelTime = function(currentLabelTime){
+		labelTime = parseInt(currentLabelTime.split(':')[1]);
+	};
+
+	//Check if times are within 2 seconds of each other
+	var checkTime = function(currentTimeText){
+		var currentTime = parseInt(currentTimeText.split(':')[1]);
+		currentTime.should.be.closeTo(labelTime, 2);
+	};
 
 	it('should seek via transportation slider via 5way' , function (done) {
 		browser
@@ -57,17 +68,6 @@ describe(title, function() {
 			.text().then(checkTime)
 			.nodeify(done);
 	});
-
-	var setLabelTime = function(currentLabelTime){
-		labelTime = parseInt(currentLabelTime.split(':')[1]);
-	};
-
-	//Check if times are within 2 seconds of each other
-	var checkTime = function(currentTimeText){
-		var currentTime = parseInt(currentTimeText.split(':')[1]);
-		currentTime.should.be.closeTo(labelTime, 2);
-	};
-
 });
 
 app = {
