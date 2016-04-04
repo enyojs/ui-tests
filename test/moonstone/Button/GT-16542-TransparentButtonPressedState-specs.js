@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -24,7 +26,7 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
-			.waitForElementById(app.transparentButton)			
+			.waitForElementById(app.transparentButton)
 			.getComputedCss('backgroundColor').should.eventually.contain(app.backgroundColor)
 			.elementById(app.transparentButton)
 			.moveTo(0,0)
@@ -38,14 +40,14 @@ describe(title, function() {
 			.getClasses().should.eventually.contain('spotlight')
 			.elementById(app.transparentButton)
 			.getComputedCss('backgroundColor').should.eventually.contain(app.spotlightColor)
-			.elementById(app.appId)			
+			.elementById(app.appId)
 			.moveTo()
 			.elementById(app.transparentButton)
 			.getClasses().should.eventually.not.contain('spotlight')
 			.elementById(app.transparentButton)
 			.getComputedCss('backgroundColor').should.eventually.contain(app.backgroundColor)
-			.buttonUp()			
-			.nodeify(done);			
+			.buttonUp()
+			.nodeify(done);
 	});
 
 });

@@ -11,7 +11,7 @@ var
 	Scroller = require('moonstone/Scroller'),
 	load = require('../../../load'),
 	Test = kind({
-		name: 'test.GT-11210-BreadcrumRetailsFalseSpotlight',
+		name: 'test.GT-11210-BreadcrumRetainsFalseSpotlight',
 		classes: 'moon enyo-unselectable enyo-fit',
 		components: [
 			{

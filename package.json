@@ -36,19 +36,21 @@
     "test": "grunt nodeunit"
   },
   "dependencies": {
-    "grunt-env": "latest",
-    "grunt-contrib-jshint": "latest",
-    "grunt-simple-mocha": "latest",
-    "grunt-concurrent": "latest",
-    "grunt-contrib-watch": "latest",
-    "wd": "latest",
+    "bluebird": "^3.3.4",
     "chai": "latest",
     "chai-as-promised": "latest",
-    "lodash": "latest",
     "colors": "latest",
+    "enyo-dev": "1.0.0",
     "grunt": "~0.4.5",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-env": "latest",
+    "grunt-simple-mocha": "latest",
+    "lodash": "latest",
     "shelljs": "latest",
-    "superagent": "latest"
+    "superagent": "latest",
+    "wd": "latest"
   },
   "optionalDependencies": {
     "webos-wdjs-adapter": "git+ssh://gpro.lgsvl.com:29418/webos-pro/webos-wdjs-adapter"

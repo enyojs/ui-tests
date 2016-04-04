@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -24,7 +26,7 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
-			.waitForElementById(app.headerText)			
+			.waitForElementById(app.headerText)
 			.elementById(app.headerText)
 			.click()
 			.delay(1000)
