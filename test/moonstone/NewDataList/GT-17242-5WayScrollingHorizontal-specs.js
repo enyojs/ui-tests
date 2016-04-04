@@ -12,7 +12,9 @@ describe(title, function() {
 	var startingLocation = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,14 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var checkLocationThumb = function(location){
+		location.x.should.be.above(startingLocation);
+	};
+
+	var setLocationThumb = function(location){
+		startingLocation = location.x;
+	};
 
 	it('should scroll while using 5 way while in horizontal state' , function (done) {
 		browser
@@ -40,14 +50,6 @@ describe(title, function() {
 			.getLocationInView().then(checkLocationThumb)
 			.nodeify(done);
 	});
-
-	var checkLocationThumb = function(location){
-		location.x.should.be.above(startingLocation);
-	};
-
-	var setLocationThumb = function(location){
-		startingLocation = location.x;
-	};
 });
 
 app = {

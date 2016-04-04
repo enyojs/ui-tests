@@ -10,8 +10,10 @@ var base = 'http://localhost:3000/',
 describe(title, function() {
 	var browser;
 
-	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+	before(function(done) {		
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {

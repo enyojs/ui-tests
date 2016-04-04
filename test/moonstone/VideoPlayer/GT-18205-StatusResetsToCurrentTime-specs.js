@@ -12,7 +12,9 @@ describe(title, function() {
 	var pausedTime = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,15 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var setTime = function(videoTime){
+		pausedTime = videoTime;	
+	};
+
+	var checkTime = function(timeText){
+		var labelTime = parseInt(timeText.split(':')[1]);
+		labelTime.should.be.closeTo(pausedTime, 1);
+	};
 
 	it('should have popup reset to paused time when mouse leaves progress area' , function (done) {
 		browser
@@ -54,15 +65,6 @@ describe(title, function() {
 			.text().then(checkTime)			
 			.nodeify(done);
 	});
-
-	var setTime = function(videoTime){
-		pausedTime = videoTime;	
-	};
-
-	var checkTime = function(timeText){
-		var labelTime = parseInt(timeText.split(':')[1]);
-		labelTime.should.be.closeTo(pausedTime, 1);
-	};
 });
 
 app = {

@@ -1,4 +1,4 @@
-var helpers = rootRequire('./helpers'),
+  var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -41,6 +43,7 @@ describe(title, function() {
 			.moveTo(0,0)
 			.moveTo(10,10)
 			.moveTo()
+			.delay(1000)
 			.buttonDown()
 			.delay(1000)
 			.elementById(app.progressBar)

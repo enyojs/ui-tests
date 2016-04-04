@@ -3,3 +3,4 @@ lib
 dist
 .enyocache
 tas_list.json
+npm-debug.log

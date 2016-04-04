@@ -12,7 +12,9 @@ describe(title, function() {
 	var lastPoint = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,16 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	//set point after scroll down. HOW TO USE: set second to last scroll up/down. and check after last scroll.
+	var setPoint = function(res){
+		lastPoint = res.y;
+	};
+
+	//Check if last point lowest point is equal to current point. Will determine if we're at the top or bottom.
+	var checkPoint = function(res){
+		res.y.should.equal(lastPoint);
+	};
 
 	it('should display scroll thumb when scrolling is at top or bottom' , function (done) {
 		browser
@@ -69,16 +81,6 @@ describe(title, function() {
 			.getLocation().then(checkPoint)
 			.nodeify(done);
 	});
-
-	//set point after scroll down. HOW TO USE: set second to last scroll up/down. and check after last scroll.
-	var setPoint = function(res){
-		lastPoint = res.y;
-	};
-
-	//Check if last point lowest point is equal to current point. Will determine if we're at the top or bottom.
-	var checkPoint = function(res){
-		res.y.should.equal(lastPoint);
-	};
 });
 
 app = {
