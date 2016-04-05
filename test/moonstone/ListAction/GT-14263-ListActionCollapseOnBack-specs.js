@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -35,14 +37,14 @@ describe(title, function() {
 			.getClasses().should.eventually.contain('spotlight')
 			.keys(helpers.keys.SpotlightSelect)
 			.delay(500)
-			.elementById(app.drawerClient)
-			.getClasses().should.eventually.contain('open')
+			.elementById(app.dummyIcon)
+			.getClasses().should.eventually.contain('active')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
 			.keys(helpers.keys.Back)
 			.delay(500)
-			.elementById(app.drawerClient)
-			.getClasses().should.eventually.not.contain('open')
+			.elementById(app.dummyIcon)
+			.getClasses().should.eventually.not.contain('active')
 			.elementById(app.dummyIcon)
 			.getClasses().should.eventually.contain('spotlight')
 			.nodeify(done);
@@ -52,6 +54,5 @@ describe(title, function() {
 
 app = {
 	appId: 'gT-14263-ListActionCollapseOnBack',
-	dummyIcon: 'gT-14263-ListActionCollapseOnBack_listActions2_activator',
-	drawerClient: 'gT-14263-ListActionCollapseOnBack_listActions2_drawer_client'
+	dummyIcon: 'gT-14263-ListActionCollapseOnBack_contextualPopupDecorator_activator'
 };

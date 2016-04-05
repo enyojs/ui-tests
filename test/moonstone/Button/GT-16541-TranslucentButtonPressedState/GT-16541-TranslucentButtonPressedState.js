@@ -10,15 +10,15 @@ var
 	Button = require('moonstone/Button'),
 	BodyText = require('moonstone/BodyText'),
 	load = require('../../../load'),
-	Test = kind({	
+	Test = kind({
 		name: 'moon.GT-16541-TranslucentButtonPressedState',
 		kind: FittableRows,
 		classes: 'moon enyo-unselectable enyo-fit moon-button-sample',
 		components: [
 			{kind: Scroller, fit: true, components: [
-				{classes: 'moon-button-sample-wrapper', components: [					
-					{classes: 'image-background', components: [					
-						{name: 'translucentButton', kind: Button, minWidth: false, backgroundOpacity: 'translucent', content: 'Translucent', ontap: 'buttonTapped'}					
+				{classes: 'moon-button-sample-wrapper', components: [
+					{classes: 'image-background', components: [
+						{name: 'translucentButton', kind: Button, minWidth: false, backgroundOpacity: 'translucent', content: 'Translucent', ontap: 'buttonTapped'}
 					]}
 				]}
 			]},

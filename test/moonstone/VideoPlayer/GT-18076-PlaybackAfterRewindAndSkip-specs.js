@@ -12,7 +12,9 @@ describe(title, function() {
 	var previousTime = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -20,6 +22,14 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+
+	var setPreviousTime = function(currentTime){
+		previousTime = currentTime;
+	};
+
+	var checkTime = function(currentTime){
+		previousTime.should.be.above(currentTime);
+	};
 
 	it('should resume playback after rewind and skip' , function (done) {
 		browser
@@ -53,14 +63,6 @@ describe(title, function() {
 			.getProperty('playbackRate').should.eventually.equal(1)
 			.nodeify(done);
 	});
-
-	var setPreviousTime = function(currentTime){
-		previousTime = currentTime;
-	};
-
-	var checkTime = function(currentTime){
-		previousTime.should.be.above(currentTime);
-	};
 });
 
 app = {

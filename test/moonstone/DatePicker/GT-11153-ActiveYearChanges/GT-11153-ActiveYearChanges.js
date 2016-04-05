@@ -13,9 +13,7 @@ var
 	DatePicker = require('moonstone/DatePicker'),
 	Button = require('moonstone/Button'),
 	Divider = require('moonstone/Divider'),
-	BodyText = require('moonstone/BodyText');
-
-var
+	BodyText = require('moonstone/BodyText'),
 	load = require('../../../load'),
 	Test = kind({
 		name: 'test.GT-11153-ActiveYearChanges',
@@ -25,13 +23,13 @@ var
 			{kind: Scroller, fit: true, components: [
 				{classes: 'moon-7h moon-vspacing-s', components: [
 					{kind: DatePicker, name: 'picker', noneText: 'Pick a Date', content: 'Date', onChange: 'changed'},
-					{kind: Button, name: 'buttonReset', content: 'Reset Date', small: true, ontap: 'resetTapped'},
+					{kind: Button, name: 'buttonReset', content: 'Reset Date', small: true, ontap: 'resetTapped'}
 				]}
 			]},
 			{kind: Divider, content: 'Result'},
 			{kind: BodyText, name: 'result', content: 'No change yet'}
 		],
-		create: function(){
+		create: function () {
 			this.inherited(arguments);
 			if (!ilib) {
 				this.$.localePicker.hide();
@@ -39,28 +37,27 @@ var
 			}
 			this.$.picker.set('value', new Date('Oct 01 2015'));
 		},
-		setLocale: function(sender, event){
-			var locale = event.selected.content;
+		setLocale: function (sender, ev){
+			var locale = ev.selected.content;
 			locale = locale == 'Use Default Locale' ? null : locale;
 			i18n.updateLocale(locale);
-			this.$.result.setContent(event.originator.name + ' changed to ' + ilib.getLocale());
+			this.$.result.setContent(ev.originator.name + ' changed to ' + ilib.getLocale());
 			return true;
 		},
-		setDate: function() {
+		setDate: function () {
 			this.$.picker.set('value', new Date('Oct 01 2015'));
 		},
-		resetDate: function() {
+		resetDate: function () {
 			this.$.picker.set('value', new Date('Oct 01 2015'));
 		},
-		changed: function(sender, event) {
-			if (this.$.result && event.value){
-				this.$.result.setContent(event.name + ' changed to ' + event.value.toDateString());
-			}
+		changed: function (sender, ev) {
+			this.$.result.setContent(ev.name + ' changed to ' + (ev.value && ev.value.toDateString()));
 		},
-		resetTapped: function() {
+		resetTapped: function () {
 			this.$.picker.set('value', null);
 			this.$.picker.set('open', false);
 			return true;
 		}
 	});
+
 load(Test);

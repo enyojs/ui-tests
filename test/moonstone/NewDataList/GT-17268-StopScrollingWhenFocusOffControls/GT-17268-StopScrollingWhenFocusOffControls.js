@@ -1,6 +1,8 @@
 var
-	kind = require('enyo/kind'),
-	Collection = require('enyo/Collection');
+	kind = require('enyo/kind');
+
+var
+	FittableColumns = require('layout/FittableColumns');
 
 var
 	GridListImageItem = require('moonstone/GridListImageItem'),
@@ -9,8 +11,10 @@ var
 	NewDataList = require('moonstone/NewDataList'),
 	Overlay = require('moonstone/Overlay'),
 	Panel = require('moonstone/Panel'),
-	Panels = require('moonstone/Panels'),
-	Scroller = require('moonstone/Scroller');
+	Scroller = require('moonstone/Scroller'),
+	Collection = require('enyo/Collection'),
+	Control = require('enyo/Control'),
+	Img = require('enyo/Image');
 
 var ImageItem = kind({
 	kind: GridListImageItem,
@@ -23,9 +27,50 @@ var ImageItem = kind({
 	]
 });
 
+var NoImageItem = kind({
+	kind: ImageItem,
+	bindings: [
+		{from: 'model.bgColor', to: 'bgColor'}
+	],
+	componentOverrides: {
+		image: {kind: Control, mixins: [Overlay.Support, Overlay.Selection]}
+	},
+	imageSizingChanged: function () {},
+	bgColorChanged: function () {
+		this.$.image.applyStyle('background', this.bgColor);
+	}
+});
+
 var
+	buttonComponents = [
+		{
+			kind: Control,
+			style: 'position: absolute;',
+			bindings: [
+				{from: 'model.text', to: '$.button.content'}
+			],
+			components: [
+				{
+					kind: Button,
+					name: 'button',
+					style: 'position: relative; height: 100%; width: 100%;',
+					selectedClass: 'active'
+				}
+			]
+		}
+	],
 	imageComponents = [
 		{kind: ImageItem, style: 'position: absolute;'}
+	],
+	noImageComponents = [
+		{kind: NoImageItem, style: 'position: absolute;'}
+	],
+	plainImageComponents = [
+		{kind: Control, mixins: [Overlay.Support, Overlay.Selection], components: [
+			{name: 'img', kind: Img, style: 'height: 100%; width: 100%;'}
+		],bindings: [
+			{from: 'model.url', to: '$.img.src'}
+		]}
 	];
 
 function selectedValue (selected) {
@@ -35,10 +80,10 @@ function selectedValue (selected) {
 var
 	load = require('../../../load'),
 	Test = kind({
-			name: 'test.GT-17268-StopScrollingWhenFocusOffControls',
-		kind: Panels,
-		pattern: 'activity',
+		name: 'test.GT-17268-StopScrollingWhenFocusOffControls',
+		kind: FittableColumns,
 		classes: 'moon enyo-fit enyo-unselectable',
+		style: 'padding: 0', // offsetting margin added by .moon
 		components: [
 			{
 				kind: Panel,
@@ -49,6 +94,17 @@ var
 						kind: Scroller,
 						components: [
 							{
+								name: 'itemPicker',
+								kind: ExpandablePicker,
+								content: 'Items',
+								components: [
+									{content: 'Image Items', value: imageComponents, active: true},
+									{content: 'No-Image Items', value: noImageComponents},
+									{content: 'Plain Images', value: plainImageComponents},
+									{content: 'Buttons', value: buttonComponents}
+								]
+							},
+							{
 								name: 'directionPicker',
 								kind: ExpandablePicker,
 								content: 'Direction',
@@ -57,13 +113,41 @@ var
 									{content: 'Horizontal', value: 'horizontal'}
 								]
 							},
+							{
+								name: 'dataTypePicker',
+								kind: ExpandablePicker,
+								content: 'Data',
+								components: [
+									{content: 'Collections/Models', value: 'EnyoData', active: true},
+									{content: 'JS Arrays/Objects', value: 'JS'}
+								]
+							},
+							{
+								name: 'selectionPicker',
+								kind: ExpandablePicker,
+								content: 'Selection',
+								components: [
+									{content: 'On', value: true},
+									{content: 'Off', value: false, active: true}
+								]
+							},
+							{
+								name: 'selectionTypePicker',
+								kind: ExpandablePicker,
+								content: 'Selection Type',
+								components: [
+									{content: 'Single', value: 'single', active: true},
+									{content: 'Multiple', value: 'multi'},
+									{content: 'Group', value: 'group'}
+								]
+							}
 						]
 					}
 				]
 			},
 			{
 				kind: Panel,
-				joinToPrev: true,
+				fit: true,
 				title:'New Data List',
 				headerComponents: [
 					{kind: Button, content:'Refresh', ontap:'refreshItems'}
@@ -92,7 +176,7 @@ var
 			{from: '$.selectionTypePicker.selected', to: '$.list.selectionType', transform: selectedValue}
 		],
 		create: function () {
-			Panels.prototype.create.apply(this, arguments);
+			FittableColumns.prototype.create.apply(this, arguments);
 			this.refreshItems(500);
 		},
 		generateRecords: function () {

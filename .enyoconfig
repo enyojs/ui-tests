@@ -55,7 +55,7 @@
   "skip": [],
   "library": false,
   "wip": false,
-  "outdir": "dist",
+  "outDir": "dist",
   "outfile": "index.html",
   "lessPlugins": [],
   "assetRoots": [],

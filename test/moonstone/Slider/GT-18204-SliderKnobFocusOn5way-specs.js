@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -26,21 +28,29 @@ describe(title, function() {
 			.get(directory)
 			.waitForElementById(app.appId)
 			.keys(helpers.keys.SpotlightDown)
-			.delay(500)
 			.elementById(app.slider1)
 			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.slider1Popup)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
-			.elementById(app.slider3)
+			.elementById(app.slider3ButtonLeft)
 			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.slider3Popup)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
 			.elementById(app.slider4)
 			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.slider4Popup)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.keys(helpers.keys.SpotlightDown)
 			.delay(500)
-			.elementById(app.slider5)
+			.elementById(app.slider5ButtonLeft)
+			.delay(500)
 			.getClasses().should.eventually.contain('spotlight')
+			.elementById(app.slider5Popup)
+			.getComputedCss('display').should.eventually.not.equal('none')
 			.nodeify(done);
 	});
 
@@ -49,7 +59,11 @@ describe(title, function() {
 app = {
 	appId: 'gT-18204-SliderKnobFocusOn5way',
 	slider1: 'gT-18204-SliderKnobFocusOn5way_slider1',
-	slider3: 'gT-18204-SliderKnobFocusOn5way_slider3_slider',
+	slider1Popup: 'gT-18204-SliderKnobFocusOn5way_slider1_popup',
+	slider3ButtonLeft:'gT-18204-SliderKnobFocusOn5way_slider3_buttonLeft',
+	slider3Popup: 'gT-18204-SliderKnobFocusOn5way_slider3_popup',
 	slider4: 'gT-18204-SliderKnobFocusOn5way_slider4',
-	slider5: 'gT-18204-SliderKnobFocusOn5way_slider5_slider'
+	slider4Popup: 'gT-18204-SliderKnobFocusOn5way_slider4_popup',
+	slider5ButtonLeft: 'gT-18204-SliderKnobFocusOn5way_slider5_buttonLeft',
+	slider5Popup: 'gT-18204-SliderKnobFocusOn5way_slider5_popup',
 };

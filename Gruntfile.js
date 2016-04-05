@@ -45,7 +45,7 @@ var gruntConfig = {
 				options: {
 					jshintrc: 'test/.jshintrc'
 				},
-				src: ['test/**/*.js']
+				src: ['./test/**/*.js']
 			}
 		},
 		concurrent: {
@@ -109,13 +109,13 @@ module.exports = function(grunt) {
 		grunt.registerTask('spec:local:' + key, function(filename) {
 			grunt.task.run('env:local_' + key);
 
+
 			//Needed for when we want enyo libraries to match the versions on the BUILD_NUMBER
 			if(process.env.BUILD_NUMBER && process.env.BOARD_NUMBER && process.env.NAME && process.env.PASSWORD){
 				//forces grunt to wait for enyo versions to checkout
 				var done = this.async();
 				enyoBuild.changeEnyoVersions(process.env.BUILD_NUMBER, process.env.BOARD_NUMBER, process.env.NAME, process.env.PASSWORD, done);
 			}
-
 			//Needed for TAS to work properly with MOONSTONE_EXTRA flag
 			//Currently does not work with * (e.g. GT-12345*), but TAS uses full file names so it is currently a non-issue
 			if(process.env.MOONSTONE_EXTRA === 'false'){
@@ -126,7 +126,7 @@ module.exports = function(grunt) {
 				}
 				//if test is not a moonstone test do nothing and test will not run.
 			} else {
-				globalConfig.file = filename;
+				globalConfig.file = filename;				
 			}
 
 			grunt.task.run('simplemocha:spec');

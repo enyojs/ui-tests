@@ -2,7 +2,7 @@ var helpers = rootRequire('./helpers'),
 	app = {};	// Test-specific settings at bottom of the file
 
 var base = 'http://localhost:3000/',
-	path = 'test/moonstone/Drawer/GT-11210-BreadcrumRetailsFalseSpotlight',
+	path = 'test/moonstone/Drawer/GT-11210-BreadcrumRetainsFalseSpotlight',
 	title = 'GT-11210 - Drawer: Breadcrumbs and off-Screen Panels retains False "Spotlight" Value',
 	directory = 'ui-tests/dist',
 	tags = ['moonstone','qa','Drawer'];	// Tags show up in SauceLabs test output
@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -40,7 +42,7 @@ describe(title, function() {
 			.delay(1000)
 			//check panel text
 			.elementById(app.thirdPanel)
-			.getAttribute('style').should.eventually.equal('transform: translateZ(0px);')			
+			.getAttribute('style').should.eventually.equal('transform: translateZ(0px);')
 			.keys(helpers.keys.SpotlightUp)
 			.delay(500)
 			.keys(helpers.keys.SpotlightUp)

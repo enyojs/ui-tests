@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -49,5 +51,5 @@ app = {
 	groupOption1icon: 'gT-14672-KnobColorRemainsOnHover_toggleItem7_input_checkboxIcon',
 	disabledOption: 'gT-14672-KnobColorRemainsOnHover_toggleItem9',
 	//chrome and webOS represent colors differently. instead just check for the rgb numbers
-	untoggledColor: '190, 190, 190'
+	untoggledColor: '166, 166, 166'
 };

@@ -7,7 +7,7 @@ var
 	Group = require('enyo/Group'),
 	load = require('../../../load'),
 	Test = kind({
-		name: 'test.GT-11181-ButtonFocusState',		
+		name: 'test.GT-11181-ButtonFocusState',
 		classes: 'moon enyo-unselectable enyo-fit moon-button-sample',
 		components: [
 			{kind: Scroller, fit: true, components: [

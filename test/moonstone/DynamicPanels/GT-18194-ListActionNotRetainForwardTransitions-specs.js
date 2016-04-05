@@ -11,7 +11,9 @@ describe(title, function() {
 	var browser;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -27,18 +29,18 @@ describe(title, function() {
 			.waitForElementById(app.panel0Item)
 			.click()
 			.delay(3000)
-			.elementById(app.listActionActivator)
+			.elementById(app.contextualPopupActivator)
 			.click()
 			.delay(1000)
-			.elementById(app.drawerClient)
-			.getClasses().should.eventually.contain('open')
-			.elementById(app.breadcrumb)
-			.click()
+			.elementById(app.contextualPopupActivator)
+			.getClasses().should.eventually.contain('active')
+			.elementById(app.floatingLayer)
+			.moveTo(10,10)
+			.buttonDown()
+			.buttonUp()
 			.delay(3000)
-			.elementById(app.panel0Item)
-			.click()
-			.delay(3000)
-			.elementsByClassName('open').should.eventually.have.length(0)
+			.elementById(app.contextualPopupActivator)
+			.getClasses().should.eventually.not.contain('active')					
 			.nodeify(done);
 	});
 
@@ -46,8 +48,7 @@ describe(title, function() {
 
 app = {
 	panel0Item: 'gT-18194-ListActionNotRetainForwardTransitions_repeater_control_item',
-	listActionActivator: 'gT-18194-ListActionNotRetainForwardTransitions_listActions2_activator',
-	panel1Item: 'gT-18194-ListActionNotRetainForwardTransitions_repeater2_control_item',
-	drawerClient: 'gT-18194-ListActionNotRetainForwardTransitions_listActions2_drawer_client',
+	contextualPopupActivator: 'gT-18194-ListActionNotRetainForwardTransitions_contextualPopupDecorator2_activator',	
+	floatingLayer: 'floatingLayer',
 	breadcrumb: 'gT-18194-ListActionNotRetainForwardTransitions_panels_breadcrumb'
 };

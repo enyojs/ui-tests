@@ -14,7 +14,9 @@ describe(title, function() {
 		fullscreeWidth = 0;
 
 	before(function(done) {
-		browser = helpers.initBrowser(title, tags, base, path, done);
+		helpers.epack(path, function(){
+			browser = helpers.initBrowser(title, tags, base, path, done);
+		});
 	});
 
 	after(function(done) {
@@ -22,6 +24,28 @@ describe(title, function() {
 			.quit()
 			.nodeify(done);
 	});
+	
+	//set width when paused
+	var setWidth = function(res){
+		var percentStr = res.substring(res.indexOf(':')+1, res.indexOf('%')).trim();
+		inlineWidth = parseFloat(percentStr);
+	};
+
+	//check if the fullscreen width is equal to inline width
+	var checkWidth = function(res){
+		var percentStr = res.substring(res.indexOf(':')+1, res.indexOf('%')).trim();
+		fullscreeWidth = parseFloat(percentStr);
+		fullscreeWidth.should.be.closeTo(inlineWidth, 0.5);
+		fullscreeWidth.should.be.above(pausedWidth);
+		pausedWidth = fullscreeWidth;
+	};
+
+	//check if time percentage is around the same as fullscreen width
+	var checkTime = function(res){
+		var percentageDuration = res/60 * 100;
+		//to account for video loading delay we have a 2 percent margin of error
+		percentageDuration.should.be.closeTo(fullscreeWidth, 2);
+	};
 
 	it('Should update slider when video is playing', function (done) {
 		browser
@@ -72,29 +96,6 @@ describe(title, function() {
 			.getProperty('currentTime').then(checkTime)
 			.nodeify(done);
 	});
-
-	//set width when paused
-	var setWidth = function(res){
-		var percentStr = res.substring(res.indexOf(':')+1, res.indexOf('%')).trim();
-		inlineWidth = parseFloat(percentStr);
-	};
-
-	//check if the fullscreen width is equal to inline width
-	var checkWidth = function(res){
-		var percentStr = res.substring(res.indexOf(':')+1, res.indexOf('%')).trim();
-		fullscreeWidth = parseFloat(percentStr);
-		fullscreeWidth.should.be.closeTo(inlineWidth, 0.5);
-		fullscreeWidth.should.be.above(pausedWidth);
-		pausedWidth = fullscreeWidth;
-	};
-
-	//check if time percentage is around the same as fullscreen width
-	var checkTime = function(res){
-		var percentageDuration = res/60 * 100;
-		//to account for video loading delay we have a 2 percent margin of error
-		percentageDuration.should.be.closeTo(fullscreeWidth, 2);
-	};
-
 });
 
 app = {
