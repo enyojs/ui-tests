@@ -26,7 +26,7 @@ describe(title, function() {
 		browser
 			.setWindowSize(1920,1280)
 			.get(directory)
-			.waitForElementById(app.contextualPopupActivator)
+			.waitForElementById(app.autoCollapseIcon)
 			.click()
 			.delay(2000)
 			.elementById(app.scrollPort)
@@ -41,7 +41,7 @@ describe(title, function() {
 
 app = {
 	appID: 'gT-13619-ScrollThumbOnWheel',
-	contextualPopupActivator: 'gT-13619-ScrollThumbOnWheel_contextualPopupDecorator2_activator',
-	scrollPort: 'gT-13619-ScrollThumbOnWheel_scroller4_strategy_client',
+	autoCollapseIcon: 'gT-13619-ScrollThumbOnWheel_listActions3_activator',
+	scrollPort: 'gT-13619-ScrollThumbOnWheel_scroller4_strategy_viewport',
 	scrollThumb: 'gT-13619-ScrollThumbOnWheel_scroller4_strategy_vthumb'
 };
