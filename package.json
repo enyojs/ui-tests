@@ -35,8 +35,7 @@
   "scripts": {
     "test": "grunt nodeunit"
   },
-  "dependencies": {
-    "bluebird": "^3.3.4",
+  "dependencies": {    
     "chai": "latest",
     "chai-as-promised": "latest",
     "colors": "latest",

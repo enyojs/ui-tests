@@ -102,6 +102,19 @@ module.exports = function(grunt) {
 		});
 	});
 
+	grunt.registerTask('enyo:init', function() {
+		var enyoDev = require('enyo-dev');
+		var done = this.async();
+
+		var initializer = enyoDev.initialize({
+			initLibs: true,
+			linkAllLibs: false,
+			linkAvailLibs: false
+		});
+
+		initializer.on('end', done);
+	});
+
 	grunt.registerTask('test:sauce:parallel', ['concurrent:test-sauce']);
 
 	_.each(local_desireds, function(desired, key) {
