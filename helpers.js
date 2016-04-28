@@ -184,7 +184,8 @@ var helpers = module.exports = {
 			outDir: 'dist',
 			paths: 'lib',
 			clean: true,
-			cache: false
+			cache: false,
+			user: false
 		};
 
 		var packager = enyoDev.packager(opts);
