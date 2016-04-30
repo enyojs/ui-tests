@@ -15,7 +15,7 @@ After cloning the _ui_tests_ repository to your machine, issue the following com
 ```
 npm install -g grunt-cli
 npm install
-enyo init
+grunt enyo:init
 ```
 
 Finally, the tests assume there is a web server running on port 3000 and that the root contains the *ui-tests* directory.
